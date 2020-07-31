@@ -9,6 +9,7 @@
   align-items: center;
   width: 375;
   justify-content: space-between;
+  background-color: #E8F4E1;
   // flex-wrap: wrap;
 }
 
@@ -16,6 +17,7 @@
   height: 100%;
   width: 120px;
   object-fit: cover;
+  flex-basis: auto;
 }
 
 .item-card h2 {
@@ -41,6 +43,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 243;
+  flex-basis: auto;
 }
 
 .item-cards {
