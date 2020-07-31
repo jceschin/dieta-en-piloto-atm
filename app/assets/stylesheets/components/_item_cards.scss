@@ -1,0 +1,60 @@
+// _item_cards.scss
+
+.item-card {
+  overflow: hidden;
+  height: 127px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  width: 375;
+  justify-content: space-between;
+  // flex-wrap: wrap;
+}
+
+.item-card img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.item-card h2 {
+  padding-left: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.item-card p {
+  padding-left: 16px;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.item-card .item-card-infos {
+  display: flex;
+  flex-grow: 5;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 243;
+}
+
+.item-cards {
+  background-color: white;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+
+@media(max-width: 992px) {
+  .item-cards {
+    grid-template-columns: 1fr;
+  }
+}
