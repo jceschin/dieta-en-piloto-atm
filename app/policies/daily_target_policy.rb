@@ -10,6 +10,6 @@ class DailyTargetPolicy < ApplicationPolicy
   end
 
   def update?
-    record.owner == user
+    record.user == user
   end
 end
