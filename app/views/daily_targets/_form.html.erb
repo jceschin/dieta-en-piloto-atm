@@ -1,8 +1,8 @@
 <%= simple_form_for @daily_target do |f| %>
-  <%= f.input :caloric_target, label: :Calorías %>
-  <%= f.input :protein_target, label: :Proteínas %>
-  <%= f.input :carb_target, label: :Carbohidratos %>
-  <%= f.input :fat_target, label: :Grasas %>
+  <%= f.input :caloric_target, label: :Calorías, placeholder: 'Cantida (kcal)' %>
+  <%= f.input :protein_target, label: :Proteínas, placeholder: 'Cantidad (g)' %>
+  <%= f.input :carb_target, label: :Carbohidratos, placeholder: 'Cantidad (g)' %>
+  <%= f.input :fat_target, label: :Grasas, placeholder: 'Cantidad (g)' %>
   <%= f.submit 'Guardar objetivos' %>
 <% end %>
 
