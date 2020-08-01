@@ -9,7 +9,11 @@ class DailyTargetsController < ApplicationController
     @daily_target.user = current_user
     authorize @daily_target
 
-    # Remains if - else for redirect
+    if @daily_target.save
+      redirect_to items_path
+    else
+      render :new
+    end
   end
 
   private
