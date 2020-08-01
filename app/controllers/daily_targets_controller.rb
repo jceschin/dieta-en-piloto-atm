@@ -8,6 +8,8 @@ class DailyTargetsController < ApplicationController
     @daily_target = DailyTarget.new(daily_target_params)
     @daily_target.user = current_user
     authorize @daily_target
+
+    # Remains if - else for redirect
   end
 
   private
