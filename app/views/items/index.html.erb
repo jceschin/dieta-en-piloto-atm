@@ -1,25 +1,14 @@
 <!-- index.html.erb -->
 <div class="container categories">
-    <% 8.times do  %>
-      <%= image_tag "https://source.unsplash.com/50x50/?food", alt: "CategoryX", class: "category hvr-grow-s" %>
-    <% end %>
+  <% @categories.sample(8).each do |category| %>
+    <%= image_tag "https://source.unsplash.com/50x50/?#{category.name}", alt: "CategoryX", class: "category hvr-grow-s" %>
+  <% end %>
 </div>
 <div class="container text-center pt-3 pb-0 sugerencias bg-white">
   <h2>Tus sugeridos</h2>
 </div>
 <div class="container item-cards">
-    <% 28.times do  %>
-      <div class="item-card hvr-grow-s">
-          <div class=".item-card-infos">
-            <h2>Alta mondiola</h2>
-            <h2>El resto loco</h2>
-            <p>Con esta vale la pena romper la dieta.</p>
-            <div class="d-flex align-items-center justify-content-between">
-              <h2>$500</h2>
-              <h2>5000Kcal</h2>
-            </div>
-          </div>
-          <%= image_tag "https://source.unsplash.com/50x50/?meal", alt: "MealX" %>
-      </div>
+    <% @items.each do |item|  %>
+      <%= render 'item-card', item: item %>
     <% end %>
 </div>

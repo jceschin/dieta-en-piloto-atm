@@ -17,18 +17,23 @@
   height: 100%;
   width: 120px;
   object-fit: cover;
-  flex-basis: auto;
+  flex-shrink: 0;
 }
 
 .item-card h2 {
-  padding-left: 16px;
+  // padding-left: 16px;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
+.item-card .card-title{
+  color: yellow;
+  -webkit-text-stroke: 1px black;
+}
+
 .item-card p {
-  padding-left: 16px;
+  // padding-left: 16px;
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -38,12 +43,13 @@
 
 .item-card .item-card-infos {
   display: flex;
-  flex-grow: 5;
+  // flex-grow: 5;
   padding: 16px;
+  // padding: 16px;
   flex-direction: column;
   justify-content: space-between;
-  width: 243;
-  flex-basis: auto;
+  // width: 243;
+  // flex-basis: auto;
 }
 
 .item-cards {
