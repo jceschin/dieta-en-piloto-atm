@@ -1,5 +1,5 @@
 class DailyTargetsController < ApplicationController
-  before_action :set_equipment, only: %i[edit]
+  before_action :set_daily_target, only: %i[edit update]
 
   def new
     @daily_target = DailyTarget.new
@@ -19,6 +19,12 @@ class DailyTargetsController < ApplicationController
   end
 
   def edit
+    authorize @daily_target
+  end
+
+  def update
+    @daily_target.update(daily_target_params)
+    redirect_to items_path
     authorize @daily_target
   end
 

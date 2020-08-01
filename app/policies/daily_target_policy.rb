@@ -9,7 +9,7 @@ class DailyTargetPolicy < ApplicationPolicy
     return true
   end
 
-  def edit?
-    create?
+  def update?
+    record.owner == user
   end
 end
