@@ -1,11 +1,13 @@
 class DailyTargetsController < ApplicationController
   def new
     @daily_target = DailyTarget.new
+    authorize @daily_target
   end
 
   def create
     @daily_target = DailyTarget.new(daily_target_params)
     @daily_target.user = current_user
+    authorize @daily_target
   end
 
   private
