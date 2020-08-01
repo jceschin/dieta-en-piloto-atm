@@ -54,7 +54,7 @@ ITEMS_INFO = [
     proteins: 20,
     fats: 30,
     carbs: 20,
-    origin: 30,
+    origin: :seller,
     price: 1000,
     categories_keywords: ["ensaladas", "pescados"]
   },
@@ -65,7 +65,7 @@ ITEMS_INFO = [
     proteins: 20,
     fats: 30,
     carbs: 20,
-    origin: 30,
+    origin: :seller,
     price: 700,
     categories_keywords: ["ensaladas"]
   },
@@ -76,7 +76,7 @@ ITEMS_INFO = [
     proteins: 20,
     fats: 30,
     carbs: 20,
-    origin: 30,
+    origin: :seller,
     price: 500,
     categories_keywords: ["hamburgesas", "carnes"]
   }
