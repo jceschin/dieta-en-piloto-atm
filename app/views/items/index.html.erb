@@ -1,7 +1,9 @@
 <!-- index.html.erb -->
 <div class="container categories">
   <% @categories.sample(8).each do |category| %>
-    <%= image_tag "https://source.unsplash.com/50x50/?#{category.name}", alt: "CategoryX", class: "category hvr-grow-s" %>
+    <%= link_to "#", class: "hvr-grow" do %>
+      <%= image_tag "https://source.unsplash.com/50x50/?#{category.name}", alt: "CategoryX", class: "category hvr-grow-s" %>
+    <% end %>
   <% end %>
 </div>
 <div class="container text-center pt-3 pb-0 sugerencias bg-white">
