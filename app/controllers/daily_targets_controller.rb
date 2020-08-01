@@ -1,0 +1,2 @@
+class DailyTargetsController < ApplicationController
+end
