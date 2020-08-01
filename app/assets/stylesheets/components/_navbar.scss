@@ -9,10 +9,21 @@
 }
 
 .navbar-tudieta .navbar-objetivos {
- flex-grow: 4;
- display: flex;
- justify-content: center;
- align-content: center;
+  flex-grow: 4;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+}
+
+.navbar-tudieta .navbar-objetivos p {
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 3px solid;
+  border-color: #184D47;
+  border-radius: 16px;
+  align-self: center;
+  margin: 0px;
 }
 
 .navbar-tudieta .navbar-brand img {
@@ -21,6 +32,7 @@
 
 .navbar-tudieta .navbar-carrito img {
   width: 50px;
+  margin-right: 10px;
 }
 
 .navbar-tudieta .navbar-registrar img {
@@ -28,10 +40,7 @@
   width: 40px;
 }
 
-.navbar-tudieta .navbar-obejetivos p {
-  border: 4px;
-  border-color: #184D47;
-}
+
 
 
 
