@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
-  enum origin: [:pending, :finished]
+  enum status: [:pending, :finished]
 end
