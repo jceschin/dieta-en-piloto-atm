@@ -1,35 +1,13 @@
-
-.carousel-inner {
-  width: 1900px;
-  height: 880px;
-  margin: auto;
+.carousel-inner .carousel-item img {
+  max-height: 500px;
 }
 
-.carousel-inner img {
-  border-radius: 5px;
-  border-radius: 5px;
-  //filter: brightness(60%);
-  max-height: 880px;
-  max-width: 1800px;
-}
-
-.carousel-item .carousel-caption h1 {
-  color: black;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-}
-
-
-.carousel-caption {
-  margin: auto;
-}
-
-@media (max-width: 450 px) {
-  .container {
-    height: 300px;
+@media (max-width: 450px) {
+  .carousel-inner .carousel-item img {
+    max-height: 700px;
   }
 
-  .carousel-item .carousel-caption h1 {
-    font-size: 14px;
+  .carousel-caption h1 {
+    font-size: 28px;
   }
-
 }
