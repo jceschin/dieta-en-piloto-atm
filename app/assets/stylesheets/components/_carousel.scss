@@ -1,14 +1,30 @@
+.carousel-inner {
+  width: 1600px;
+}
+
 .carousel-inner .carousel-item img {
-  max-height: 500px;
+  max-height: 1100px;
+  max-width: 1600px;
+  border-radius: 5px;
+  margin: auto;
+  filter: brightness(60%);
+}
+
+.carousel-caption h1 {
+  color: black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  opacity: 1;
+  margin-bottom: 20%;
 }
 
 @media (max-width: 450px) {
   .carousel-inner .carousel-item img {
-    max-height: 700px;
+    max-width: 500px;
+    height: 700px;
   }
 
   .carousel-caption h1 {
     font-size: 28px;
-    margin-bottom: 25%;
+    margin-bottom: 13%;
   }
 }
