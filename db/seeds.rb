@@ -58,7 +58,7 @@ ITEMS_INFO = [
     price: 1000,
     categories_keywords: ["ensaladas", "pescados"]
   },
-    {
+  {
     name: "Ensalada Mikonos" ,
     description: "Lechuga romana, tomates cherry, pepino, mango, queso mozarella, pechuga de pollo, ajo, sal y pimienta.",
     calories: 1000,
@@ -69,7 +69,7 @@ ITEMS_INFO = [
     price: 700,
     categories_keywords: ["ensaladas"]
   },
-      {
+  {
     name: "Burger Zarpada" ,
     description: "Doble carne con doble cheddar, mostaza, ketchup y cebolla brunoise.",
     calories: 1000,
@@ -82,11 +82,49 @@ ITEMS_INFO = [
   }
 ]
 
-CATEGORIES_INFO = %w(ensaladas hamburguesas pollos carnes postres pizzas pastas pescados)
+## CATEGORIES_INFO = %w(ensaladas hamburguesas pollos carnes postres pizzas pastas pescados)
+
+CATEGORIES_INFO = [
+  {
+    name: "ensaladas",
+    picture: '../assets/images/ensaladas.jpg'
+  },
+  {
+    name: "hamburguesa",
+    picture: '../assets/images/hamburguesa.jpeg'
+  },
+  {
+    name: "pollos",
+    picture: '../assets/images/pollos.jpg'
+  },
+  {
+    name: "carnes",
+    picture: '../assets/images/carnes.jpg'
+  },
+  {
+    name: "postres",
+    picture: '../assets/images/postres.jpg'
+  },
+  {
+    name: "pizzas",
+    picture: '../assets/images/pizzas.jpg'
+  },
+  {
+    name: "pastas",
+    picture: '../assets/images/pastas.jpg'
+  },
+  {
+    name: "pescados",
+    picture: '../assets/images/pescados.jpg'
+  }
+]
 
 puts 'creating Category'
 CATEGORIES_INFO.each do |info|
-  c = Category.new(name: info)
+  c = Category.new(
+    name: info[:name],
+    picture: info[:picture]
+    )
   c.save
 end
 
