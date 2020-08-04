@@ -3,6 +3,8 @@
   border: #184D47;
   border-radius: 5px;
   color: white;
+  font-size: 24px;
+  padding: 10px 160px;
   margin-top: 10%;
   margin-bottom: 2%;
 }
@@ -11,4 +13,11 @@
   opacity: 1;
   background: #eebb4d;
   color: black;
+}
+
+@media (max-width: 1024px) {
+  .btn-success {
+    font-size: 20px;
+    padding: 10px 90px;
+  }
 }
