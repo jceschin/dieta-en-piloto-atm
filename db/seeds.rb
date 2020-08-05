@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require "open-uri"
+require 'open-uri'
 
 puts "destroying all DailyTargets"
 DailyTarget.destroy_all
@@ -118,7 +118,7 @@ SELLERS_INFO.each do |info|
       origin: samplei[:origin],
       price: samplei[:price],
       )
-      picture_file =  URI.open(samplei[:picture])
+      picture_file = URI.open(samplei[:picture])
       i.picture.attach(io: picture_file, filename: "#{samplei[:name]}.jpeg", content_type: 'image/jpeg')
     i.save
   puts 'creating ItemCategory'
