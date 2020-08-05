@@ -82,8 +82,6 @@ ITEMS_INFO = [
   }
 ]
 
-## CATEGORIES_INFO = %w(ensaladas hamburguesas pollos carnes postres pizzas pastas pescados)
-
 CATEGORIES_INFO = [
   {
     name: "ensaladas",
