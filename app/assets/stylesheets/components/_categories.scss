@@ -9,8 +9,13 @@
   grid-gap: 18px;
 }
 
+.categories a {
+  display: flex;
+  justify-content: center;
+}
+
 .category {
-  justify-self: center;
+  // justify-self: center;
   width: 75px;
   border-radius: 50%;
   box-shadow: 4px 4px 3px rgba(0,0,0,0.4);
