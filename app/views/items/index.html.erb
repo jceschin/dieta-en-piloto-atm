@@ -1,7 +1,7 @@
 <!-- index.html.erb -->
 <div class="container categories">
     <% @categories.each do |category| %>
-     <%= image_tag "categories/#{category.name}.jpg", alt: "#{category.name} picture" %>
+     <%= image_tag "categories/#{category.name}.jpg", alt: "#{category.name} picture", class: "category hvr-grow-s", style: "height: 50px, width: 50px" %>
     <% end %>
 </div>
 <div class="container text-center pt-3 pb-0 sugerencias bg-white">
