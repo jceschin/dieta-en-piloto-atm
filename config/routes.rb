@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :daily_targets, only: %i[new create edit update]
-  resources :items, only: %i[index show]
+  resources :items, only: %i[index]
 
 end
