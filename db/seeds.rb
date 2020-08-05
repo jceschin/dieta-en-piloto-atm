@@ -84,6 +84,18 @@ ITEMS_INFO = [
     price: 500,
     categories_keywords: ["hamburgesas", "carnes"],
     picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596649435/dbqozlifg2b2fxwwzrul.png"
+  },
+      {
+    name: "Pasta Bolognese" ,
+    description: "pasta aechuga de pollo, aceite de oliva, panceta, cebolla. salsa inglesa",
+    calories: 45,
+    proteins: 1,
+    fats: 1,
+    carbs: 6,
+    origin: :seller,
+    price: 450,
+    categories_keywords: ["pastas", "carnes"],
+    picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596654426/i30zaepgl1soxwwqk2kc.jpg"
   }
 ]
 
@@ -94,8 +106,7 @@ CATEGORIES_INFO.each do |info|
   c = Category.new(name: info)
   c.save
 end
-
-
+n = 0
 SELLERS_INFO.each do |info|
   puts "creating Seller #{info[:name]}"
   s = Seller.new(
@@ -106,7 +117,7 @@ SELLERS_INFO.each do |info|
 
   s.save
   puts 'creating Item'
-  samplei = ITEMS_INFO.sample
+  samplei = ITEMS_INFO[n]
     i = Item.new(
       seller: s,
       name: samplei[:name],
@@ -121,6 +132,7 @@ SELLERS_INFO.each do |info|
       picture_file = URI.open(samplei[:picture])
       i.picture.attach(io: picture_file, filename: "#{samplei[:name]}.jpeg", content_type: 'image/jpeg')
     i.save
+    n += 1
   puts 'creating ItemCategory'
   samplei[:categories_keywords].each do |category|
     ic = ItemCategory.new(
