@@ -31,24 +31,3 @@
   opacity: 1;
   //margin-bottom: 20%;
 }
-
-@media (max-width: 1024px) {
-  .carousel-caption {
-    margin-bottom: 70px;
-  }
-
-  .carousel-inner img {
-    max-width: 1024px;
-    height: 750px;
-  }
-
-  .carousel-caption h1 {
-    font-size: 28px;
-  }
-
-  .text-div {
-    width: 250px;
-    height: 250px;
-  }
-}
-
