@@ -90,7 +90,7 @@ CATEGORIES_INFO = [
     picture: '../assets/images/ensaladas.jpg'
   },
   {
-    name: "hamburgesas",
+    name: "hamburguesas",
     picture: '../assets/images/hamburguesa.jpeg'
   },
   {
