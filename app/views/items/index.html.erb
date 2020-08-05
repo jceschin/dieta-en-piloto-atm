@@ -1,7 +1,7 @@
 <!-- index.html.erb -->
 <div class="container categories">
-    <% 8.times do  %>
-      <%= image_tag "https://source.unsplash.com/50x50/?food", alt: "CategoryX", class: "category hvr-grow-s" %>
+    <% @categories.each do |category| %>
+     <%= image_tag "categories/#{category.name}.jpg", alt: "#{category.name} picture" %>
     <% end %>
 </div>
 <div class="container text-center pt-3 pb-0 sugerencias bg-white">
