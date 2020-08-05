@@ -123,7 +123,7 @@ puts 'creating Category'
 CATEGORIES_INFO.each do |info|
   c = Category.new(
     name: info[:name],
-    picture: info[:picture]
+    picture: "categories/#{info[:name]}.jpg"
     )
   c.save
 end

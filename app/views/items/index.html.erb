@@ -27,7 +27,7 @@
 <div class="container categories">
   <% @categories.sample(8).each do |category| %>
     <%= link_to "#", class: "hvr-grow" do %>
-      <%= image_tag category.picture, alt: "CategoryX", class: "category hvr-grow-s" %>
+      <%= image_tag "#{category.picture}", alt: "CategoryX", class: "category hvr-grow-s" %>
     <% end %>
   <% end %>
 </div>
