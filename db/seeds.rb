@@ -87,35 +87,27 @@ ITEMS_INFO = [
 CATEGORIES_INFO = [
   {
     name: "ensaladas",
-    picture: '../assets/images/ensaladas.jpg'
   },
   {
     name: "hamburguesas",
-    picture: '../assets/images/hamburguesa.jpeg'
   },
   {
     name: "pollos",
-    picture: '../assets/images/pollos.jpg'
   },
   {
     name: "carnes",
-    picture: '../assets/images/carnes.jpg'
   },
   {
     name: "postres",
-    picture: '../assets/images/postres.jpg'
   },
   {
     name: "pizzas",
-    picture: '../assets/images/pizzas.jpg'
   },
   {
     name: "pastas",
-    picture: '../assets/images/pastas.jpg'
   },
   {
     name: "pescados",
-    picture: '../assets/images/pescados.jpg'
   }
 ]
 
