@@ -1,0 +1,53 @@
+.carousel-inner {
+  width: 1800px;
+}
+
+//.carousel-inner img {
+  //max-height: 1100px;
+  //max-width: 1600px;
+  //border-radius: 5px;
+  //margin: auto;
+  //filter: brightness(90%);
+  //opacity: 0.8;
+//}
+
+.text-div {
+  background-color: white;
+  opacity: 0.7;
+  width: 400px;
+  height: 500px;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.carousel-caption {
+  width: 400px;
+  margin: auto;
+  margin-bottom: 90px;
+}
+
+.carousel-caption h1 {
+  color: black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  opacity: 1;
+}
+
+#btn-override .btn {
+  border-radius: 8px;
+  color: white;
+}
+
+#btn-override .btn-success {
+  background: #184D47;
+  border: #184D47;
+}
+
+#btn-override .btn:hover {
+  background: black;
+  color: white;
+}
+
+#btn-override .btn-warning {
+  background: #fb7813;
+  border: #fb7813;
+}
