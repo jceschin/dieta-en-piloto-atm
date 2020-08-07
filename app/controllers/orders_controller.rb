@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
     order.update(order_params)
+    end
     # Redirect to index. Mostrar flash message si no se guardo (o en ambos)
   end
 
