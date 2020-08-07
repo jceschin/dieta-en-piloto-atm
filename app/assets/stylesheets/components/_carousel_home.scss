@@ -20,7 +20,7 @@
 .carousel-caption {
   width: 400px;
   margin: auto;
-  margin-bottom: 140px;
+  margin-bottom: 10%;
 }
 
 .carousel-caption h1 {
@@ -32,7 +32,7 @@
 #btn-override .btn {
   border-radius: 8px;
   color: white;
-  font-size: 18px;
+  font-size: 100%;
 }
 
 #btn-override .btn-success {
@@ -49,3 +49,29 @@
   background: #fb7813;
   border: #fb7813;
 }
+
+
+/* Media queries */
+
+@media(max-width: 425px) {
+
+.text-div {
+  background-color: white;
+  opacity: 0.8;
+  width: 90%;
+  height: 90%;
+}
+
+.text-div h1 {
+  font-size: 130%;
+}
+
+.carousel-caption {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 50%;
+}
+
+}
+
+/*****************/
