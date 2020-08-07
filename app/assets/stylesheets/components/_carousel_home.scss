@@ -1,5 +1,11 @@
-.carousel-inner {
-  width: 1800px;
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .text-div {
@@ -14,7 +20,7 @@
 .carousel-caption {
   width: 400px;
   margin: auto;
-  margin-bottom: 130px;
+  margin-bottom: 140px;
 }
 
 .carousel-caption h1 {
@@ -26,6 +32,7 @@
 #btn-override .btn {
   border-radius: 8px;
   color: white;
+  font-size: 18px;
 }
 
 #btn-override .btn-success {
@@ -34,7 +41,7 @@
 }
 
 #btn-override .btn:hover {
-  background: black;
+  background: rgba(0,0,0,0.7);
   color: white;
 }
 
