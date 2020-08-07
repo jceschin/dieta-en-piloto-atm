@@ -1,5 +1,5 @@
 <!-- Carousel -->
-<div id="carouselExampleIndicators" class="carousel slide carousel-fade full-screen-carousel h-100" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade h-100" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -7,38 +7,41 @@
   </ol>
   <div class="carousel-inner h-100">
 
-    <div class="carousel-item active h-100" data-interval="20000">
-      <img class="d-block center-block w-100 h-100" src="https://images.unsplash.com/photo-1521986329282-0436c1f1e212?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80" alt="homepage_img">
-      <div class="carousel-caption d-md-block">
+    <div class="carousel-item active m-0", style="height: 100vh">
+      <%= image_tag 'homepage_img.jpg'%>
+      <div class="carousel-caption d-default-block">
         <div class="text-div d-flex align-items-center justify-content-center">
           <h1>¿Querés <strong style="color:#184D47">ahorrar</strong> <br><br>tiempo y <strong style="color:#184D47">comer</strong> <br><br><strong style="color:#184D47">saludable?</strong></h1>
         </div>
-        <div class="mt-5" id="btn-override">
+        <div id="btn-override" class="mt-5" >
           <%= link_to "Ver platos", items_path, class:"btn btn-success btn-block" %>
           <%= link_to "Rastrear de calorias", items_path, class:"btn btn-warning btn-block" %>
         </div>
       </div>
     </div>
 
-    <div class="carousel-item h-100">
-      <img class="d-block center-block w-100 h-100" src="https://images.unsplash.com/photo-1521986329282-0436c1f1e212?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80" alt="...">
+    <div class="carousel-item m-0", style="height: 100vh">
+      <%= image_tag 'homepage_img.jpg'%>
+      <!--<img class="d-block center-block w-100 h-100" src="https://images.unsplash.com/photo-1521986329282-0436c1f1e212?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80" alt="...">-->
       <div class="carousel-caption d-default-block">
         <div class="text-div d-flex align-items-center justify-content-center">
           <h1><strong style="color:#184D47">¡Tu Dieta en <br><br>Piloto Automático<br><br></strong> lo hace por vos!</strong></h1>
-        </div class="mt-5">
-        <div class="mt-5" id="btn-override">
+        </div>
+        <div id="btn-override" class="mt-5" >
           <%= link_to "Ver platos", items_path, class:"btn btn-success btn-block" %>
           <%= link_to "Rastrear de calorias", items_path, class:"btn btn-warning btn-block" %>
         </div>
       </div>
     </div>
-    <div class="carousel-item h-100">
-      <img class="d-block center-block w-100 h-100" src="https://images.unsplash.com/photo-1521986329282-0436c1f1e212?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80" alt="...">
+    <!--NOTE , style:"height: 100vh", class:"m-auto d-block"-->
+    <div class="carousel-item m-0", style="height: 100vh">
+      <%= image_tag 'homepage_img.jpg'%>
+      <!--<img class="d-block center-block w-100 h-100" src="https://images.unsplash.com/photo-1521986329282-0436c1f1e212?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80" alt="...">-->
       <div class="carousel-caption d-default-block">
         <div class="text-div d-flex align-items-center justify-content-center">
           <h1>Definí <strong style="color:#184D47">metas</strong>.<br><br>Elejí <strong style="color:#184D47">platos</strong>.<br><br><strong style="color:#184D47">Comprá</strong>.</h1>
         </div>
-        <div class="mt-5" id="btn-override">
+        <div id="btn-override" class="mt-5" >
           <%= link_to "Ver platos", items_path, class:"btn btn-success btn-block" %>
           <%= link_to "Rastrear de calorias", items_path, class:"btn btn-warning btn-block" %>
         </div>
