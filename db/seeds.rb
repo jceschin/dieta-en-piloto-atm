@@ -155,8 +155,8 @@ NAMES_INFO = %w(Armando Juan Juanpablo)
 NAMES_INFO.each do |name|
   puts "creating User name: #{name}"
   u = User.new(
-    email: "#{name}@gmail.com",
-    password:'123123'
+    email: "#{name.downcase}@gmail.com",
+    password:"#{name.downcase}@gmail.com"
     )
   u.save
   puts 'creating Order'
