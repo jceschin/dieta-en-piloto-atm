@@ -61,7 +61,7 @@ ITEMS_INFO = [
     {
     name: "Ensalada Mikonos" ,
     description: "Lechuga romana, tomates cherry, pepino, mango, queso mozarella, pechuga de pollo, ajo, sal y pimienta.",
-    calories: 1000,
+    calories: 2000,
     proteins: 20,
     fats: 30,
     carbs: 20,
@@ -144,5 +144,11 @@ NAMES_INFO.each do |name|
   oi.save
   puts 'creating DailyTarget'
   dt = DailyTarget.new(
-    user: u)
+    user: u,
+    caloric_target: 2000,
+    protein_target:20,
+    carb_target: 30,
+    fat_target: 20,
+    )
+  dt.save
 end
