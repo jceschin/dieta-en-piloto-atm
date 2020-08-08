@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   def pending_order
-    orders.pending.order(created_at: :desc).first_or_create
+    orders.pending.last
   end
 end
