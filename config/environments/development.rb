@@ -3,7 +3,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # for ngrok
-  config.hosts << "9b47e25bde8a.ngrok.io"
+  config.hosts << "4018918c0c67.ngrok.io"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -33,7 +33,7 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :cloudinary
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
