@@ -1,5 +1,5 @@
 <!-- _item-card.html.erb -->
-<%= link_to "#itemModal", data: { toggle: "modal" }, class: "button" do %>
+<%= link_to "#itemModal", data: { toggle: "modal", id: item.id, title: item.name }, class: "button", remote: true do %>
   <div class="item-card hvr-grow-s" >
       <div class="item-card-infos">
         <h2 class="card-title"> <%= item.name %> </h2>

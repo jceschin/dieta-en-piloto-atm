@@ -1,43 +1,5 @@
-<!-- Item show -->
-<div class="modal fade" id="itemModal" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document"> <!-- modal-lg -->
-    <div class="modal-content">
-
-      <div class="modal-header item-modal-header flex-column align-items-stretch"
-      style="background-image: linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.0) 100%),
-      url(' <%= image_path('logo.png') %> ')">
-
-        <div class="modal-header-top d-flex justify-content-between">
-          <% if false %>
-            <span><i class="fas fa-star" style="color: white!important"></i></span>
-          <% else %>
-            <% rand(1..5).times do %>
-              <span><i class="fas fa-star"></i></span>
-            <% end %>
-          <% end %>
-
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <h2>Ensalada Mikonos</h2>
-
-      </div>
-
-      <div class="modal-body">
-        ...
-      </div>
-
-<!--       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
-    </div>
-  </div>
-</div>
 <!-- index.html.erb -->
+<%= render 'item-modal' %>
 <div class="container categories">
   <% @categories.sample(8).each do |category| %>
     <%= link_to "#", class: "hvr-grow" do %>

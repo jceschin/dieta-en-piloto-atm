@@ -1,13 +1,8 @@
 // _item_modal.scss
 
-.item-modal-header {
-  // background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 90%), asset-url('logo.png');
-  // background-image: linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.0) 100%), asset-url('logo.png');
-  background-size: cover;
-  // color: white;
-  // background-color: red;
-  height: 400px;
- }
+#item-modal {
+
+}
 
 #itemModal h2 {
   font-size: 30px;
@@ -18,9 +13,26 @@
   text-shadow: 0px 0px 2px rgba(255,255,255,1);
 }
 
+.item-modal-header {
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 90%), asset-url('logo.png');
+  // background-image: linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.0) 100%), asset-url('logo.png');
+  background-size: cover;
+  // color: white;
+  // background-color: red;
+  height: 400px;
+ }
+
+.item-modal-body {
+  height: 400px;
+}
+
 @media(max-width: 450px) {
   .item-modal-header {
     height: 227px;
+  }
+
+  .item-modal-body {
+    height: 300px;
   }
 
   #itemModal h2 {
