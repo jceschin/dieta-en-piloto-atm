@@ -1,0 +1,157 @@
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.text-div {
+  width: 450px;
+  height: 400px;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.carousel-caption {
+  width: 450px;
+  margin: auto;
+  margin-bottom: 200px;
+}
+
+.carousel-caption h1 {
+  color: white;
+  font-family: Roboto;
+  text-shadow: 2px 1px 3px rgba(0,0,0,0.4);
+  opacity: 1;
+  font-size: 54px;
+}
+
+#btn-override .btn {
+  border-radius: 8px;
+}
+
+#btn-override .btn-success {
+  background: #1C1C1C;
+  border: #1C1C1C;
+  color: white;
+  font-family: Roboto;
+}
+
+#btn-override .btn:hover {
+  background: rgba(0,0,0,0.3);
+  color: white;
+}
+
+#btn-override .btn-warning {
+  background: #C0EA04;
+  border: #C0EA04;
+  color: #1C1C1C;
+  font-family: Roboto;
+}
+
+
+/* Media queries */
+
+@media(max-width: 1263px) {
+
+  .text-div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .text-div h1 {
+    font-size: 300%;
+  }
+
+  .carousel-caption {
+    width: 400px;
+    margin: auto;
+    margin-bottom: 200px;
+  }
+
+}
+
+@media(max-width: 767px) {
+
+  .text-div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .text-div h1 {
+    font-size: 200%;
+  }
+
+  .carousel-caption {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 200px;
+  }
+
+}
+
+@media(max-width: 424px) {
+
+  .text-div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .text-div h1 {
+    font-size: 140%;
+  }
+
+  .carousel-caption {
+    width: 70%;
+    margin: auto;
+    margin-bottom: 200px;
+  }
+
+}
+
+@media(max-height: 425px) {
+
+.text-div {
+    width: 100%;
+    height: 70%;
+  }
+
+  .text-div h1 {
+    font-size: 150%;
+    margin-top: 2%!important;
+    margin-bottom: 2%!important;
+  }
+
+  .carousel-caption {
+    width: 30%;
+    margin: auto;
+    margin-bottom: 2%!important;
+  }
+
+}
+
+@media(max-height: 320px) {
+
+  .text-div {
+    width: 100%;
+    height: 70%;
+  }
+
+  .text-div h1 {
+    font-size: 130%;
+    margin-top: 2%!important;
+    margin-bottom: 2%!important;
+  }
+
+  .carousel-caption {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 2%!important;
+  }
+
+}
+
+/*****************/
