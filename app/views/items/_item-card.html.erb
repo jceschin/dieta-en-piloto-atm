@@ -12,6 +12,6 @@
           <h2 class="item-card-nutrition"> <%= item.calories %> Kcal</h2>
         </div>
       </div>
-      <%= image_tag "https://source.unsplash.com/50x50/?#{item.name}l", alt: "MealX" %>
+      <%= cl_image_tag item.picture.key, alt: "MealX" %>
   </div>
 <% end %>

@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
+
 puts "destroying all DailyTargets"
 DailyTarget.destroy_all
 puts "destroying all OrderItems"
@@ -50,35 +52,50 @@ ITEMS_INFO = [
   {
     name: "Ensalada Mikonos" ,
     description: "Atún, rúcula, espinaca, aceitunas negras, croutones, palta, tomates y queso sardo...",
-    calories: 1000,
-    proteins: 20,
-    fats: 30,
-    carbs: 20,
+    calories: 300,
+    proteins: 40,
+    fats: 15,
+    carbs: 10,
     origin: :seller,
     price: 1000,
-    categories_keywords: ["ensaladas", "pescados"]
+    categories_keywords: ["ensaladas", "pescados"],
+    picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596648435/rh9nfmwoba1hgjxmrx3o.jpg"
   },
-  {
-    name: "Ensalada Mikonos" ,
+    {
+    name: "Ensalada Crispy" ,
     description: "Lechuga romana, tomates cherry, pepino, mango, queso mozarella, pechuga de pollo, ajo, sal y pimienta.",
-    calories: 1000,
-    proteins: 20,
-    fats: 30,
-    carbs: 20,
+    calories: 338,
+    proteins: 42,
+    fats: 15,
+    carbs: 9,
     origin: :seller,
     price: 700,
-    categories_keywords: ["ensaladas"]
+    categories_keywords: ["ensaladas"],
+    picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596648827/r5r5bezu4uaxdalw8nt4.png"
   },
   {
     name: "Burger Zarpada" ,
     description: "Doble carne con doble cheddar, mostaza, ketchup y cebolla brunoise.",
-    calories: 1000,
-    proteins: 20,
-    fats: 30,
-    carbs: 20,
+    calories: 279,
+    proteins: 13,
+    fats: 14,
+    carbs: 27,
     origin: :seller,
     price: 500,
-    categories_keywords: ["hamburgesas", "carnes"]
+    categories_keywords: ["hamburgesas", "carnes"],
+    picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596649435/dbqozlifg2b2fxwwzrul.png"
+  },
+      {
+    name: "Pasta Bolognese" ,
+    description: "pasta aechuga de pollo, aceite de oliva, panceta, cebolla. salsa inglesa",
+    calories: 45,
+    proteins: 1,
+    fats: 1,
+    carbs: 6,
+    origin: :seller,
+    price: 450,
+    categories_keywords: ["pastas", "carnes"],
+    picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596654426/i30zaepgl1soxwwqk2kc.jpg"
   }
 ]
 
@@ -117,7 +134,7 @@ CATEGORIES_INFO.each do |info|
     )
   c.save
 end
-
+n = 0
 SELLERS_INFO.each do |info|
   puts "creating Seller #{info[:name]}"
   s = Seller.new(
@@ -128,7 +145,7 @@ SELLERS_INFO.each do |info|
 
   s.save
   puts 'creating Item'
-  samplei = ITEMS_INFO.sample
+  samplei = ITEMS_INFO[n]
     i = Item.new(
       seller: s,
       name: samplei[:name],
@@ -138,9 +155,12 @@ SELLERS_INFO.each do |info|
       fats: samplei[:fats],
       carbs: samplei[:carbs],
       origin: samplei[:origin],
-      price: samplei[:price]
+      price: samplei[:price],
       )
+      picture_file = URI.open(samplei[:picture])
+      i.picture.attach(io: picture_file, filename: "#{samplei[:name]}.jpeg", content_type: 'image/jpeg')
     i.save
+    n += 1
   puts 'creating ItemCategory'
   samplei[:categories_keywords].each do |category|
     ic = ItemCategory.new(
