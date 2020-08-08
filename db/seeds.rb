@@ -73,7 +73,7 @@ ITEMS_INFO = [
     categories_keywords: ["ensaladas"],
     picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596648827/r5r5bezu4uaxdalw8nt4.png"
   },
-      {
+  {
     name: "Burger Zarpada" ,
     description: "Doble carne con doble cheddar, mostaza, ketchup y cebolla brunoise.",
     calories: 279,
@@ -99,11 +99,39 @@ ITEMS_INFO = [
   }
 ]
 
-CATEGORIES_INFO = %w(ensaladas hamburguesas pollos carnes postres pizzas pastas pescados)
+CATEGORIES_INFO = [
+  {
+    name: "ensaladas",
+  },
+  {
+    name: "hamburguesas",
+  },
+  {
+    name: "pollos",
+  },
+  {
+    name: "carnes",
+  },
+  {
+    name: "postres",
+  },
+  {
+    name: "pizzas",
+  },
+  {
+    name: "pastas",
+  },
+  {
+    name: "pescados",
+  }
+]
 
 puts 'creating Category'
 CATEGORIES_INFO.each do |info|
-  c = Category.new(name: info)
+  c = Category.new(
+    name: info[:name],
+    picture: "categories/#{info[:name]}.jpg"
+    )
   c.save
 end
 n = 0
@@ -147,8 +175,8 @@ NAMES_INFO = %w(Armando Juan Juanpablo)
 NAMES_INFO.each do |name|
   puts "creating User name: #{name}"
   u = User.new(
-    email: "#{name}@gmail.com",
-    password:'123123'
+    email: "#{name.downcase}@gmail.com",
+    password:"#{name.downcase}@gmail.com"
     )
   u.save
   puts 'creating Order'
