@@ -5,7 +5,7 @@
 }
 
 #itemModal h2 {
-  font-size: 30px;
+  font-size: 28px;
   margin: 0;
   font-weight: bold;
   font-family: Roboto, sans-serif;
@@ -19,11 +19,74 @@
   background-size: cover;
   // color: white;
   // background-color: red;
-  height: 400px;
+  height: 350px;
  }
 
 .item-modal-body {
   height: 400px;
+}
+
+.item-modal-info h2 {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+}
+
+.item-modal-description {
+  padding-top: 10px;
+  height: 85px;
+  overflow: scroll;
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+.item-modal-description p {
+  font-size: 18px;
+  // font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: rgba(24,77,71,0.6);
+  margin: 0;
+}
+
+
+
+table.item-nutritonal-table {
+  width: 100%;
+  text-align: right;
+  width: 300px;
+}
+
+table.item-nutritonal-table .col1 {
+  color: rgb(24,77,71);
+  text-align: left;
+}
+
+table.item-nutritonal-table td, table.item-nutritonal-table th {
+  border: 0px solid #AAAAAA;
+  padding: 1px 2px;
+}
+table.item-nutritonal-table tbody td {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+}
+
+.item-modal-addorder h2 {
+  font-size: 22px;
+}
+
+.plus-minus-button img {
+  width: 13px;
+}
+
+.plus-minus-input i {
+  color: rgb(24,77,71);
+}
+
+.plus-minus-input input {
+  margin: 0px 10px;
+  width: 55px;
+  text-align: center;
 }
 
 @media(max-width: 450px) {
@@ -32,11 +95,17 @@
   }
 
   .item-modal-body {
-    height: 300px;
+    height: 400px;
   }
 
-  #itemModal h2 {
-  font-size: 22px;
-  }
+  // #itemModal .item-modal-info h2 {
+  //   font-size: 22px;
+  // }
 }
 
+
+@media(max-width: 325px) {
+  table.item-nutritonal-table {
+    width: 250px;
+  }
+}
