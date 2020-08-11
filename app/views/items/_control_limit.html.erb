@@ -1,11 +1,4 @@
-<br>
-  <h4 class="text-center my-1"> 0 platos en ±20% de tus objectivos</h4><br>
-  <%= link_to edit_daily_target_path(current_user.daily_targets.last.id) do %>
-    <h4 class="text-center" style="color:blue">Redefiní objectivos</h4>
+<h4 class="text-center my-1"> 0 platos en ±<%="#{@dailytarget.last.control_limit}"%>% de tus objectivos</h4><br>
+<%= link_to edit_daily_target_path(current_user.daily_targets.last.id) do %>
+  <h4 class="text-center" style="color:blue">Redefiní objectivos</h4>
 <% end %>
-<br>
-<%= simple_form_for @dailytarget.last do |f| %>
-  <%= f.input :control_limit, label:"precision", collection: 1..100 %>
-  <%= f.submit "Buscar", class:"btn btn-primary" %>
-<% end %>
-
