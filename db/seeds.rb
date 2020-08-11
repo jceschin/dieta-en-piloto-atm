@@ -88,10 +88,10 @@ ITEMS_INFO = [
       {
     name: "Pasta Bolognese" ,
     description: "pasta aechuga de pollo, aceite de oliva, panceta, cebolla. salsa inglesa",
-    calories: 45,
-    proteins: 1,
-    fats: 1,
-    carbs: 6,
+    calories: 488,
+    proteins: 26,
+    fats: 25,
+    carbs: 37,
     origin: :seller,
     price: 450,
     categories_keywords: ["pastas", "carnes"],
@@ -193,10 +193,10 @@ NAMES_INFO.each do |name|
   puts 'creating DailyTarget'
   dt = DailyTarget.new(
     user: u,
-    caloric_target: 2000,
-    protein_target:20,
-    carb_target: 30,
-    fat_target: 20,
+    caloric_target: 600,
+    protein_target: 20,
+    carb_target: 54,
+    fat_target: 40,
     )
   dt.save
 end
