@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_05_204458) do
+ActiveRecord::Schema.define(version: 2020_08_11_192409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_204458) do
     t.integer "fat_target"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "control_limit"
     t.index ["user_id"], name: "index_daily_targets_on_user_id"
   end
 
