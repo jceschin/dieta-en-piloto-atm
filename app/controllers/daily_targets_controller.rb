@@ -35,6 +35,6 @@ class DailyTargetsController < ApplicationController
   end
 
   def daily_target_params
-    params.require(:daily_target).permit(:caloric_target, :protein_target, :carb_target, :fat_target)
+    params.require(:daily_target).permit(:caloric_target, :protein_target, :carb_target, :fat_target, :control_limit)
   end
 end
