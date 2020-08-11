@@ -3,6 +3,7 @@
   <%= f.input :protein_target, label: :Proteínas, placeholder: 'Cantidad (g)' %>
   <%= f.input :carb_target, label: :Carbohidratos, placeholder: 'Cantidad (g)' %>
   <%= f.input :fat_target, label: :Grasas, placeholder: 'Cantidad (g)' %>
+  <%= f.input :control_limit, label: "Precisión (±)", placeholder: '±20 (%)', collection: 1..99 %>
   <%= f.submit 'Confirmar', class: "btn-green w-100" %>
 <% end %>
 
