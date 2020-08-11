@@ -52,10 +52,10 @@ ITEMS_INFO = [
   {
     name: "Ensalada Mikonos" ,
     description: "Atún, rúcula, espinaca, aceitunas negras, croutones, palta, tomates y queso sardo...",
-    calories: 300,
-    proteins: 40,
-    fats: 15,
-    carbs: 10,
+    calories: 451,
+    proteins: 30,
+    fats: 30,
+    carbs: 14,
     origin: :seller,
     price: 1000,
     categories_keywords: ["ensaladas", "pescados"],
@@ -64,10 +64,10 @@ ITEMS_INFO = [
     {
     name: "Ensalada Crispy" ,
     description: "Lechuga romana, tomates cherry, pepino, mango, queso mozarella, pechuga de pollo, ajo, sal y pimienta.",
-    calories: 2000,
-    proteins: 20,
-    fats: 30,
-    carbs: 20,
+    calories: 285,
+    proteins: 24,
+    fats: 15,
+    carbs: 14,
     origin: :seller,
     price: 700,
     categories_keywords: ["ensaladas"],
@@ -76,10 +76,10 @@ ITEMS_INFO = [
   {
     name: "Burger Zarpada" ,
     description: "Doble carne con doble cheddar, mostaza, ketchup y cebolla brunoise.",
-    calories: 279,
-    proteins: 13,
-    fats: 14,
-    carbs: 27,
+    calories: 490,
+    proteins: 22,
+    fats: 32,
+    carbs: 31,
     origin: :seller,
     price: 500,
     categories_keywords: ["hamburgesas", "carnes"],
@@ -193,10 +193,11 @@ NAMES_INFO.each do |name|
   puts 'creating DailyTarget'
   dt = DailyTarget.new(
     user: u,
-    caloric_target: 600,
-    protein_target: 20,
-    carb_target: 54,
-    fat_target: 40,
+    caloric_target: 500,
+    protein_target: 23,
+    carb_target: 38,
+    fat_target: 26,
+    control_limit: 20
     )
   dt.save
 end
