@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
     @items = policy_scope(Item)
     @categories = Category.all
 
-    @order = current_user.order
+    @order = current_user.pending_order
   end
 
   def show

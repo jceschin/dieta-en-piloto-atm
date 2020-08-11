@@ -8,12 +8,16 @@
         </button>
       </div>
       <div class="modal-body">
-        <% @items.each do |item| %>
-          <p><%= item.name %> <%= item.price %></p>
+        <% if @order != nil %>
+          <% @order.items.each do |item| %>
+            <p><%= item.name %> <%= item.price %></p>
+          <% end %>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-green">Continuar compra</button>
+          </div>
+        <% else %>
+          <h1>Carrito vacío</h1>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-green">Continuar compra</button>
       </div>
     </div>
   </div>
