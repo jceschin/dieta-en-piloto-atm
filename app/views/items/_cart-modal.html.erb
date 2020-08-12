@@ -12,10 +12,10 @@
           <% @order.items.each do |item| %>
             <div class="d-flex align-items-center justify-content-between">
               <p class="card-title"><%= item.name %></p>
-              <p class="item-card-price">$ <%= item.price %></p>
+              <p>$ <%= item.price %></p>
             </div>
           <% end %>
-          <h3>Total: <%= @order.total_price %></h3>
+          <p>Total: $<%= @order.total_price %></p>
           <div class="modal-footer">
             <button type="button" class="btn btn-green">Continuar compra</button>
           </div>
