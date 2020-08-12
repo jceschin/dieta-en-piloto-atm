@@ -1,11 +1,6 @@
 // _item_modal.scss
 
-#item-modal {
-
-}
-
 #itemModal h2 {
-  font-size: 28px;
   margin: 0;
   font-weight: bold;
   font-family: Roboto, sans-serif;
@@ -33,11 +28,13 @@
 }
 
 .item-modal-description {
-  padding-top: 10px;
+  padding: 5px;
   height: 85px;
   overflow: scroll;
   flex-shrink: 1;
   flex-grow: 1;
+  margin: 10px 0px 10px 0px;
+  border: 1px solid rgba(24,77,71,0.2);
 }
 
 .item-modal-description p {
@@ -45,7 +42,7 @@
   // font-weight: bold;
   font-family: Roboto, sans-serif;
   color: rgba(24,77,71,0.6);
-  margin: 0;
+  margin: 0px;
 }
 
 
@@ -54,6 +51,7 @@ table.item-nutritonal-table {
   width: 100%;
   text-align: right;
   width: 300px;
+  box-shadow: 0 4px 2px -2px rgba(24,77,71,0.6);
 }
 
 table.item-nutritonal-table .col1 {
@@ -69,15 +67,46 @@ table.item-nutritonal-table tbody td {
   font-size: 18px;
   font-weight: bold;
   font-family: Roboto, sans-serif;
+  color: #333333;
 }
 
-.item-modal-addorder h2 {
+
+.item-modal-addorder {
+  margin: 10px 0px;
+}
+
+.item-modal-price {
+  margin: 10px 0px;
+}
+
+.item-modal-addtracking {
+  margin: 10px 0px;
+}
+
+.item-modal-addtracking .form-check {
+  padding: 0px;
+}
+
+.item-modal-addtracking .form-check-input {
+  margin: 0px;
+}
+
+.item-modal-addorder h2, .item-modal-price h2{
   font-size: 22px;
 }
 
-.plus-minus-button img {
-  width: 13px;
+.item-modal-addtracking h2 {
+  font-size: 16px;
 }
+
+
+
+
+
+// .plus-minus-button img {
+//   width: 13px;
+// }
+
 
 .plus-minus-input i {
   color: rgb(24,77,71);
@@ -85,9 +114,12 @@ table.item-nutritonal-table tbody td {
 
 .plus-minus-input input {
   margin: 0px 10px;
-  width: 55px;
+  width: 45px;
   text-align: center;
 }
+
+
+
 
 @media(max-width: 450px) {
   .item-modal-header {
@@ -108,4 +140,9 @@ table.item-nutritonal-table tbody td {
   table.item-nutritonal-table {
     width: 250px;
   }
+
+  .item-modal-body {
+    height: 500px;
+  }
+
 }

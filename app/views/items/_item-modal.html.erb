@@ -21,7 +21,7 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <h2 class="item-model-name">Ensalada Mikonos</h2>
+        <h2 class="item-modal-name">Item</h2>
       </div>
 
 
@@ -56,7 +56,8 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
 
         <form class="align-self-stretch" action="POST">
 
-          <div class="item-modal-addorder form-row justify-content-between">
+          <div class="item-modal-addorder form-row justify-content-between
+            align-items-center">
             <h2>Cantidad:</h2>
 
             <div class="plus-minus-input d-flex align-items-center">
@@ -75,21 +76,37 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-add-sm">Agregar</button>
           </div>
 
-          <div class="price d-flex justify-content-between">
+          <div class="item-modal-price d-flex justify-content-between
+            align-items-center">
             <h2>Total:</h2>
             <h2 class="price"> $XXXX (u. XXXX) </h2>
           </div>
 
-          <div class="item-modal-addtracking form-row">
+          <div class="item-modal-addtracking form-row align-items-center
+          justify-content-between">
             <h2>¿Queres trakear el plato?</h2>
-            <div class="form-check justify-content-between">
+            <div class="form-check d-flex">
 <!--               <label class="form-check-label" for="gridCheck">
                 ¿Queres trakear el plato?
               </label> -->
-              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <input class="form-check-input align-self-center" type="checkbox" id="gridCheck">
+            </div>
+            <div class="plus-minus-input d-flex align-items-center">
+
+              <%= link_to "#", class: "plus-minus-button hvr-grow-s" do %>
+                <i class="fas fa-plus-circle"></i>
+              <% end %>
+
+              <input class="form-control form-control-sm"
+               type="number" value="1">
+
+              <%= link_to "#", class: "plus-minus-button hvr-grow-s" do %>
+                <i class="fas fa-minus-circle"></i>
+              <% end %>
+
             </div>
 
           </div>

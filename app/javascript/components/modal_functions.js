@@ -2,7 +2,7 @@
 
 console.log("Hello from modal_functions")
 
-const initModalFunctions = () => {
+const initItemModalFunctions = () => {
   $('#itemModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var recipient = button.data('id') // Extract info from data-* attributes
@@ -10,14 +10,18 @@ const initModalFunctions = () => {
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
   var modal = $(this)
   console.log(button.data('id'))
-  console.log(button.data('title'))
+  // console.log(button.data('title'))
 
-  // modal.find('.modal-title').text('New message to ' + recipient)
+  // debugger
+
+  modal.find('.item-modal-name').innerHTML = "JAVADABADU";
+  modal.find('.item-modal-name').text('Javadabadu');
+  // modal.find('.item-modal-name').text('New message to ' + recipient)
   // modal.find('.modal-body input').val(recipient)
 })
 
-  return 'test';
+  // return 'test';
 };
 
-export { initModalFunctions };
+export { initItemModalFunctions };
 
