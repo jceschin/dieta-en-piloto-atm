@@ -14,8 +14,8 @@ const initItemModalFunctions = () => {
 
   // debugger
 
-  modal.find('.item-modal-name').innerHTML = "JAVADABADU";
-  modal.find('.item-modal-name').text('Javadabadu');
+  // modal.find('.item-modal-name').innerHTML = "JAVADABADU";
+  // modal.find('.item-modal-name').text('Javadabadu');
   // modal.find('.item-modal-name').text('New message to ' + recipient)
   // modal.find('.modal-body input').val(recipient)
 })
@@ -24,4 +24,3 @@ const initItemModalFunctions = () => {
 };
 
 export { initItemModalFunctions };
-

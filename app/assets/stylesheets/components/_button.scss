@@ -1,9 +1,15 @@
-.btn-flat {
+.btn-green {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #184D47;
+  background-color: #184D47;
+  border: none;
   transition: background 0.3s ease;
+}
+
+.btn-green:hover {
+  background: #556B2F;
+  color: white;
 }
 
 .btn-add-sm {
@@ -15,4 +21,9 @@
   background: #184D47;
   transition: background 0.3s ease;
   font-size: 18px;
+}
+
+.btn-add-sm:hover {
+  background: #556B2F;
+  color: white;
 }

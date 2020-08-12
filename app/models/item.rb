@@ -3,9 +3,7 @@ class Item < ApplicationRecord
   has_many :item_categories
   has_many :order_items
   has_many :categories, through: :item_categories
-  enum origin: [:user, :seller, :database]
+  enum origin: %i[user seller database]
 
-  def information
-    { name: "seba" }.to_json
-  end
+  has_one_attached :picture
 end
