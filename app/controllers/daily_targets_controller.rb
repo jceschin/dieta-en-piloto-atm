@@ -48,7 +48,9 @@ class DailyTargetsController < ApplicationController
     @cal_left = @daily_target.caloric_target
     orders.each do |order|
       order.order_items.each do |item|
-        @cal_left -= Item.find_by_id(item.item_id).calories
+        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
+          @cal_left -= Item.find_by_id(item.item_id).calories
+        end
       end
     end
   end
@@ -59,7 +61,9 @@ class DailyTargetsController < ApplicationController
     @proteins_left = @daily_target.protein_target
     orders.each do |order|
       order.order_items.each do |item|
-        @proteins_left -= Item.find_by_id(item.item_id).proteins
+        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
+          @proteins_left -= Item.find_by_id(item.item_id).proteins
+        end
       end
     end
   end
@@ -70,7 +74,9 @@ class DailyTargetsController < ApplicationController
     @carbs_left = @daily_target.carb_target
     orders.each do |order|
       order.order_items.each do |item|
-        @carbs_left -= Item.find_by_id(item.item_id).carbs
+        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
+          @carbs_left -= Item.find_by_id(item.item_id).carbs
+        end
       end
     end
   end
@@ -81,7 +87,9 @@ class DailyTargetsController < ApplicationController
     @fats_left = @daily_target.fat_target
     orders.each do |order|
       order.order_items.each do |item|
-        @fats_left -= Item.find_by_id(item.item_id).fats
+        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
+          @fats_left -= Item.find_by_id(item.item_id).fats
+        end
       end
     end
   end
