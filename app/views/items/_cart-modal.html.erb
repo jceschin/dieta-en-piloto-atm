@@ -15,7 +15,7 @@
               <p class="item-card-price">$ <%= item.price %></p>
             </div>
           <% end %>
-          <h3>Total:</h3>
+          <h3>Total: <%= @order.total_price %></h3>
           <div class="modal-footer">
             <button type="button" class="btn btn-green">Continuar compra</button>
           </div>

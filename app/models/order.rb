@@ -4,5 +4,11 @@ class Order < ApplicationRecord
   enum status: [:pending, :finished]
   has_many :items, through: :order_items
 
-  # scope :pending_order, -> { where(status: "pending") }
+  def total_price
+    total = 0
+    items.each do |item|
+      total += item.price
+    end
+    total
+  end
 end
