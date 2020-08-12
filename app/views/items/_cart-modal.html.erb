@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <% if @order != nil %>
+        <% if !@order.nil? %>
           <% @order.items.each do |item| %>
             <p><%= item.name %> <%= item.price %></p>
           <% end %>
