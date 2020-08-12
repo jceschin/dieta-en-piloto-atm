@@ -1,6 +1,6 @@
 <!-- _item-card.html.erb -->
-<%= link_to "#itemModal", data: { toggle: "modal",
-  information: item.information }, id: "sebas", class: "button", remote: true do %>
+<%= link_to "#itemModal-#{item.id}", data: { toggle: "modal"},
+  class: "button", remote: true do %>
   <div class="item-card hvr-grow-s" >
       <div class="item-card-infos">
         <h2 class="card-title"> <%= item.name %> </h2>

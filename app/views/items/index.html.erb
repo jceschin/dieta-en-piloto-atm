@@ -1,6 +1,6 @@
 <!-- index.html.erb -->
 <% @items.each do |item|  %>
-  <%= render 'item-modal', item: item %>
+  <%= render 'item-modal', item: item, order_item: @order_item %>
 <% end %>
 <div class="container categories">
   <% @categories.sample(8).each do |category| %>

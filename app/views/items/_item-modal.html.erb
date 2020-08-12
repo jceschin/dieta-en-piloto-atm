@@ -1,12 +1,12 @@
 <!-- _item-modal.html.erb -->
-<div class="modal fade" id="itemModal" tabindex="-1" role="dialog"
+<div class="modal fade item-modal"  <%= "id=itemModal-#{item.id}" %> tabindex="-1" role="dialog"
 aria-labelledby="itemModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document"> <!-- modal-lg -->
     <div class="modal-content">
 
       <div class="modal-header item-modal-header flex-column align-items-stretch"
       style="background-image: linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.0) 100%),
-      url(' <%= image_path('logo.png') %> ')">
+      url(' <%= cl_image_path item.picture.key %> ')">
         <div class="modal-header-top d-flex justify-content-between">
 
           <% if false %>
@@ -18,10 +18,11 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
           <% end %>
 
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <i class="far fa-times-circle"></i>
+            <!-- <span aria-hidden="true">&times;</span> -->
           </button>
         </div>
-        <h2 class="item-modal-name">Item</h2>
+        <h2 class="item-modal-name"> <%= item.name %> </h2>
       </div>
 
 
@@ -29,9 +30,9 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
         d-flex flex-column justify-content-between align-items-center">
 
         <div class="item-modal-info">
-          <h2 class="item-modal-seller">por Autor</h2>
+          <h2 class="item-modal-seller">por <%= item.seller.name %> </h2>
           <div class="item-modal-description">
-            <p> <%= "Lorem ipsum loren lorem ipsum" * 6 %> </p>
+            <p> <%= item.description %> </p>
           </div>
         </div>
 
@@ -39,22 +40,27 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
         <table class="item-nutritonal-table">
           <tbody>
           <tr>
-            <td class="col1" >Calorías:</td><td>XXX kcal</td>
+            <td class="col1" >Calorías:</td><td> <%= item.calories %> kcal</td>
           </tr>
           <tr>
-            <td class="col1" >Proteinas:</td><td>XXX g</td>
+            <td class="col1" >Proteinas:</td><td> <%= item.proteins %> g</td>
           </tr>
           <tr>
-            <td class="col1" >Grasas:</td><td>XXX g</td>
+            <td class="col1" >Grasas:</td><td> <%= item.fats %> g</td>
           </tr>
           <tr>
-           <td class="col1" >Carbohidratos:</td><td>XXX g</td>
+           <td class="col1" >Carbohidratos:</td><td> <%= item.carbs %> g</td>
          </tr>
           </tbody>
           </tr>
         </table>
 
-        <form class="align-self-stretch" action="POST">
+
+        <!-- /items/:item_id/order_items -->
+
+        <%= form_with model: [item, order_item], class: "align-self-stretch" do %>
+        <!-- <form class="align-self-stretch" action="/items/<%= item.id %>/order_items" method="POST"> -->
+          <!-- <input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts=" /> -->
 
           <div class="item-modal-addorder form-row justify-content-between
             align-items-center">
@@ -82,14 +88,14 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
           <div class="item-modal-price d-flex justify-content-between
             align-items-center">
             <h2>Total:</h2>
-            <h2 class="price"> $XXXX (u. XXXX) </h2>
+            <h2 class="price"> $<%= item.price %> (c/u <%= item.price  %>) </h2>
           </div>
 
           <div class="item-modal-addtracking form-row align-items-center
           justify-content-between">
-            <h2>¿Queres trakear el plato?</h2>
+            <h2>¿Queres trackear el plato?</h2>
             <div class="form-check d-flex">
-<!--               <label class="form-check-label" for="gridCheck">
+              <!-- <label class="form-check-label" for="gridCheck">
                 ¿Queres trakear el plato?
               </label> -->
               <input class="form-check-input align-self-center" type="checkbox" id="gridCheck">
@@ -111,8 +117,8 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
 
           </div>
 
-        </form>
-
+        <!-- </form> -->
+        <% end %>
       </div>
     </div>
   </div>
