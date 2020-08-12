@@ -10,8 +10,12 @@
       <div class="modal-body">
         <% if !@order.nil? %>
           <% @order.items.each do |item| %>
-            <p><%= item.name %> <%= item.price %></p>
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="card-title"><%= item.name %></p>
+              <p class="item-card-price">$ <%= item.price %></p>
+            </div>
           <% end %>
+          <h3>Total:</h3>
           <div class="modal-footer">
             <button type="button" class="btn btn-green">Continuar compra</button>
           </div>
