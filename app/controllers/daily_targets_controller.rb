@@ -18,12 +18,17 @@ class DailyTargetsController < ApplicationController
     end
   end
 
-  def edit
+  def show
+    @daily_target = DailyTarget.find(params[:id])
     authorize @daily_target
     cal_left
     proteins_left
     carbs_left
     fats_left
+  end
+
+  def edit
+    authorize @daily_target
   end
 
   def update
