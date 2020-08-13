@@ -19,7 +19,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def show
-    @daily_target = DailyTarget.find(params[:id])
+    @daily_target = DailyTarget.where(user_id: current_user.id).last
     authorize @daily_target
     cal_left
     proteins_left

@@ -13,12 +13,12 @@
 
   <p class="mb-0 mt-4">Calorías (kcal)</p>
   <div class="text-right my-0">
-    <span><small><%= current_user.daily_targets.last.caloric_target %></small></span>
+    <span><small><%= @daily_target.caloric_target %></small></span>
   </div>
 
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
     <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
-      <span class="font-weight-bold"><%= current_user.daily_targets.last.caloric_target - @cal_left %></span>
+      <span class="font-weight-bold"><%= @daily_target.caloric_target - @cal_left %></span>
     </div>
     <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
       <span class="font-weight-bold" style="color:black"><%= @cal_left %></span>
@@ -28,11 +28,11 @@
 
   <p class="mb-0 mt-4">Proteínas (g)</p>
   <div class="text-right my-0">
-    <span><small><%= current_user.daily_targets.last.protein_target %></small></span>
+    <span><small><%= @daily_target.protein_target %></small></span>
   </div>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
     <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
-      <span class="font-weight-bold"><%= current_user.daily_targets.last.protein_target - @proteins_left%></span>
+      <span class="font-weight-bold"><%= @daily_target.protein_target - @proteins_left%></span>
     </div>
     <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
       <span class="font-weight-bold"><%= @proteins_left %></span>
@@ -41,11 +41,11 @@
 
   <p class="mb-0 mt-4">Carbohidratos (g)</p>
   <div class="text-right my-0">
-    <span><small><%= current_user.daily_targets.last.carb_target %></small></span>
+    <span><small><%= @daily_target.carb_target %></small></span>
   </div>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
     <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
-      <span class="font-weight-bold"><%= current_user.daily_targets.last.carb_target - @carbs_left %></span>
+      <span class="font-weight-bold"><%= @daily_target.carb_target - @carbs_left %></span>
     </div>
     <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
       <span class="font-weight-bold"><%= @carbs_left %></span>
@@ -54,11 +54,11 @@
 
   <p class="mb-0 mt-4">Grasas totales (g)</p>
   <div class="text-right my-0">
-    <span><small><%= current_user.daily_targets.last.fat_target %></small></span>
+    <span><small><%= @daily_target.fat_target %></small></span>
   </div>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
     <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
-      <span class="font-weight-bold"><%= current_user.daily_targets.last.fat_target - @fats_left %></span>
+      <span class="font-weight-bold"><%= @daily_target.fat_target - @fats_left %></span>
     </div>
     <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
       <span class="font-weight-bold"><%= @fats_left %></span>
