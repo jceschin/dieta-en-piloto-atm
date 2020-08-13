@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @dailytarget = DailyTarget.where(user_id:current_user.id)
+    @dailytarget = DailyTarget.where(user_id:current_user.id).last
     set_items
     @categories = Category.all
   end
@@ -20,19 +20,19 @@ class ItemsController < ApplicationController
   end
 
   def calories_in_target?(item)
-    item.calories <= cal_left * "1.#{@dailytarget.last.control_limit}".to_f && item.calories >= cal_left * (1 - "0.#{@dailytarget.last.control_limit}".to_f)
+    item.calories <= cal_left * "1.#{@dailytarget.control_limit}".to_f && item.calories >= cal_left * (1 - "0.#{@dailytarget.control_limit}".to_f)
   end
 
   def proteins_in_target?(item)
-    item.proteins <= proteins_left * "1.#{@dailytarget.last.control_limit}".to_f && item.proteins >= proteins_left * (1 - "0.#{@dailytarget.last.control_limit}".to_f)
+    item.proteins <= proteins_left * "1.#{@dailytarget.control_limit}".to_f && item.proteins >= proteins_left * (1 - "0.#{@dailytarget.control_limit}".to_f)
   end
 
   def carbs_in_target?(item)
-    item.carbs <= carbs_left * "1.#{@dailytarget.last.control_limit}".to_f && item.carbs >= carbs_left * (1 - "0.#{@dailytarget.last.control_limit}".to_f)
+    item.carbs <= carbs_left * "1.#{@dailytarget.control_limit}".to_f && item.carbs >= carbs_left * (1 - "0.#{@dailytarget.control_limit}".to_f)
   end
 
   def fats_in_target?(item)
-    item.fats <= fats_left * "1.#{@dailytarget.last.control_limit}".to_f && item.fats >= fats_left * (1 - "0.#{@dailytarget.last.control_limit}".to_f)
+    item.fats <= fats_left * "1.#{@dailytarget.control_limit}".to_f && item.fats >= fats_left * (1 - "0.#{@dailytarget.control_limit}".to_f)
   end
 
   def cal_left
