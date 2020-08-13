@@ -1,0 +1,36 @@
+<%= simple_form_for @daily_target do |f| %>
+  <div class="d-flex">
+      <%= f.input :caloric_target, label: "Calorías (gr)", placeholder: 'Cantidad (kcal)' %>
+      <p1>Consumed: </p1><%= current_user.daily_targets.last.caloric_target - @cal_left %> /
+      <p1>Left: </p1> <%= @cal_left %>
+  </div>
+  <div class="d-flex">
+    <%= f.input :protein_target, label: "Proteínas (gr)", placeholder: 'Cantidad (g)' %>
+    <p1>Consumed: </p1><%= current_user.daily_targets.last.protein_target - @proteins_left%> /
+    <p1>Left: </p1> <%= @proteins_left %>
+  </div>
+  <div class="d-flex">
+    <%= f.input :carb_target, label: "Carbohidratos (gr)", placeholder: 'Cantidad (g)' %>
+    <p1>Consumed: </p1><%= current_user.daily_targets.last.carb_target - @carbs_left %> /
+    <p1>Left: </p1> <%= @carbs_left %>
+  </div>
+  <div class="d-flex">
+    <%= f.input :fat_target, label: "Grasas (gr)", placeholder: 'Cantidad (g)' %>
+    <p1>Consumed: </p1> <%= current_user.daily_targets.last.fat_target - @fats_left %> /
+    <p1>Left: </p1> <%= @fats_left %>
+  </div>
+  <%= f.input :control_limit, label: "Precisión (±%)", placeholder: '±20 (%)', collection: 1..99 %>
+  <%= f.submit 'Confirmar', class: "btn-green w-100" %>
+<% end %>
+
+<br>
+<h1>Platos Consumidos hoy</h1>
+<% current_user.orders.each do |order| %>
+  <% order.order_items.each do |order_item| %>
+    <% if order_item.consumed_at.day == Time.zone.now.day && order_item.consumed_at.month == Time.zone.now.month && order_item.consumed_at.year == Time.zone.now.year %>
+      <ul>
+        <li><%= Item.find_by_id(order_item.item_id).name %> (Cal: <%= Item.find_by_id(order_item.item_id).calories%>, Prot: <%= Item.find_by_id(order_item.item_id).proteins%>, Carb: <%= Item.find_by_id(order_item.item_id).carbs%>, Grasas: <%= Item.find_by_id(order_item.item_id).fats%>) / <%=order_item.consumed_at%></li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
