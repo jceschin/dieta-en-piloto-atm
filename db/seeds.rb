@@ -187,16 +187,17 @@ NAMES_INFO.each do |name|
   puts 'creating OrderItem'
   oi = OrderItem.new(
     item: Item.all.sample,
-    order: o
+    order: o,
+    consumed_at: Time.zone.now
     )
   oi.save
   puts 'creating DailyTarget'
   dt = DailyTarget.new(
     user: u,
-    caloric_target: 500,
-    protein_target: 23,
-    carb_target: 38,
-    fat_target: 26,
+    caloric_target: 1800,
+    protein_target: 158,
+    carb_target: 158,
+    fat_target: 60,
     control_limit: 90
     )
   dt.save
