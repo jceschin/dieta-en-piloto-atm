@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Mis platos</h5>
+        <h5 class="modal-title">Mi pedido</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -10,12 +10,14 @@
       <div class="modal-body">
         <% if !@order.nil? %>
           <% @order.items.each do |item| %>
-            <div class="d-flex align-items-center justify-content-between">
-              <p class="card-title"><%= item.name %></p>
-              <p>$ <%= item.price %></p>
+            <div class="d-flex align-items-center justify-content-between cart-modal-item">
+              <h3><%= item.name %></h3>
+              <h3>$ <%= item.price %></h3>
             </div>
           <% end %>
-          <p>Total: $<%= @order.total_price %></p>
+          <div class="cart-modal-price">
+            <h3>Total: $<%= @order.total_price %></h3>
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-green">Continuar compra</button>
           </div>
