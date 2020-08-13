@@ -197,7 +197,7 @@ NAMES_INFO.each do |name|
     protein_target: 23,
     carb_target: 38,
     fat_target: 26,
-    control_limit: 20
+    control_limit: 90
     )
   dt.save
 end
