@@ -1,6 +1,6 @@
-<div class="container mt-5" style="background-color: white">
+<div class="container mt-5" style="background-color: white; width: auto; height: 100%">
   <div class="text-center">
-    <h1>Mis Objetivos de Hoy</h1>
+    <h1 class="font-weight-bold mt-5" style="font-size: 28px">Mis Objetivos de Hoy</h1>
     <div class="d-flex justify-content-center align-items-center my-4">
       <div class="border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
         <p class="my-0 p-1">Consumido</p>
@@ -69,7 +69,7 @@
   <br>
   <div class="row justify-content-center mt-4">
     <div class="col-12 col-lg-6 text-center px-0">
-      <h1 class="w-100">Mi Consumo de hoy</h1>
+      <h1 class="w-100 font-weight-bold" style="font-size: 28px">Mi Consumo de hoy</h1>
       <% @items_consumed_today.each do |item| %>
         <ul class="w-100 px-0">
           <li class="w-100 px-0" style="list-style:none"><i class="fas fa-utensils mr-2"></i><%= item.name %> <br><small>Cal: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas: <%= item.fats%></small></li>
