@@ -25,6 +25,7 @@ class DailyTargetsController < ApplicationController
     proteins_left
     carbs_left
     fats_left
+    consumed_today
   end
 
   def edit
@@ -94,6 +95,18 @@ class DailyTargetsController < ApplicationController
       order.order_items.each do |item|
         if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
           @fats_left -= Item.find_by_id(item.item_id).fats
+        end
+      end
+    end
+  end
+
+  def consumed_today
+    @items_consumed_today = []
+    Order.where(user_id:current_user.id).each do |order|
+      # order_items = OrderItem.where(order_id:order.id)
+      order.order_items.each do |order_item|
+        if order_item.consumed_at.day == Time.zone.now.day && order_item.consumed_at.month == Time.zone.now.month && order_item.consumed_at.year == Time.zone.now.year
+          @items_consumed_today << Item.find_by_id(order_item.item_id)
         end
       end
     end

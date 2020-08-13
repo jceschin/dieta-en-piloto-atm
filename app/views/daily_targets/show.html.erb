@@ -72,14 +72,10 @@
   </div>
   <div class="row justify-content-center mt-4">
     <div class="col-12 col-lg-6">
-      <% current_user.orders.each do |order| %>
-        <% order.order_items.each do |order_item| %>
-          <% if order_item.consumed_at.day == Time.zone.now.day && order_item.consumed_at.month == Time.zone.now.month && order_item.consumed_at.year == Time.zone.now.year %>
-            <ul>
-              <li style="list-style:none"><i class="fas fa-utensils mr-2"></i><%= Item.find_by_id(order_item.item_id).name %> <br><small>Cal: <%= Item.find_by_id(order_item.item_id).calories%>, Proteínas: <%= Item.find_by_id(order_item.item_id).proteins%>, Carbohidratos: <%= Item.find_by_id(order_item.item_id).carbs%>, Grasas: <%= Item.find_by_id(order_item.item_id).fats%></small></li>
-            </ul>
-          <% end %>
-        <% end %>
+      <% @items_consumed_today.each do |item| %>
+        <ul>
+          <li style="list-style:none"><i class="fas fa-utensils mr-2"></i><%= item.name %> <br><small>Cal: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas: <%= item.fats%></small></li>
+        </ul>
       <% end %>
     </div>
   </div>
