@@ -2,6 +2,7 @@
 <% @items.each do |item|  %>
   <%= render 'item-modal', item: item, order_item: @order_item %>
 <% end %>
+<%= render 'cart-modal' %>
 <div class="container categories">
   <% @categories.sample(8).each do |category| %>
     <%= link_to "#", class: "hvr-grow" do %>
