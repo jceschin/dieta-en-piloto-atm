@@ -1,49 +1,86 @@
-<div class="container mt-5">
+<div class="container mt-5" style="background-color: white">
   <div class="text-center">
-    <h1>Mis Objetivos diarios</h1>
-    <h4>Consumido | Restante</h4>
+    <h1>Mis Objetivos de Hoy</h1>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
+        <p class="my-0 p-1">Consumido</p>
+      </div>
+      <div>
+        <p class="my-0 p-1 border" style="border-radius: 1px 8px 8px 1px">Restante</p>
+      </div>
+    </div>
   </div>
-<p class="mb-0">Calorías (kcal)</p>
-<div class="text-right my-0">
-  <span><small><%= current_user.daily_targets.last.caloric_target %></small></span>
-</div>
-<div class="d-flex" style="border-radius: 8px;">
+
+  <p class="mb-0 mt-4">Calorías (kcal)</p>
+  <div class="text-right my-0">
+    <span><small><%= current_user.daily_targets.last.caloric_target %></small></span>
+  </div>
+
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
-    <div class="w-100 text-center" style="background-color: #C0EA04; border-color: gray">
+    <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
       <span class="font-weight-bold"><%= current_user.daily_targets.last.caloric_target - @cal_left %></span>
     </div>
-    <div class="w-100 text-center" style="background-color: white; border-color: gray">
-     <span class="font-weight-bold"><%= @cal_left %></span>
+    <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
+      <span class="font-weight-bold" style="color:black"><%= @cal_left %></span>
     </div>
   </div>
-</div>
 
-<div class="d-flex">
-  <p>Proteínas diarias (g)</p> <%= current_user.daily_targets.last.protein_target %>
-  <p>Consumed: </p><%= current_user.daily_targets.last.protein_target - @proteins_left%> /
-  <p>Left: </p> <%= @proteins_left %>
-</div>
-<div class="d-flex">
-  <p>Carbohidratos diarios (g)</p> <%= current_user.daily_targets.last.carb_target %>
-  <p>Consumed: </p><%= current_user.daily_targets.last.carb_target - @carbs_left %> /
-  <p>Left: </p> <%= @carbs_left %>
-</div>
-<div class="d-flex">
-  <p>Grasas totales diarias (g)</p> <%= current_user.daily_targets.last.fat_target %>
-  <p>Consumed: </p> <%= current_user.daily_targets.last.fat_target - @fats_left %> /
-  <p>Left: </p> <%= @fats_left %>
-</div>
 
-<br>
-<h1>Mi Consumo hoy</h1>
-<% current_user.orders.each do |order| %>
-  <% order.order_items.each do |order_item| %>
-    <% if order_item.consumed_at.day == Time.zone.now.day && order_item.consumed_at.month == Time.zone.now.month && order_item.consumed_at.year == Time.zone.now.year %>
-      <ul>
-        <li><%= Item.find_by_id(order_item.item_id).name %> (Cal: <%= Item.find_by_id(order_item.item_id).calories%>, Prot: <%= Item.find_by_id(order_item.item_id).proteins%>, Carb: <%= Item.find_by_id(order_item.item_id).carbs%>, Grasas: <%= Item.find_by_id(order_item.item_id).fats%>) / <%=order_item.consumed_at%></li>
-      </ul>
-    <% end %>
-  <% end %>
-<% end %>
+  <p class="mb-0 mt-4">Proteínas (g)</p>
+  <div class="text-right my-0">
+    <span><small><%= current_user.daily_targets.last.protein_target %></small></span>
+  </div>
+  <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
+    <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
+      <span class="font-weight-bold"><%= current_user.daily_targets.last.protein_target - @proteins_left%></span>
+    </div>
+    <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
+      <span class="font-weight-bold"><%= @proteins_left %></span>
+    </div>
+  </div>
 
+  <p class="mb-0 mt-4">Carbohidratos (g)</p>
+  <div class="text-right my-0">
+    <span><small><%= current_user.daily_targets.last.carb_target %></small></span>
+  </div>
+  <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
+    <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
+      <span class="font-weight-bold"><%= current_user.daily_targets.last.carb_target - @carbs_left %></span>
+    </div>
+    <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
+      <span class="font-weight-bold"><%= @carbs_left %></span>
+    </div>
+  </div>
+
+  <p class="mb-0 mt-4">Grasas totales (g)</p>
+  <div class="text-right my-0">
+    <span><small><%= current_user.daily_targets.last.fat_target %></small></span>
+  </div>
+  <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
+    <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
+      <span class="font-weight-bold"><%= current_user.daily_targets.last.fat_target - @fats_left %></span>
+    </div>
+    <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
+      <span class="font-weight-bold"><%= @fats_left %></span>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <div class="text-center">
+    <h1>Mi Consumo de hoy</h1>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <div class="col-12 col-lg-6">
+      <% current_user.orders.each do |order| %>
+        <% order.order_items.each do |order_item| %>
+          <% if order_item.consumed_at.day == Time.zone.now.day && order_item.consumed_at.month == Time.zone.now.month && order_item.consumed_at.year == Time.zone.now.year %>
+            <ul>
+              <li style="list-style:none"><i class="fas fa-utensils mr-2"></i><%= Item.find_by_id(order_item.item_id).name %> <br><small>Cal: <%= Item.find_by_id(order_item.item_id).calories%>, Proteínas: <%= Item.find_by_id(order_item.item_id).proteins%>, Carbohidratos: <%= Item.find_by_id(order_item.item_id).carbs%>, Grasas: <%= Item.find_by_id(order_item.item_id).fats%></small></li>
+            </ul>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
