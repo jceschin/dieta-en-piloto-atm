@@ -8,7 +8,7 @@
 
 
   <%= link_to "#", class: "navbar-registrar hvr-grow-s" do %>
-    <%= image_tag "plusBigButton.png" %>
+    <%= image_tag "components/plus_button_big.png" %>
   <% end %>
 
   <div class="navbar-objetivos">
@@ -16,10 +16,9 @@
   </div>
 
 
-  <%= link_to "#", class: "navbar-carrito hvr-grow-s" do %>
+  <button type= "button" class= "navbar-carrito hvr-grow-s" data-toggle="modal" data-target="#cartModal">
     <%= image_tag "carrito.png" %>
-  <% end %>
-
+  </button>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

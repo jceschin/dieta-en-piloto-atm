@@ -11,3 +11,19 @@
   background: #556B2F;
   color: white;
 }
+
+.btn-add-sm {
+  color: white;
+  // padding: 8px 24px;
+  width: 100px;
+  height: 40px;
+  border-radius: 4px;
+  background: #184D47;
+  transition: background 0.3s ease;
+  font-size: 18px;
+}
+
+.btn-add-sm:hover {
+  background: #556B2F;
+  color: white;
+}

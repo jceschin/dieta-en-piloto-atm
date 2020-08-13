@@ -24,6 +24,11 @@ puts "destroying all Items"
 Item.destroy_all
 puts "destroying all Sellers"
 Seller.destroy_all
+puts "destroying all orders"
+Order.destroy_all
+puts "destroying all order items"
+OrderItem.destroy_all
+
 
 SELLERS_INFO = [
   {
@@ -202,3 +207,10 @@ NAMES_INFO.each do |name|
     )
   dt.save
 end
+
+# Seeds for user-can-buy-items
+puts "Creating seeds for user-can-buy-items"
+
+juan_order = Order.create(user: User.find_by(email: "juan@gmail.com"), status: "pending")
+juan_item_first = OrderItem.create(item_id: Item.first.id, order_id: juan_order.id)
+juan_item_second = OrderItem.create(item_id: Item.second.id, order_id: juan_order.id)
