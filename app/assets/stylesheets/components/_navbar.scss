@@ -26,13 +26,6 @@
   margin: 0px;
 }
 
-@media(max-width:375px) {
-  .navbar-objetivos {
-    visibility: hidden;
-    overflow: hidden;
-    width: 10px;
-  }
-}
 
 .navbar-tudieta .navbar-brand img {
   width: 45px;
@@ -47,6 +40,68 @@
 .navbar-tudieta .navbar-registrar img {
   flex-grow: 4;
   width: 40px;
+}
+
+@media(max-width:400px) {
+  .navbar-tudieta {
+    padding: 4px;
+  }
+
+  .navbar-objetivos {
+    flex-grow: 0;
+  }
+
+  .navbar-objetivos p {
+    padding: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .navbar-tudieta .navbar-registrar img {
+    width: 30px;
+  }
+
+  .navbar-tudieta .navbar-brand img {
+    width: 45px;
+  }
+
+  .navbar-tudieta .navbar-carrito img {
+    width: 45px;
+    margin-right: 5px;
+  }
+
+}
+
+
+@media(max-width: 350px) {
+  .navbar-tudieta {
+    padding: 2px;
+  }
+
+  .navbar-objetivos {
+    flex-grow: 0;
+  }
+
+  .navbar-objetivos p {
+    padding: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 14px;
+  }
+
+  .navbar-tudieta .navbar-registrar img {
+    width: 25px;
+  }
+
+  .navbar-tudieta .navbar-brand img {
+    width: 35px;
+  }
+
+  .navbar-tudieta .navbar-carrito img {
+    width: 35px;
+    margin-right: 4px;
+  }
+
 }
 
 // .navbar-lewagon {

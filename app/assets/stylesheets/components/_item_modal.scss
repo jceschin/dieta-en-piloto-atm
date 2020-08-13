@@ -1,16 +1,21 @@
 // _item_modal.scss
 
-#item-modal {
-
-}
-
-#itemModal h2 {
-  font-size: 30px;
+.item-modal h2 {
   margin: 0;
   font-weight: bold;
   font-family: Roboto, sans-serif;
   color: #184D47;
-  text-shadow: 0px 0px 2px rgba(255,255,255,1);
+  text-shadow: 1px 2px 1px rgba(255,255,255,1);
+}
+
+.item-modal .fa-star {
+  color: #D4AF37;
+  text-shadow: 1px 2px 1px rgba(255,255,255,1);
+}
+
+.item-modal .fa-times-circle {
+  font-size: 28px;
+  text-shadow: 1px 2px 1px rgba(255,255,255,1);
 }
 
 .item-modal-header {
@@ -19,12 +24,112 @@
   background-size: cover;
   // color: white;
   // background-color: red;
-  height: 400px;
+  height: 350px;
  }
 
 .item-modal-body {
   height: 400px;
 }
+
+.item-modal-info h2 {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+}
+
+.item-modal-description {
+  padding: 5px;
+  height: 85px;
+  overflow: scroll;
+  flex-shrink: 1;
+  flex-grow: 1;
+  margin: 10px 0px 10px 0px;
+  border: 1px solid rgba(24,77,71,0.2);
+}
+
+.item-modal-description p {
+  font-size: 18px;
+  // font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: rgba(24,77,71,0.6);
+  margin: 0px;
+}
+
+
+
+table.item-nutritonal-table {
+  width: 100%;
+  text-align: right;
+  width: 300px;
+  box-shadow: 0 4px 2px -2px rgba(24,77,71,0.6);
+}
+
+table.item-nutritonal-table .col1 {
+  color: rgb(24,77,71);
+  text-align: left;
+}
+
+table.item-nutritonal-table td, table.item-nutritonal-table th {
+  border: 0px solid #AAAAAA;
+  padding: 1px 2px;
+}
+table.item-nutritonal-table tbody td {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #333333;
+}
+
+
+.item-modal-addorder {
+  margin: 10px 0px;
+}
+
+.item-modal-price {
+  margin: 10px 0px;
+}
+
+.item-modal-addtracking {
+  margin: 10px 0px;
+}
+
+.item-modal-addtracking .form-check {
+  padding: 0px;
+}
+
+.item-modal-addtracking .form-check-input {
+  margin: 0px;
+}
+
+.item-modal-addorder h2, .item-modal-price h2{
+  font-size: 22px;
+}
+
+.item-modal-addtracking h2 {
+  font-size: 16px;
+}
+
+
+
+
+
+// .plus-minus-button img {
+//   width: 13px;
+// }
+
+
+.plus-minus-input i {
+  color: rgb(24,77,71);
+}
+
+.plus-minus-input input {
+  margin: 0px 10px;
+  width: 45px;
+  text-align: center;
+}
+
+
+
 
 @media(max-width: 450px) {
   .item-modal-header {
@@ -32,11 +137,22 @@
   }
 
   .item-modal-body {
-    height: 300px;
+    height: 400px;
   }
 
-  #itemModal h2 {
-  font-size: 22px;
-  }
+  // #itemModal .item-modal-info h2 {
+  //   font-size: 22px;
+  // }
 }
 
+
+@media(max-width: 325px) {
+  table.item-nutritonal-table {
+    width: 250px;
+  }
+
+  .item-modal-body {
+    height: 500px;
+  }
+
+}

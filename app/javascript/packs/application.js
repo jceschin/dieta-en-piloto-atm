@@ -27,10 +27,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { initModalFunctions } from '../components/modal_functions';
+// import { initItemModalFunctions } from '../components/modal_functions';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initModalFunctions();
+  // initItemModalFunctions();
 });
