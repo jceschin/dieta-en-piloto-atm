@@ -12,6 +12,10 @@ class OrderItemsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @order_item
+  end
+
   private
 
   def order_item_params
