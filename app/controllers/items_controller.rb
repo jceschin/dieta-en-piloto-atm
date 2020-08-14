@@ -28,6 +28,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @user_item
+  end
+
   private
 
   def user_item_order_i
