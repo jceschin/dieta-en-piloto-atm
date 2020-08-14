@@ -40,8 +40,10 @@ class ItemsController < ApplicationController
   def set_suggested_items
     @suggested_items = []
     policy_scope(Item).each do |item|
-      if calories_in_target?(item) && proteins_in_target?(item) && carbs_in_target?(item) && fats_in_target?(item)
-        @suggested_items << item
+      if Seller.find_by_id(item.seller_id).name != 'user'
+        if calories_in_target?(item) && proteins_in_target?(item) && carbs_in_target?(item) && fats_in_target?(item)
+          @suggested_items << item
+        end
       end
     end
   end

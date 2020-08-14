@@ -1,5 +1,5 @@
 <!-- index.html.erb -->
-<% @items.each do |item|  %>
+<% @suggested_items.each do |item|  %>
   <%= render 'item-modal', item: item, order_item: @order_item %>
 <% end %>
 <%= render 'cart-modal' %>
@@ -14,10 +14,10 @@
   <h2>Tus sugeridos</h2>
 </div>
 <div class="container item-cards">
-  <% if @items_suggested.count == 0 %>
+  <% if @suggested_items.count == 0 %>
     <%= render 'control_limit' %>
   <% else %>
-    <% @items_suggested.each do |item|  %>
+    <% @suggested_items.each do |item|  %>
       <%= render 'item-card', item: item %>
     <% end %>
   <% end %>
