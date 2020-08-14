@@ -72,7 +72,7 @@
   <div class="row justify-content-center mt-4">
     <div class="col-12 col-lg-6 text-center px-0">
       <% if @items_consumed_today.any? %>
-      <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
+      <%= link_to new_item_path, class: "link" do  %>
         <h1 class="w-100 font-weight-bold" style="font-size: 28px">Mi Consumo de hoy<i class="fas fa-plus ml-3"></i></h1>
       <% end %>
         <% @items_consumed_today.each do |item|%>
