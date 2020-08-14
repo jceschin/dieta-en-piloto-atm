@@ -20,7 +20,8 @@ class ItemsController < ApplicationController
     @user_item.seller_id = Seller.find_by(description:current_user.email).id
     authorize @user_item
     if @user_item.save
-      redirect_to items_path
+      user_item_order_i
+      redirect_to daily_target_path(current_user.daily_targets.last.id)
     else
       raise
       render :new
@@ -28,6 +29,13 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def user_item_order_i
+    o = Order.new(user_id:current_user.id)
+    o.save
+    oi = OrderItem.new(item_id:@user_item.id, order_id:o.id)
+    oi.save
+  end
 
   def user_item_params
     params.require(:item).permit(:name, :calories, :proteins, :fats, :carbs)
