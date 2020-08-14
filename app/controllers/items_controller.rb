@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @items_to_select_from = Item.all
     @item = Item.new
     authorize @item
   end
