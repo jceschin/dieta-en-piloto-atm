@@ -4,12 +4,12 @@
       <h1>Registrar Consumo Diario</h1>
     </div>
     <div>
-      <%= simple_form_for @item do |f| %>
-        <%= f.input :name, label: 'Nombre:', collection: @items_to_select_from.each {|item| item.name}, include_blank: true, prompt: "Seleccioná un plato", required: true %>
-        <%= f.input :calories, label: 'Calorías (kcal)', placeholder: '285', required: true %>
-        <%= f.input :proteins, label: 'Proteínas (gr)', placeholder: '24', required: true %>
-        <%= f.input :fats, label: 'Grasas Totales (gr)', placeholder: '15', required: true %>
-        <%= f.input :carbs, label: 'Carbohidratos (gr)', placeholder: '14', required: true %>
+      <%= simple_form_for @user_item do |f| %>
+        <%= f.input :name, label: 'Nombre del Plato:', placeholder: "Ensalada Crispy", required: true %>
+        <%= f.input :calories, label: 'Calorías (kcal)', placeholder: '285', collection: 1..600, required: true %>
+        <%= f.input :proteins, label: 'Proteínas (gr)', placeholder: '24', collection: 1..60, required: true %>
+        <%= f.input :fats, label: 'Grasas Totales (gr)', placeholder: '15', collection: 1..60, required: true %>
+        <%= f.input :carbs, label: 'Carbohidratos (gr)', placeholder: '14', collection: 1..60, required: true %>
         <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
       <% end %>
     </div>
