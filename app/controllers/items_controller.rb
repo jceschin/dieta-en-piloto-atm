@@ -9,6 +9,10 @@ class ItemsController < ApplicationController
     @order = current_user.pending_order
   end
 
+  def new
+    @item = Item.new
+  end
+
   private
 
   def set_items
