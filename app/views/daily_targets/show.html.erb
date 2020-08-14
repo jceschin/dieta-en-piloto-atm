@@ -69,11 +69,13 @@
   <br>
   <div class="row justify-content-center mt-4">
     <div class="col-12 col-lg-6 text-center px-0">
-      <h1 class="w-100 font-weight-bold" style="font-size: 28px">Mi Consumo de hoy</h1>
-      <% @items_consumed_today.each do |item| %>
-        <ul class="w-100 px-0">
-          <li class="w-100 px-0" style="list-style:none"><i class="fas fa-utensils mr-2"></i><%= item.name %> <br><small>Cal: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas: <%= item.fats%></small></li>
-        </ul>
+      <% if @items_consumed_today.any? %>
+        <h1 class="w-100 font-weight-bold" style="font-size: 28px">Mi Consumo de hoy</h1>
+        <% @items_consumed_today.each do |item|%>
+          <ul class="w-100 px-0">
+            <li class="w-100 px-0" style="list-style:none"><i class="fas fa-utensils mr-2"></i><%= item.name %> <br><small>Cal: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas: <%= item.fats%></small></li>
+          </ul>
+        <% end %>
       <% end %>
     </div>
   </div>
