@@ -12,4 +12,8 @@ class ItemPolicy < ApplicationPolicy
   def create?
     return true
   end
+
+  def edit?
+    create?
+  end
 end
