@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   def index
     @dailytarget = DailyTarget.where(user_id:current_user.id).last
     set_items
-    #@items = policy_scope(Item)
+    @items = policy_scope(Item)
     @order_item = OrderItem.new
     @categories = Category.all
 
