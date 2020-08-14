@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @dailytarget = DailyTarget.where(user_id:current_user.id).last
-    set_items
+    set_suggested_items
     @items = policy_scope(Item)
     @order_item = OrderItem.new
     @categories = Category.all
@@ -10,18 +10,38 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @user_item = Item.new
     @items_to_select_from = Item.all
-    @item = Item.new
-    authorize @item
+    authorize @user_item
+  end
+
+  def create
+    @user_item = Item.new(user_item_params)
+    @user_item.seller_id = Seller.find_by(description:current_user.email).id
+    authorize @user_item
+    if @user_item.save
+      redirect_to items_path
+    else
+      raise
+      render :new
+    end
   end
 
   private
 
-  def set_items
-    @items_suggested = []
+  def user_item_params
+    params.require(:item).permit(:name, :calories, :proteins, :fats, :carbs)
+  end
+
+  def order_item_params
+    params.require(:order_item).permit(:consumed_at)
+  end
+
+  def set_suggested_items
+    @suggested_items = []
     policy_scope(Item).each do |item|
       if calories_in_target?(item) && proteins_in_target?(item) && carbs_in_target?(item) && fats_in_target?(item)
-        @items_suggested << item
+        @suggested_items << item
       end
     end
   end

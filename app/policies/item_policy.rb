@@ -10,6 +10,6 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    return true
   end
 end
