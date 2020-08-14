@@ -4,8 +4,7 @@ Rails.application.routes.draw do
 
   resources :daily_targets, only: %i[new create show edit update]
 
-  resources :items, only: %i[index] do
+  resources :items, only: %i[index new create] do
     resources :order_items, only: %i[create]
   end
-
 end
