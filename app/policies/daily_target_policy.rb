@@ -9,6 +9,10 @@ class DailyTargetPolicy < ApplicationPolicy
     return true
   end
 
+  def show?
+    record.user == user
+  end
+
   def update?
     record.user == user
   end

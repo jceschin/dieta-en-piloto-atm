@@ -141,6 +141,7 @@
   }
 
   .text-div h1 {
+    color: black;
     font-size: 130%;
     margin-top: 2%!important;
     margin-bottom: 2%!important;
@@ -152,6 +153,18 @@
     margin-bottom: 2%!important;
   }
 
+  .carousel-item img {
+      opacity: 0;
+    }
 }
 
+  @media(max-width: 767px) {
+    .carousel-item img {
+      opacity: 0;
+    }
+
+    .text-div h1 {
+      color: black;
+    }
+  }
 /*****************/
