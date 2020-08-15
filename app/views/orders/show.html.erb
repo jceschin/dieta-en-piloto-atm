@@ -1,1 +1,28 @@
-<h1>Orden Confirmada</h1>
+  <div class="container mt-5" style="background-color:white">
+  <h1 class="font-weight-bold">Orden Confirmada</h1>
+  <div class="row border border-dark">
+    <% @order.order_items.each do |order_item|  %>
+      <div class="col-4">
+        <h2 class="font-weight-bold">Plato</h2>
+        <%= order_item.item.name %>
+      </div>
+      <div class="col-4">
+        <h2 class="font-weight-bold">Calorías</h2>
+        <%= order_item.item.calories %> kcal
+      </div>
+      <div class="col-4">
+        <h2 class="font-weight-bold">Precio</h2>
+        $<%= order_item.item.price %>
+      </div>
+    <% end %>
+    <div>
+      <h4 class="mt-4 ml-4 font-weight-bold">$<%= @order.total_price %></h4>
+      <div class="d-flex align-items-center">
+        <h4 class="mt-4 ml-4 font-weight-bold"><%= @order.total_cal %> Kcal</h4>
+          <h4 class="mt-4 font-weight-bold ml-4">✔ dentro de tu objetivo!</h4>
+
+      </div>
+    </div>
+  </div>
+</div>
+
