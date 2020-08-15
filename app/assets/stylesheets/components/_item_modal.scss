@@ -8,14 +8,31 @@
   text-shadow: 1px 2px 1px rgba(255,255,255,1);
 }
 
-.item-modal .fa-star {
-  color: #D4AF37;
-  text-shadow: 1px 2px 1px rgba(255,255,255,1);
+
+.item-modal-rating {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 60px;
+  padding: 6px 10px;
+  color: #71CC34;
+  font-size: 14px;
+  margin: 0;
 }
+
+.item-modal-rating p {
+  margin: 0;
+}
+
+// .item-modal-rating .fa-star {
+//   color: #D4AF37;
+//   text-shadow: 1px 2px 1px rgba(255,255,255,1);
+// }
 
 .item-modal .fa-times-circle {
   font-size: 28px;
-  text-shadow: 1px 2px 1px rgba(255,255,255,1);
+  // text-shadow: 1px 2px 1px rgba(255,255,255,1);
+  color: white;
 }
 
 .item-modal-header {
@@ -25,10 +42,27 @@
   // color: white;
   // background-color: red;
   height: 350px;
+  box-shadow: inset 0px -76px 40px rgba(0, 0, 0, 0.55);
+  padding-bottom: 5px;
  }
+
+.item-modal-header-bottom h2 {
+  color: white;
+  font-weight: normal;
+  text-shadow: 0px 0px 0px rgba(255,255,255,0);
+  font-size: 22px;
+}
+
+.item-modal-header-bottom h3 {
+  color: white;
+  font-weight: light;
+  text-shadow: 0px 0px 0px rgba(255,255,255,0);
+  font-size: 14px;
+}
 
 .item-modal-body {
   height: 400px;
+  padding: 5%;
 }
 
 .item-modal-info h2 {
@@ -38,20 +72,21 @@
 }
 
 .item-modal-description {
-  padding: 5px;
-  height: 85px;
+  padding-bottom: 5px;
+  height: 65px;
   overflow: scroll;
   flex-shrink: 1;
   flex-grow: 1;
-  margin: 10px 0px 10px 0px;
+  margin: 0px 5px 10px 5px;
   border: 1px solid rgba(24,77,71,0.2);
 }
 
 .item-modal-description p {
-  font-size: 18px;
+  font-size: 14px;
   // font-weight: bold;
   font-family: Roboto, sans-serif;
-  color: rgba(24,77,71,0.6);
+  // color: rgba(24,77,71,0.6);
+  color: #BBBBBB;
   margin: 0px;
 }
 
@@ -60,33 +95,54 @@
 table.item-nutritonal-table {
   width: 100%;
   text-align: right;
-  width: 300px;
-  box-shadow: 0 4px 2px -2px rgba(24,77,71,0.6);
+  // margin: 10px;
+  // width: 300px;
+  // box-shadow: 0 4px 2px -2px rgba(24,77,71,0.6);
 }
 
-table.item-nutritonal-table .col1 {
-  color: rgb(24,77,71);
-  text-align: left;
-}
 
 table.item-nutritonal-table td, table.item-nutritonal-table th {
-  border: 0px solid #AAAAAA;
+  // border: 0px solid #AAAAAA;
   padding: 1px 2px;
 }
 table.item-nutritonal-table tbody td {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: medium;
   font-family: Roboto, sans-serif;
-  color: #333333;
+  // color: #333333;
+  color: #184D47;
 }
 
+table.item-nutritonal-table .col1 {
+  color: #184D47;
+  text-align: left;
+}
+
+table.item-nutritonal-table .fil-cal {
+  color: #71CC34;
+}
 
 .item-modal-addorder {
   margin: 10px 0px;
 }
 
 .item-modal-price {
-  margin: 10px 0px;
+  // margin: 10px 0px;
+  margin: 0px;
+}
+
+.item-modal-price p{
+  font-size: 20px;
+  font-weight: medium;
+  color: #184D47;
+  margin: 0px;
+}
+
+.item-modal-price-unit p{
+  font-size: 12px;
+  color: #BBBBBB;
+  font-weight: light;
+  margin: 0px;
 }
 
 .item-modal-addtracking {
@@ -101,7 +157,7 @@ table.item-nutritonal-table tbody td {
   margin: 0px;
 }
 
-.item-modal-addorder h2, .item-modal-price h2{
+.item-modal-addorder h2{
   font-size: 22px;
 }
 
@@ -118,15 +174,15 @@ table.item-nutritonal-table tbody td {
 // }
 
 
-.plus-minus-input i {
-  color: rgb(24,77,71);
-}
+// .plus-minus-input i {
+//   color: rgb(24,77,71);
+// }
 
-.plus-minus-input input {
-  margin: 0px 10px;
-  width: 45px;
-  text-align: center;
-}
+// .plus-minus-input input {
+//   margin: 0px 10px;
+//   width: 45px;
+//   text-align: center;
+// }
 
 
 

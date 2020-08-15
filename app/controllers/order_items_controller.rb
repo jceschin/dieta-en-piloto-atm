@@ -6,16 +6,21 @@ class OrderItemsController < ApplicationController
     else
       order = Order.create(user_id: current_user.id, status: :pending)
     end
-    params[:quantity].times do
-      @order_item = OrderItem.new(order_item_params)
+    item = Item.find(params[:item_id])
+    params[:quantity].to_i.times do
+      @order_item = OrderItem.new
+      @order_item.item = item
       @order_item.order = order
       @order_item.save
     end
+    authorize @order_item
+
+    # render 'items/index'
   end
 
-  private
+  # private
 
-  def order_item_params
-    params.require(:order_item).permit(:item_id)
-  end
+  # def order_item_params
+  #   params.require(:order_item).permit(:item_id)
+  # end
 end
