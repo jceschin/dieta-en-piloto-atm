@@ -49,7 +49,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def cal_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find(params[:id])
     @cal_left = @daily_target.caloric_target
     orders.each do |order|
@@ -62,7 +62,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def proteins_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find(params[:id])
     @proteins_left = @daily_target.protein_target
     orders.each do |order|
@@ -75,7 +75,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def carbs_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find(params[:id])
     @carbs_left = @daily_target.carb_target
     orders.each do |order|
@@ -88,7 +88,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def fats_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find(params[:id])
     @fats_left = @daily_target.fat_target
     orders.each do |order|

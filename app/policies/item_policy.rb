@@ -3,6 +3,7 @@ class ItemPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+
   end
 
   def new?
@@ -24,4 +25,5 @@ class ItemPolicy < ApplicationPolicy
   def destroy?
     create?
   end
+
 end
