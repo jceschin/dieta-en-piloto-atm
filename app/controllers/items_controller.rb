@@ -46,9 +46,7 @@ class ItemsController < ApplicationController
     @cal_left = @daily_target.caloric_target
     orders.each do |order|
       order.order_items.each do |item|
-        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
-          @cal_left -= Item.find_by_id(item.item_id).calories
-        end
+        @cal_left -= Item.find_by_id(item.item_id).calories if item.consumed_at&.today?
       end
     end
     @cal_left
@@ -60,7 +58,7 @@ class ItemsController < ApplicationController
     @proteins_left = @daily_target.protein_target
     orders.each do |order|
       order.order_items.each do |item|
-        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
+        if item.consumed_at&.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
           @proteins_left -= Item.find_by_id(item.item_id).proteins
         end
       end
@@ -74,7 +72,7 @@ class ItemsController < ApplicationController
     @carbs_left = @daily_target.carb_target
     orders.each do |order|
       order.order_items.each do |item|
-        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
+        if item.consumed_at&.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
           @carbs_left -= Item.find_by_id(item.item_id).carbs
         end
       end
@@ -88,7 +86,7 @@ class ItemsController < ApplicationController
     @fats_left = @daily_target.fat_target
     orders.each do |order|
       order.order_items.each do |item|
-        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
+        if item.consumed_at&.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
           @fats_left -= Item.find_by_id(item.item_id).fats
         end
       end
