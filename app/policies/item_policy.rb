@@ -3,5 +3,7 @@ class ItemPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+
   end
+
 end
