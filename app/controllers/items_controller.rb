@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
 
   def index
     if current_user
-      @dailytarget = DailyTarget.where(user_id: current_user.id).last
       set_items
     else
       @items = policy_scope(Item)
@@ -24,26 +23,27 @@ class ItemsController < ApplicationController
 
   def set_items
     @items = []
+    daily_target = DailyTarget.where(user_id: current_user.id).last
     policy_scope(Item).each do |item|
-      if calories_in_target?(item) && proteins_in_target?(item) && carbs_in_target?(item) && fats_in_target?(item)
+      if calories_in_target?(item, daily_target) && proteins_in_target?(item, daily_target) && carbs_in_target?(item, daily_target) && fats_in_target?(item, daily_target)
         @items << item
       end
     end
   end
 
-  def calories_in_target?(item)
-    item.calories <= current_user.cal_left * daily_target_upper_limit && item.calories >= current_user.cal_left * daily_target_lower_limit
+  def calories_in_target?(item, target)
+    item.calories <= current_user.cal_left * target.upper_limit && item.calories >= current_user.cal_left * target.lower_limit
   end
 
-  def proteins_in_target?(item)
-    item.proteins <= current_user.proteins_left * daily_target_upper_limit && item.proteins >= current_user.proteins_left * daily_target_lower_limit
+  def proteins_in_target?(item, target)
+    item.proteins <= current_user.proteins_left * target.upper_limit && item.proteins >= current_user.proteins_left * target.lower_limit
   end
 
-  def carbs_in_target?(item)
-    item.carbs <= current_user.carbs_left * daily_target_upper_limit && item.carbs >= current_user.carbs_left * daily_target_lower_limit
+  def carbs_in_target?(item, target)
+    item.carbs <= current_user.carbs_left * target.upper_limit && item.carbs >= current_user.carbs_left * target.lower_limit
   end
 
-  def fats_in_target?(item)
-    item.fats <= current_user.fats_left * daily_target_upper_limit && item.fats >= current_user.fats_left * daily_target_lower_limit
+  def fats_in_target?(item, target)
+    item.fats <= current_user.fats_left * target.upper_limit && item.fats >= current_user.fats_left * target_lower.limit
   end
 end
