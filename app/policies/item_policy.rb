@@ -6,11 +6,11 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def new?
-    return true
+    user
   end
 
   def create?
-    return true
+    new?
   end
 
   def edit?
