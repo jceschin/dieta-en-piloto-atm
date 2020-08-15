@@ -18,7 +18,7 @@ class DailyTargetsController < ApplicationController
     end
   end
 
-  def my_daily_target
+  def show
     @daily_target = current_user.daily_target
     authorize @daily_target
     cal_left(@daily_target)
