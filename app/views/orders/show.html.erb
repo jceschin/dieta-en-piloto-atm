@@ -19,8 +19,9 @@
       <h4 class="mt-4 ml-4 font-weight-bold">$<%= @order.total_price %></h4>
       <div class="d-flex align-items-center">
         <h4 class="mt-4 ml-4 font-weight-bold"><%= @order.total_cal %> Kcal</h4>
-          <h4 class="mt-4 font-weight-bold ml-4">✔ dentro de tu objetivo!</h4>
-
+          <% if @order.total_cal_in_target? %>
+            <h4 class="mt-4 font-weight-bold ml-4">✔ dentro de tu objetivo!</h4>
+          <% end %>
       </div>
     </div>
   </div>
