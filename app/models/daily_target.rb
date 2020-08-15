@@ -9,4 +9,12 @@ class DailyTarget < ApplicationRecord
   validates_numericality_of :protein_target, greater_than: 0
   validates_numericality_of :carb_target, greater_than: 0
   validates_numericality_of :fat_target, greater_than: 0
+
+  def upper_limit
+    "1.#{dailytarget.control_limit}".to_f
+  end
+
+  def lower_limit
+    (1 - "0.#{dailytarget.control_limit}".to_f)
+  end
 end
