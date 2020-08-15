@@ -21,7 +21,8 @@ class ItemsController < ApplicationController
     authorize @user_item
     if @user_item.save
       user_item_order_i
-      redirect_to daily_target_path(current_user.daily_targets.last.id)
+      #redirect_to daily_target_path(current_user.daily_targets.last.id)
+      redirect_to edit_item_order_item_path(user_item_order_i)
     else
       raise
       render :new
@@ -29,6 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @user_item = Item.find(params[:id])
     authorize @user_item
   end
 
