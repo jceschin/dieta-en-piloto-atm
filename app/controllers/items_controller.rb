@@ -6,6 +6,6 @@ class ItemsController < ApplicationController
     @order_item = OrderItem.new
     @categories = Category.all
 
-    @order = nil #current_user.pending_order
+    @order = current_user&.pending_order
   end
 end
