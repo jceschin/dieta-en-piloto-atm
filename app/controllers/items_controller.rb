@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
       @dailytarget = DailyTarget.where(user_id: current_user.id).last
       set_items
     else
-      @items = policy_scope(Item)
+      @items = policy_scope(Item).seller
     end
 
     @order_item = OrderItem.new
@@ -69,7 +69,7 @@ class ItemsController < ApplicationController
 
   def set_items
     @items = []
-    policy_scope(Item).each do |item|
+    policy_scope(Item).seller.each do |item|
       if calories_in_target?(item) && proteins_in_target?(item) && carbs_in_target?(item) && fats_in_target?(item)
         @items << item
       end
