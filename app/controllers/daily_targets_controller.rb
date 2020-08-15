@@ -49,7 +49,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def cal_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find(params[:id])
     @cal_left = @daily_target.caloric_target
     orders.each do |order|
@@ -62,7 +62,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def proteins_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find(params[:id])
     @proteins_left = @daily_target.protein_target
     orders.each do |order|
@@ -75,7 +75,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def carbs_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find(params[:id])
     @carbs_left = @daily_target.carb_target
     orders.each do |order|
@@ -88,7 +88,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def fats_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find(params[:id])
     @fats_left = @daily_target.fat_target
     orders.each do |order|
@@ -102,7 +102,7 @@ class DailyTargetsController < ApplicationController
 
   def consumed_today
     @items_consumed_today = []
-    Order.where(user_id:current_user.id).each do |order|
+    Order.where(user_id: current_user.id).each do |order|
       # order_items = OrderItem.where(order_id:order.id)
       order.order_items.each do |order_item|
         if order_item.consumed_at.day == Time.zone.now.day && order_item.consumed_at.month == Time.zone.now.month && order_item.consumed_at.year == Time.zone.now.year

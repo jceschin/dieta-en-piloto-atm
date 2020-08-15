@@ -1,12 +1,16 @@
 class ItemsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
-    @dailytarget = DailyTarget.where(user_id:current_user.id).last
-    set_items
-    #@items = policy_scope(Item)
+    if current_user
+      @dailytarget = DailyTarget.where(user_id: current_user.id).last
+      set_items
+    end
+    @items = policy_scope(Item)
     @order_item = OrderItem.new
     @categories = Category.all
 
-    @order = current_user.pending_order
+    @order = current_user&.pending_order
   end
 
   private
