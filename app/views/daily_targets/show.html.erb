@@ -77,13 +77,12 @@
           <%= link_to new_item_path, class: "link" do  %>
             <i class="fas fa-plus ml-0 pl-0" style="font-size:130%"></i>
           <% end %>
-          <%= link_to edit_item_path, class: "link" do  %>
-            <i class="fas fa-pencil-alt ml-3" style="font-size:130%"></i>
-          <% end %>
         </div>
         <% @items_consumed_today.each do |item|%>
           <ul class="w-100 px-0">
-            <li class="w-100 px-0" style="list-style:none"><i class="fas fa-utensils mr-2"></i><%= item.name %> <br><small>Cal: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas: <%= item.fats%></small></li>
+            <%= link_to edit_item_path(item), class: "link" do  %>
+            <li class="w-100 px-0" style="list-style:none"><i class="fas fa-utensils mr-2"></i><%= item.name %><i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i><br><small>Cal: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas: <%= item.fats%></small></li>
+          <% end %>
           </ul>
         <% end %>
       <% end %>
