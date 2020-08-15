@@ -13,8 +13,7 @@
       <div class="modal-body">
         <% if !order.nil? %>
 
-          <!-- /items/:item_id/order_items -->
-          <%= form_for [order], html: {class: "cart-modal-form"} do |f| %>
+          <!-- form route? -->
 
             <% @order.items.each do |item| %>
 
@@ -39,7 +38,8 @@
               <button type="button" class="btn btn-green">Continuar compra</button>
             </div>
 
-          <% end %>
+          <!-- </form> -->
+
 
         <% else %>
           <h1>Carrito vacío</h1>
