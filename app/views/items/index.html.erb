@@ -1,8 +1,11 @@
 <!-- index.html.erb -->
+
 <% @items.each do |item|  %>
   <%= render 'item-modal', item: item, order_item: @order_item %>
 <% end %>
-<%= render 'cart-modal' %>
+
+<%= render 'cart-modal', order: @order%>
+
 <div class="container categories">
   <% @categories.sample(8).each do |category| %>
     <%= link_to "#", class: "hvr-grow" do %>
@@ -10,11 +13,17 @@
     <% end %>
   <% end %>
 </div>
+
 <div class="container text-center pt-3 pb-0 sugerencias bg-white">
   <h2>Tus sugeridos</h2>
 </div>
 <div class="container item-cards">
-    <% @items.each do |item|  %>
+  <% if @items_suggested&.count == 0 %>
+    <%= render 'control_limit' %>
+  <% else %>
+    <% @items_suggested&.each do |item|  %>
       <%= render 'item-card', item: item %>
     <% end %>
+  <% end %>
 </div>
+

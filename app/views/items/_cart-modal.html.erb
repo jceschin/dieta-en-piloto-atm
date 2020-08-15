@@ -1,28 +1,52 @@
-<div class="modal" tabindex="-1" id="cartModal">
-  <div class="modal-dialog">
+<div class="modal fade cart-modal" tabindex="-1" id="cartModal" role="dialog"
+  aria-labelledby="itemModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
-        <h5 class="modal-title">Mis platos</h5>
+        <h2>Mi pedido</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
-        <% if !@order.nil? %>
-          <% @order.items.each do |item| %>
-            <div class="d-flex align-items-center justify-content-between">
-              <p class="card-title"><%= item.name %></p>
-              <p>$ <%= item.price %></p>
+        <% if !order.nil? %>
+
+          <!-- /items/:item_id/order_items -->
+          <%= form_for [order], html: {class: "cart-modal-form"} do |f| %>
+
+            <% @order.items.each do |item| %>
+
+              <div class="d-flex align-items-center justify-content-between cart-modal-item">
+
+
+
+                <h3><%= item.name %></h3>
+
+                <h3>$ <%= item.price %></h3>
+
+              </div>
+
+            <% end %>
+
+
+            <div class="cart-modal-price">
+              <h3>Total: $<%= @order.total_price %></h3>
             </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-green">Continuar compra</button>
+            </div>
+
           <% end %>
-          <p>Total: $<%= @order.total_price %></p>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-green">Continuar compra</button>
-          </div>
+
         <% else %>
           <h1>Carrito vacío</h1>
         <% end %>
+
       </div>
+
     </div>
   </div>
 </div>

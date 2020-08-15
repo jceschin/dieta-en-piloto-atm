@@ -1,0 +1,80 @@
+<div class="container mt-5" style="background-color: white; width: auto; height: 100%">
+  <div class="text-center">
+    <h1 class="font-weight-bold mt-5" style="font-size: 28px">Mis Objetivos de Hoy</h1>
+    <div class="d-flex justify-content-center align-items-center my-4">
+      <div class="border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
+        <p class="my-0 p-1">Consumido</p>
+      </div>
+      <div>
+        <p class="my-0 p-1 border" style="border-radius: 1px 8px 8px 1px">Restante</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="mb-0 mt-4">Calorías (kcal)</p>
+  <div class="text-right my-0">
+    <span><small><%= @daily_target.caloric_target %></small></span>
+  </div>
+
+  <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
+    <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
+      <span class="font-weight-bold"><%= @daily_target.caloric_target - @cal_left %></span>
+    </div>
+    <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
+      <span class="font-weight-bold" style="color:black"><%= @cal_left %></span>
+    </div>
+  </div>
+
+
+  <p class="mb-0 mt-4">Proteínas (g)</p>
+  <div class="text-right my-0">
+    <span><small><%= @daily_target.protein_target %></small></span>
+  </div>
+  <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
+    <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
+      <span class="font-weight-bold"><%= @daily_target.protein_target - @proteins_left%></span>
+    </div>
+    <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
+      <span class="font-weight-bold"><%= @proteins_left %></span>
+    </div>
+  </div>
+
+  <p class="mb-0 mt-4">Carbohidratos (g)</p>
+  <div class="text-right my-0">
+    <span><small><%= @daily_target.carb_target %></small></span>
+  </div>
+  <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
+    <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
+      <span class="font-weight-bold"><%= @daily_target.carb_target - @carbs_left %></span>
+    </div>
+    <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
+      <span class="font-weight-bold"><%= @carbs_left %></span>
+    </div>
+  </div>
+
+  <p class="mb-0 mt-4">Grasas totales (g)</p>
+  <div class="text-right my-0">
+    <span><small><%= @daily_target.fat_target %></small></span>
+  </div>
+  <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
+    <div class="w-100 text-center border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
+      <span class="font-weight-bold"><%= @daily_target.fat_target - @fats_left %></span>
+    </div>
+    <div class="w-100 text-center border" style="border-style: hidden; border-radius: 1px 8px 8px 1px">
+      <span class="font-weight-bold"><%= @fats_left %></span>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <div class="row justify-content-center mt-4">
+    <div class="col-12 col-lg-6 text-center px-0">
+      <h1 class="w-100 font-weight-bold" style="font-size: 28px">Mi Consumo de hoy</h1>
+      <% @items_consumed_today.each do |item| %>
+        <ul class="w-100 px-0">
+          <li class="w-100 px-0" style="list-style:none"><i class="fas fa-utensils mr-2"></i><%= item.name %> <br><small>Cal: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas: <%= item.fats%></small></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

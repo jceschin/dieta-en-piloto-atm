@@ -57,10 +57,10 @@ ITEMS_INFO = [
   {
     name: "Ensalada Mikonos" ,
     description: "Atún, rúcula, espinaca, aceitunas negras, croutones, palta, tomates y queso sardo...",
-    calories: 300,
-    proteins: 40,
-    fats: 15,
-    carbs: 10,
+    calories: 451,
+    proteins: 30,
+    fats: 30,
+    carbs: 14,
     origin: :seller,
     price: 1000,
     categories_keywords: ["ensaladas", "pescados"],
@@ -69,10 +69,10 @@ ITEMS_INFO = [
     {
     name: "Ensalada Crispy" ,
     description: "Lechuga romana, tomates cherry, pepino, mango, queso mozarella, pechuga de pollo, ajo, sal y pimienta.",
-    calories: 338,
-    proteins: 42,
+    calories: 285,
+    proteins: 24,
     fats: 15,
-    carbs: 9,
+    carbs: 14,
     origin: :seller,
     price: 700,
     categories_keywords: ["ensaladas"],
@@ -81,10 +81,10 @@ ITEMS_INFO = [
   {
     name: "Burger Zarpada" ,
     description: "Doble carne con doble cheddar, mostaza, ketchup y cebolla brunoise.",
-    calories: 279,
-    proteins: 13,
-    fats: 14,
-    carbs: 27,
+    calories: 490,
+    proteins: 22,
+    fats: 32,
+    carbs: 31,
     origin: :seller,
     price: 500,
     categories_keywords: ["hamburgesas", "carnes"],
@@ -93,10 +93,10 @@ ITEMS_INFO = [
       {
     name: "Pasta Bolognese" ,
     description: "pasta aechuga de pollo, aceite de oliva, panceta, cebolla. salsa inglesa",
-    calories: 45,
-    proteins: 1,
-    fats: 1,
-    carbs: 6,
+    calories: 488,
+    proteins: 26,
+    fats: 25,
+    carbs: 37,
     origin: :seller,
     price: 450,
     categories_keywords: ["pastas", "carnes"],
@@ -193,12 +193,20 @@ NAMES_INFO.each do |name|
   puts 'creating OrderItem'
   oi = OrderItem.new(
     item: Item.all.sample,
-    order: o
+    order: o,
+    consumed_at: Time.zone.now
     )
   oi.save
   puts 'creating DailyTarget'
   dt = DailyTarget.new(
-    user: u)
+    user: u,
+    caloric_target: 1800,
+    protein_target: 158,
+    carb_target: 158,
+    fat_target: 60,
+    control_limit: 90
+    )
+  dt.save
 end
 
 # Seeds for user-can-buy-items
