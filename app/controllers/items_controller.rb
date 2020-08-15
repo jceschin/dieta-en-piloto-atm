@@ -1,25 +1,32 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
+  # pundit
+  skip_after_action :verify_authorized, only: :set_items
+  after_action :verify_policy_scoped, only: :set_items, unless: :skip_pundit?
+  # after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  # after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+
   def index
     if current_user
       @dailytarget = DailyTarget.where(user_id: current_user.id).last
       set_items
+    else
+      @items = policy_scope(Item)
     end
-    @items = policy_scope(Item)
+
     @order_item = OrderItem.new
     @categories = Category.all
-
     @order = current_user&.pending_order
   end
 
   private
 
   def set_items
-    @items_suggested = []
+    @items = []
     policy_scope(Item).each do |item|
       if calories_in_target?(item) && proteins_in_target?(item) && carbs_in_target?(item) && fats_in_target?(item)
-        @items_suggested << item
+        @items << item
       end
     end
   end
@@ -41,7 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def cal_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find_by(user_id: current_user.id)
     @cal_left = @daily_target.caloric_target
     orders.each do |order|
@@ -53,7 +60,7 @@ class ItemsController < ApplicationController
   end
 
   def proteins_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find_by(user_id: current_user.id)
     @proteins_left = @daily_target.protein_target
     orders.each do |order|
@@ -67,7 +74,7 @@ class ItemsController < ApplicationController
   end
 
   def carbs_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find_by(user_id: current_user.id)
     @carbs_left = @daily_target.carb_target
     orders.each do |order|
@@ -81,7 +88,7 @@ class ItemsController < ApplicationController
   end
 
   def fats_left
-    orders = Order.where(user_id:current_user.id)
+    orders = Order.where(user_id: current_user.id)
     @daily_target = DailyTarget.find_by(user_id: current_user.id)
     @fats_left = @daily_target.fat_target
     orders.each do |order|
