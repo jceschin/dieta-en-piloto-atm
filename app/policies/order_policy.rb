@@ -13,4 +13,5 @@ class OrderPolicy < ApplicationPolicy
     record.user == user
     # - record: the order passed to the `authorize` method in controller
     # - user:   the `current_user` signed in with Devise.
+  end
 end
