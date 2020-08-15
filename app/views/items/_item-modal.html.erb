@@ -12,18 +12,19 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
             <i class="far fa-times-circle"></i>
           </button>
         </div>
-        <div class="modal-header-bottom d-flex-justify-contetn-between">
+        <div class="item-modal-header-bottom d-flex justify-content-between
+          align-items-center">
           <div class="titles">
             <h2 class="item-modal-name"> <%= item.name %> </h2>
             <h3 class="item-modal-seller">por <%= item.seller.name %> </h2>
           </div>
-          <% if false %>
-            <span><i class="fas fa-star" style="color: white!important"></i></span>
-          <% else %>
-            <% 5.times do %>
-              <span><i class="fas fa-star"></i></span>
+          <div class="item-modal-rating">
+            <% if false %>white
+              <span><i class="fas fa-star" style="color: white!important"></i></span>
+            <% else %>
+              <p> <%= rand(1..5) %> <i class="fas fa-star"></i></p>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
 
@@ -41,16 +42,16 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
         <table class="item-nutritonal-table">
           <tbody>
           <tr>
-            <td class="col1" >Calorías:</td><td> <%= item.calories %> kcal</td>
+            <td class="col1 fil-cal" >Calorías</td><td class="fil-cal"> <%= item.calories %> kcal</td>
           </tr>
           <tr>
-            <td class="col1" >Proteinas:</td><td> <%= item.proteins %> g</td>
+            <td class="col1" >Proteinas</td><td> <%= item.proteins %> g</td>
           </tr>
           <tr>
-            <td class="col1" >Grasas:</td><td> <%= item.fats %> g</td>
+            <td class="col1" >Grasas</td><td> <%= item.fats %> g</td>
           </tr>
           <tr>
-           <td class="col1" >Carbohidratos:</td><td> <%= item.carbs %> g</td>
+           <td class="col1" >Carbohidratos</td><td> <%= item.carbs %> g</td>
          </tr>
           </tbody>
           </tr>
@@ -58,62 +59,60 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
 
 
         <!-- /items/:item_id/order_items -->
-
-        <%= form_with model: [item, order_item], class: "align-self-stretch" do %>
+        <%= form_for [item, order_item], html: {class: "align-self-stretch"} do |f| %>
         <!-- <form class="align-self-stretch" action="/items/<%= item.id %>/order_items" method="POST"> -->
-          <!-- <input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts=" /> -->
+          <%= f.hidden_field :id %>
 
           <div class="item-modal-addorder form-row justify-content-between
             align-items-center">
-            <h2>Cantidad:</h2>
-
-            <div class="plus-minus-input d-flex align-items-center">
-
-              <%= link_to "#", class: "plus-minus-button hvr-grow-s" do %>
-                <i class="fas fa-plus-circle"></i>
+            <!-- <h2>Cantidad:</h2> -->
+            <div class="btn-plus-minus-input d-flex align-items-center">
+              <%= link_to "#", class: "minus hvr-grow-s" do %>
+                -
               <% end %>
-
-              <input class="form-control form-control-sm"
-               type="number" value="1">
-
-              <%= link_to "#", class: "plus-minus-button hvr-grow-s" do %>
-                <i class="fas fa-minus-circle"></i>
+              <input class="input"
+               type="text" name="quantity" value="1">
+              <%= link_to "#", class: "plus hvr-grow-s" do %>
+                +
               <% end %>
-
             </div>
 
 
-            <button type="submit" class="btn btn-add-sm">Agregar</button>
+            <button type="submit" class="btn btn-add-sm ml-2">Agregar</button>
+          </div>
+
+          <div class="item-modal-price-unit d-flex justify-content-between
+            align-items-center">
+            <p>Precio por unidad</p>
+            <p class="price"> $<%= item.price %> </p>
           </div>
 
           <div class="item-modal-price d-flex justify-content-between
             align-items-center">
-            <h2>Total:</h2>
-            <h2 class="price"> $<%= item.price %> (c/u <%= item.price  %>) </h2>
+            <p>Total</p>
+            <p class="price"> $<%= item.price %> </p>
           </div>
 
           <div class="item-modal-addtracking form-row align-items-center
           justify-content-between">
-            <h2>¿Queres trackear el plato?</h2>
-            <div class="form-check d-flex">
+            <div class="opt-track d-flex justify-content-center">
+              <h2>¿Queres trackear el plato?</h2>
+              <div class="form-check d-flex">
+                <input class="form-check-input align-self-center" type="checkbox" id="gridCheck">
+              </div>
+            </div>
               <!-- <label class="form-check-label" for="gridCheck">
                 ¿Queres trakear el plato?
               </label> -->
-              <input class="form-check-input align-self-center" type="checkbox" id="gridCheck">
-            </div>
-            <div class="plus-minus-input d-flex align-items-center">
-
-              <%= link_to "#", class: "plus-minus-button hvr-grow-s" do %>
-                <i class="fas fa-plus-circle"></i>
+            <div class="btn-plus-minus-input d-flex align-items-center">
+              <%= link_to "#", class: "minus hvr-grow-s" do %>
+                -
               <% end %>
-
-              <input class="form-control form-control-sm"
-               type="number" value="1">
-
-              <%= link_to "#", class: "plus-minus-button hvr-grow-s" do %>
-                <i class="fas fa-minus-circle"></i>
+              <input class="input"
+               type="text" name="quantity-tracked" value="1">
+              <%= link_to "#", class: "plus hvr-grow-s" do %>
+                +
               <% end %>
-
             </div>
 
           </div>
