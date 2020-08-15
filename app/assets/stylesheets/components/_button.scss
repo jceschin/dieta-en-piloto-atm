@@ -15,15 +15,49 @@
 .btn-add-sm {
   color: white;
   // padding: 8px 24px;
-  width: 100px;
-  height: 40px;
+  // width: 100px;
+  flex-grow: 4;
+  height: 45px;
   border-radius: 4px;
   background: #184D47;
   transition: background 0.3s ease;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .btn-add-sm:hover {
   background: #556B2F;
   color: white;
 }
+
+.btn-plus-minus-input {
+  font-size: 16px;
+  color: #4B4B4B;
+  border: 1px solid #E3E3E3;
+  border-radius: 4px;
+  width: 100px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.btn-plus-minus-input a {
+  color: rgba(75,75,75,0.4);
+}
+
+.btn-plus-minus-input .minus {
+  padding: 0px 0px 0px 15px;
+}
+
+.btn-plus-minus-input .plus {
+  padding: 0px 15px 0px 0px;
+}
+
+.btn-plus-minus-input .input {
+  border: 0;
+  width: 30px;
+  text-align: center;
+  color: #4B4B4B;
+}
+
+
