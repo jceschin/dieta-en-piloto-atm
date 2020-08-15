@@ -103,7 +103,6 @@ class DailyTargetsController < ApplicationController
   def consumed_today
     @items_consumed_today = []
     Order.where(user_id:current_user.id).each do |order|
-      # order_items = OrderItem.where(order_id:order.id)
       order.order_items.each do |order_item|
         if order_item.consumed_at.day == Time.zone.now.day && order_item.consumed_at.month == Time.zone.now.month && order_item.consumed_at.year == Time.zone.now.year
           @items_consumed_today << Item.find_by_id(order_item.item_id)
