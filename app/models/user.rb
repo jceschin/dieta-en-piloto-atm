@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :orders
-  has_many :daily_targets
+  has_one :daily_target
   has_one_attached :photo
 
   def pending_order
