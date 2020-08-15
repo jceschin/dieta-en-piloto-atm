@@ -21,7 +21,7 @@ class User < ApplicationRecord
         cal_left -= Item.find_by_id(item.item_id).calories if item.consumed_at&.today?
       end
     end
-    cal_left
+    @cal_left
   end
 
   def proteins_left

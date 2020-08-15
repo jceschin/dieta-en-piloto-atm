@@ -25,10 +25,12 @@ class ItemsController < ApplicationController
     @items = []
     daily_target = DailyTarget.where(user_id: current_user.id).last
     policy_scope(Item).each do |item|
-      if calories_in_target?(item, daily_target) && proteins_in_target?(item, daily_target) && carbs_in_target?(item, daily_target) && fats_in_target?(item, daily_target)
-        @items << item
-      end
+      @items << item if nutrients_in_target(item, daily_target)
     end
+  end
+
+  def nutrients_in_target(item, daily_target)
+    calories_in_target?(item, daily_target) && proteins_in_target?(item, daily_target) && carbs_in_target?(item, daily_target) && fats_in_target?(item, daily_target)
   end
 
   def calories_in_target?(item, target)
