@@ -21,10 +21,9 @@ class ItemsController < ApplicationController
     authorize @user_item
     if @user_item.save
       user_item_order_i
-      #redirect_to daily_target_path(current_user.daily_targets.last.id)
-      redirect_to edit_item_order_item_path(user_item_order_i)
+      redirect_to daily_target_path(current_user.daily_targets.last.id)
+      #redirect_to edit_item_order_item_path(@oi.item_id, @oi.id)
     else
-      raise
       render :new
     end
   end
@@ -39,8 +38,8 @@ class ItemsController < ApplicationController
   def user_item_order_i
     o = Order.new(user_id:current_user.id)
     o.save
-    oi = OrderItem.new(item_id:@user_item.id, order_id:o.id)
-    oi.save
+    @oi = OrderItem.new(item_id:@user_item.id, order_id:o.id)
+    @oi.save
   end
 
   def user_item_params
