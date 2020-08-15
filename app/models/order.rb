@@ -11,4 +11,16 @@ class Order < ApplicationRecord
     end
     total
   end
+
+  def total_cal
+    total_cal = 0
+    items.each do |item|
+      total_cal += item.calories
+    end
+    total_cal
+  end
+
+  def total_cal_in_target?
+    total_cal <= DailyTarget.find_by(user_id:user.id).caloric_target
+  end
 end

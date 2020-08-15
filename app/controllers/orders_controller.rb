@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+  def show
+    @order = Order.find(params[:id])
+    authorize @order
+  end
+
   def update
     # @order = Order.new(order_params)
     @order = current_user.pending_order
@@ -6,7 +11,7 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to items_path
     # else
-    # render 'items'
+      # render 'items'
     end
 
     authorize @order

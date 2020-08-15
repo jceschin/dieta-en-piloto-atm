@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :order_items, only: %i[create]
   end
 
-  resources :orders, only: %i[update]
+  resources :orders, only: %i[show update]
 
 end

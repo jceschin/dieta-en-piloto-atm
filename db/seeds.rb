@@ -186,7 +186,8 @@ NAMES_INFO.each do |name|
   u.save
   puts 'creating Order'
   o = Order.new(
-    user: u
+    user: u,
+    status: :finished
     )
   o.save
   puts 'creating OrderItem'
