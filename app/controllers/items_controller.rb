@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
     if @user_item.save
       user_item_order_i
       redirect_to daily_target_path(current_user.daily_targets.last.id)
-      #redirect_to edit_item_order_item_path(@oi.item_id, @oi.id)
     else
       render :new
     end
@@ -33,12 +32,19 @@ class ItemsController < ApplicationController
     authorize @user_item
   end
 
+  def update
+    @user_item = Item.find(params[:id])
+    @user_item.update(user_item_params)
+    redirect_to daily_target_path(current_user.daily_targets.last.id)
+    authorize @user_item
+  end
+
   private
 
   def user_item_order_i
     o = Order.new(user_id:current_user.id)
     o.save
-    @oi = OrderItem.new(item_id:@user_item.id, order_id:o.id)
+    @oi = OrderItem.new(item_id:@user_item.id, order_id:o.id, consumed_at: Time.zone.now)
     @oi.save
   end
 
