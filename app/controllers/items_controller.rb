@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
   def index
     if current_user
-      @dailytarget = DailyTarget.where(user_id: current_user.id).last
+      @dailytarget = DailyTarget.find_by(user_id: current_user.id)
       set_items
     else
       @items = policy_scope(Item).seller
