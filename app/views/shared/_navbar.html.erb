@@ -2,14 +2,18 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-tudieta">
 
-  <%= link_to "#", class: "navbar-brand hvr-grow-s" do %>
+  <%= link_to items_path, class: "navbar-brand hvr-grow-s" do %>
     <%= image_tag "logo.png" %>
   <% end %>
 
+  <% if user_signed_in? && !current_user.daily_target.nil? %>
+    <%= link_to edit_daily_target_path(current_user.daily_target.id), class:"daily_target-link" do  %>
+      <div class="navbar-targets">
+        <p>Calorias: <%=current_user.daily_target.caloric_target%> Kcal</p>
+      </div>
+    <% end %>
+  <% end %>
 
-  <div class="navbar-targets">
-    <p>Calorias: 2000 Kcal</p>
-  </div>
 
   <div class="navbar-left d-flex align-items-center">
 
