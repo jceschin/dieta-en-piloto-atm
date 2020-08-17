@@ -15,8 +15,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def edit?
-    s = Seller.find_by(id:record.seller_id)
-    record.origin == "user" && s.name == "user" && s.description == user.email
+    record.origin == "user"
   end
 
   def update?
