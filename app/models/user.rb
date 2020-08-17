@@ -27,7 +27,7 @@ class User < ApplicationRecord
   def proteins_left
     orders = Order.where(user_id: current_user.id)
     daily_target = DailyTarget.find_by(user_id: current_user.id)
-    proteins_left = @daily_target.protein_target
+    proteins_left = daily_target.protein_target
     orders.each do |order|
       order.order_items.each do |item|
         proteins_left -= Item.find_by_id(item.item_id).proteins if item.consumed_at&.today?
