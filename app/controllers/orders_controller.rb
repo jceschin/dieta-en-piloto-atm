@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @order = current_user.pending_order
     @order.status = :finished
     if @order.save
-      redirect_to items_path
+      redirect_to order_path(@order)
     # else
       # render 'items'
     end

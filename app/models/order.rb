@@ -21,6 +21,6 @@ class Order < ApplicationRecord
   end
 
   def total_cal_in_target?
-    total_cal <= DailyTarget.find_by(user_id:user.id).caloric_target
+    total_cal <= DailyTarget.find_by(user_id: user.id).caloric_target
   end
 end
