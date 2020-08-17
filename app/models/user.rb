@@ -12,12 +12,22 @@ class User < ApplicationRecord
     orders.pending.last
   end
 
-  def orders
-    Order.where(user_id: current_user.id)
-  end
-
   def daily_target
     DailyTarget.find_by(user_id: current_user.id)
+  end
+
+  def consumed_items
+    sql = <<-SQL
+      SELECT order_item.id
+      FROM order_items
+      WHERE !consumed_at.nil?
+      JOIN orders
+      WHERE order.id = order_item.order_id
+      JOIN items
+      WHERE item.id = order_item.item_id
+      JOIN users
+      WHERE user.id = order.user_id
+    SQL
   end
 
   def daily_target_upper_limit
