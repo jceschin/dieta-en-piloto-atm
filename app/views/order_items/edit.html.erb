@@ -1,14 +1,20 @@
 <div class="container mt-5 text-center" style="background-color:white">
-  <h1 class="font-weight-bold">Cambiar Fecha de Consumo</h1>
-  <h2 class="font-weight-bold"><%= @user_item.name %></h2>
+  <%= link_to order_item_path(@order_item), method: :delete, data: {confirm: 'Estás seguro/a?'}, class: "link" do  %>
+    <div class="d-flex justify-content-center">
+      <h1 class="font-weight-bold">Cambiar Fecha de Consumo</h1>
+      <i class="fas fa-trash-alt ml-3" style="font-size:100%"></i>
+    </div>
+  <% end %>
+
+  <h2 class="font-weight-bold"><%= @item.name %></h2>
   <div class="row">
     <div class="col-12">
       <h4 class="font-weight-bold">Información nutricional:</h4>
         <ul>
-          <li>Calorías<%= @user_item.calories %> kcal</li>
-          <li>Proteínas<%= @user_item.proteins %> g</li>
-          <li>Carbohidratos<%= @user_item.carbs %> g</li>
-          <li>Grasas Totales<%= @user_item.fats %> g</li>
+          <li>Calorías<%= @item.calories %> kcal</li>
+          <li>Proteínas<%= @item.proteins %> g</li>
+          <li>Carbohidratos<%= @item.carbs %> g</li>
+          <li>Grasas Totales<%= @item.fats %> g</li>
         </ul>
     </div>
   </div>
