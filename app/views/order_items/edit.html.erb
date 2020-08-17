@@ -1,0 +1,13 @@
+<div class="col-12 col-lg-6 text-center px-0">
+  <h1>Cambiar Fecha de Consumo</h1>
+  <%= @user_item.name %>
+  <%= @user_item.calories %>
+  <%= @user_item.proteins %>
+  <%= @user_item.fats %>
+  <%= @user_item.carbs %>
+  <%= @order_item.consumed_at.strftime("%A, %b, %d") %>
+  <%= simple_form_for @order_item do |f| %>
+    <%= f.input :consumed_at, label: "Fecha de consumo", placeholder: 'fecha' %>
+    <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
+  <% end %>
+</div>
