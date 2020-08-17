@@ -29,9 +29,10 @@ class ItemsController < ApplicationController
   def create
     @user_item = Item.new(user_item_params)
     @user_item.seller_id = Seller.find_by(description:current_user.email).id
+    @user_item.origin = "user"
     authorize @user_item
     if @user_item.save
-      user_item_order_i
+      user_item_order_and_order_items
       redirect_to daily_target_path(current_user.daily_target.id)
     else
       render :new
@@ -52,7 +53,7 @@ class ItemsController < ApplicationController
 
   private
 
-  def user_item_order_i
+  def user_item_order_and_order_items
     o = Order.where(status: "personal", user_id:current_user.id).last
     if !o.nil? && o.created_at.today?
       @oi = OrderItem.new(item_id:@user_item.id, order_id:o.id, consumed_at: Time.zone.now)
