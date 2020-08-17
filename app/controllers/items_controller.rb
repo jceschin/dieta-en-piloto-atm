@@ -53,10 +53,16 @@ class ItemsController < ApplicationController
   private
 
   def user_item_order_i
-    o = Order.new(user_id:current_user.id, status: :private)
-    o.save
-    @oi = OrderItem.new(item_id:@user_item.id, order_id:o.id, consumed_at: Time.zone.now)
-    @oi.save
+    o = Order.where(status: "personal", user_id:current_user.id).last
+    if !o.nil? && o.created_at.today?
+      @oi = OrderItem.new(item_id:@user_item.id, order_id:o.id, consumed_at: Time.zone.now)
+      @oi.save
+    else
+      o = Order.new(user_id:current_user.id, status: :personal)
+      o.save
+      @oi = OrderItem.new(item_id:@user_item.id, order_id:o.id, consumed_at: Time.zone.now)
+      @oi.save
+    end
   end
 
   def user_item_params
