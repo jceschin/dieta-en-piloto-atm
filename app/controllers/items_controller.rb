@@ -42,6 +42,7 @@ class ItemsController < ApplicationController
   def edit
     @user_item = Item.find(params[:id])
     authorize @user_item
+    @order_item = OrderItem.find_by(item_id:@user_item)
   end
 
   def update
