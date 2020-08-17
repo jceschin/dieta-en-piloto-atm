@@ -20,57 +20,64 @@ class ItemsController < ApplicationController
     @order = current_user&.pending_order
   end
 
+  # Para el tracking
   def new
-    @user_item = Item.new
+    @item = Item.new
     @items_to_select_from = Item.all
-    authorize @user_item
+    authorize @item
   end
 
+  # Para el tracking
   def create
-    @user_item = Item.new(user_item_params)
-    @user_item.seller_id = Seller.find_by(description:current_user.email).id
-    @user_item.origin = "user"
-    authorize @user_item
-    if @user_item.save
-      user_item_order_and_order_items
+    @item = Item.new(item_params)
+    @item.seller_id = Seller.find_by(description:current_user.email).id
+    @item.origin = "user"
+    authorize @item
+    if @item.save
+      item_order_and_order_items
       redirect_to daily_target_path(current_user.daily_target.id)
     else
       render :new
     end
   end
 
+  # Para el tracking
   def edit
-    @user_item = Item.find(params[:id])
-    authorize @user_item
-    @order_item = OrderItem.find_by(item_id:@user_item)
+    @item = Item.find(params[:id])
+    authorize @item
+    @order_item = OrderItem.find_by(item_id:@item)
   end
 
+  # Para el tracking
   def update
-    @user_item = Item.find(params[:id])
-    @user_item.update(user_item_params)
+    @item = Item.find(params[:id])
+    @item.update(item_params)
     redirect_to daily_target_path(current_user.daily_target.id)
-    authorize @user_item
+    authorize @item
   end
 
   private
 
-  def user_item_order_and_order_items
+  # Para el tracking
+  def item_order_and_order_items
     o = Order.where(status: "personal", user_id:current_user.id).last
     if !o.nil? && o.created_at.today?
-      @oi = OrderItem.new(item_id:@user_item.id, order_id:o.id, consumed_at: Time.zone.now)
+      @oi = OrderItem.new(item_id:@item.id, order_id:o.id, consumed_at: Time.zone.now)
       @oi.save
     else
       o = Order.new(user_id:current_user.id, status: :personal)
       o.save
-      @oi = OrderItem.new(item_id:@user_item.id, order_id:o.id, consumed_at: Time.zone.now)
+      @oi = OrderItem.new(item_id:@item.id, order_id:o.id, consumed_at: Time.zone.now)
       @oi.save
     end
   end
 
-  def user_item_params
+  # Para el tracking
+  def item_params
     params.require(:item).permit(:name, :calories, :proteins, :fats, :carbs)
   end
 
+  # Para el tracking
   def order_item_params
     params.require(:order_item).permit(:consumed_at)
   end
