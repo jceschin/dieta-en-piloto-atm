@@ -8,4 +8,12 @@ class OrderItemPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def edit?
+    create?
+  end
+
+  def update?
+    create?
+  end
 end
