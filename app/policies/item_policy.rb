@@ -15,15 +15,15 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def edit?
-    create?
+    s = Seller.find_by(id:record.seller_id)
+    record.origin == "user" && s.name == "user" && s.description == user.email
   end
 
   def update?
-    create?
+    edit?
   end
 
   def destroy?
-    create?
+    edit?
   end
-
 end

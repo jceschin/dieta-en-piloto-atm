@@ -1,13 +1,28 @@
-<div class="col-12 col-lg-6 text-center px-0">
-  <h1>Cambiar Fecha de Consumo</h1>
-  <%= @user_item.name %>
-  <%= @user_item.calories %>
-  <%= @user_item.proteins %>
-  <%= @user_item.fats %>
-  <%= @user_item.carbs %>
-  <%= @order_item.consumed_at.strftime("%A, %b, %d") %>
-  <%= simple_form_for @order_item do |f| %>
-    <%= f.input :consumed_at, label: "Fecha de consumo", placeholder: 'fecha' %>
-    <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
-  <% end %>
+<div class="container mt-5 text-center" style="background-color:white">
+  <h1 class="font-weight-bold">Cambiar Fecha de Consumo</h1>
+  <h2 class="font-weight-bold"><%= @user_item.name %></h2>
+  <div class="row">
+    <div class="col-12">
+      <h4 class="font-weight-bold">Información nutricional:</h4>
+        <ul>
+          <li>Calorías<%= @user_item.calories %> kcal</li>
+          <li>Proteínas<%= @user_item.proteins %> g</li>
+          <li>Carbohidratos<%= @user_item.carbs %> g</li>
+          <li>Grasas Totales<%= @user_item.fats %> g</li>
+        </ul>
+    </div>
+  </div>
+  <div class="row border border-dark">
+    <div class="col-12">
+      <h4>Consumido</h4>
+      <%= @order_item.consumed_at.strftime("%A, %b, %d") %>
+    </div>
+  </div>
+  <div>
+    <h4>Nueva Fecha de Consumo</h4>
+    <%= simple_form_for @order_item do |f| %>
+      <%= f.input :consumed_at, label: "Fecha de consumo", placeholder: 'fecha' %>
+      <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
+    <% end %>
+  </div>
 </div>
