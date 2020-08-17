@@ -29,7 +29,7 @@
   color: white;
 }
 
-.btn-plus-minus-input {
+.inc-dec {
   font-size: 16px;
   color: #4B4B4B;
   border: 1px solid #E3E3E3;
@@ -41,19 +41,19 @@
   background-color: white;
 }
 
-.btn-plus-minus-input a {
+.inc-dec a {
   color: rgba(75,75,75,0.4);
 }
 
-.btn-plus-minus-input .minus {
+.inc-dec .dec {
   padding: 0px 0px 0px 15px;
 }
 
-.btn-plus-minus-input .plus {
+.inc-dec .inc {
   padding: 0px 15px 0px 0px;
 }
 
-.btn-plus-minus-input .input {
+.inc-dec .input {
   border: 0;
   width: 30px;
   text-align: center;

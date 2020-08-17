@@ -1,10 +1,10 @@
 // increment_buttons.js
 
-console.log("Hello from increment_buttons.js")
+// console.log("Hello from increment_buttons.js")
 
 const initIncrementButtons = () => {
   $(".btn-inc-dec").on("click", function() {
-    // this.preventDefault();
+    event.preventDefault();
     var $button = $(this);
     var oldValue = $button.parent().find("input").val();
 
