@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
-  enum status: [:pending, :finished, :private]
+  enum status: [:pending, :finished, :personal]
   has_many :items, through: :order_items
 
   def total_price
