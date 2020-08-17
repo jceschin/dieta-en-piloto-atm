@@ -61,7 +61,6 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
         <!-- /items/:item_id/order_items -->
         <%= form_for [item, order_item], html: {class: "align-self-stretch"} do |f| %>
         <!-- <form class="align-self-stretch" action="/items/<%= item.id %>/order_items" method="POST"> -->
-          <%= f.hidden_field :id %>
 
           <div class="item-modal-addorder form-row justify-content-between
             align-items-center">
@@ -93,18 +92,13 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
           justify-content-between">
             <div class="opt-track d-flex justify-content-center">
               <h2>¿Queres trackear el plato?</h2>
-              <div class="form-check d-flex">
-                <input class="form-check-input align-self-center" type="checkbox" id="gridCheck">
-              </div>
+              <%= f.check_box :consumed_at %>
             </div>
-              <!-- <label class="form-check-label" for="gridCheck">
-                ¿Queres trakear el plato?
-              </label> -->
 
             <div class="inc-dec d-flex align-items-center">
               <%= link_to "-", "#", class: "btn-inc-dec dec hvr-grow-s" %>
               <input class="input"
-                type="text" name="quantity-tracked" value="1">
+                type="text" name="quantity_consumed" value="1">
               <%= link_to "+", "#", class: "btn-inc-dec inc hvr-grow-s" %>
             </div>
 
