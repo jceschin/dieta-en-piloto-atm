@@ -5,15 +5,26 @@ class OrderItemPolicy < ApplicationPolicy
     end
   end
 
+  #Para el tracking
   def create?
     true
   end
 
+  #Para el tracking
   def edit?
-    create?
+    o = Order.find_by(id:record.order_id)
+    i = Item.find_by(id: record.item_id)
+    s = Seller.find_by(id: i.seller_id)
+    o.status == "personal" && o.user_id == user.id && i.origin == "user" && s.name = "user" && s.description == user.email
   end
 
+  #Para el tracking
   def update?
-    create?
+    edit?
+  end
+
+  #Para el tracking
+  def destroy?
+    edit?
   end
 end
