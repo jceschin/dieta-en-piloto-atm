@@ -12,19 +12,23 @@ class User < ApplicationRecord
     orders.pending.last
   end
 
+  def orders
+    Order.where(user_id: current_user.id)
+  end
+
+  def daily_target
+    DailyTarget.find_by(user_id: current_user.id)
+  end
+
   def daily_target_upper_limit
-    daily_target = DailyTarget.find_by(user_id: current_user.id)
     "1.#{daily_target.control_limit}".to_f
   end
 
   def daily_target_lower_limit
-    daily_target = DailyTarget.find_by(user_id: current_user.id)
     (1 - "0.#{daily_target.control_limit}".to_f)
   end
 
   def cal_left
-    orders = Order.where(user_id: current_user.id)
-    daily_target = DailyTarget.find_by(user_id: current_user.id)
     cal_left = daily_target.caloric_target
     orders.each do |order|
       order.order_items.each do |item|
@@ -35,8 +39,6 @@ class User < ApplicationRecord
   end
 
   def proteins_left
-    orders = Order.where(user_id: current_user.id)
-    daily_target = DailyTarget.find_by(user_id: current_user.id)
     proteins_left = daily_target.protein_target
     orders.each do |order|
       order.order_items.each do |item|
@@ -47,8 +49,6 @@ class User < ApplicationRecord
   end
 
   def carbs_left
-    orders = Order.where(user_id: current_user.id)
-    daily_target = DailyTarget.find_by(user_id: current_user.id)
     carbs_left = daily_target.carb_target
     orders.each do |order|
       order.order_items.each do |item|
@@ -59,8 +59,6 @@ class User < ApplicationRecord
   end
 
   def fats_left
-    orders = Order.where(user_id: current_user.id)
-    daily_target = DailyTarget.find_by(user_id: current_user.id)
     fats_left = daily_target.fat_target
     orders.each do |order|
       order.order_items.each do |item|
