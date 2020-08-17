@@ -60,12 +60,12 @@ class ItemsController < ApplicationController
 
   # Para el tracking
   def item_order_and_order_items
-    o = Order.where(status: "personal", user_id:current_user.id).last
+    o = Order.where(status: :finished, user_id:current_user.id).last
     if !o.nil? && o.created_at.today?
       @oi = OrderItem.new(item_id:@item.id, order_id:o.id, consumed_at: Time.zone.now)
       @oi.save
     else
-      o = Order.new(user_id:current_user.id, status: :personal)
+      o = Order.new(user_id:current_user.id, status: :finished)
       o.save
       @oi = OrderItem.new(item_id:@item.id, order_id:o.id, consumed_at: Time.zone.now)
       @oi.save
