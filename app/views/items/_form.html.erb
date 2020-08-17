@@ -1,19 +1,12 @@
-<div class="col-12 col-lg-6 text-center px-0">
-  <h1>Consumo de Hoy</h1>
-  <%= link_to edit_order_item_path(@order_item.id), class: "link" do  %>
-    <div class="d-flex">
-      <p>Cambiar fecha de consumo</p>
-      <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
-    </div>
-  <% end %>
-</div>
-<div>
-  <%= simple_form_for @user_item do |f| %>
-    <%= f.input :name, label: 'Nombre del Plato:', placeholder: "Ensalada Crispy", required: true %>
-    <%= f.input :calories, label: 'Calorías (kcal)', placeholder: '285', collection: 1..2000, required: true %>
-    <%= f.input :proteins, label: 'Proteínas (gr)', placeholder: '24', collection: 1..100, required: true %>
-    <%= f.input :fats, label: 'Grasas Totales (gr)', placeholder: '15', collection: 1..100, required: true %>
-    <%= f.input :carbs, label: 'Carbohidratos (gr)', placeholder: '14', collection: 1..100, required: true %>
-    <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
-  <% end %>
+<div class="col-12 col-lg-6 px-0">
+  <div>
+    <%= simple_form_for @item do |f| %>
+      <%= f.input :name, label: 'Nombre del Plato:', placeholder: "Ensalada Crispy", required: true %>
+      <%= f.input :calories, label: 'Calorías (kcal)', placeholder: '285', collection: 1..2000, required: true %>
+      <%= f.input :proteins, label: 'Proteínas (gr)', placeholder: '24', collection: 1..100, required: true %>
+      <%= f.input :fats, label: 'Grasas Totales (gr)', placeholder: '15', collection: 1..100, required: true %>
+      <%= f.input :carbs, label: 'Carbohidratos (gr)', placeholder: '14', collection: 1..100, required: true %>
+      <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
+    <% end %>
+  </div>
 </div>
