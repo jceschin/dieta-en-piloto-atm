@@ -17,17 +17,10 @@ class User < ApplicationRecord
   end
 
   def consumed_items
-    sql = <<-SQL
-      SELECT order_item.id
-      FROM order_items
-      WHERE !consumed_at.nil?
-      JOIN orders
-      WHERE order.id = order_item.order_id
-      JOIN items
-      WHERE item.id = order_item.item_id
-      JOIN users
-      WHERE user.id = order.user_id
-    SQL
+    sqlq1 = "order_item.item_id = item"
+    sqlq2 = "order_item.order_id = order.id"
+    sqlq3 = "user.id = id"
+    Item.joins(:order_items).where(sqlq1)
   end
 
   def daily_target_upper_limit
