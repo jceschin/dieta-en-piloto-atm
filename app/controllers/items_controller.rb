@@ -32,18 +32,18 @@ class ItemsController < ApplicationController
   end
 
   def calories_in_target?(item)
-    item.calories <= current_user.cal_left * "1.#{@dailytarget.control_limit}".to_f && item.calories >= current_user.cal_left * (1 - "0.#{@dailytarget.control_limit}".to_f)
+    item.calories <= current_user.cal_left * current_user.daily_target_upper_limit && item.calories >= current_user.cal_left * current_user.daily_target_lower_limit
   end
 
   def proteins_in_target?(item)
-    item.proteins <= current_user.proteins_left * "1.#{@dailytarget.control_limit}".to_f && item.proteins >= current_user.proteins_left * (1 - "0.#{@dailytarget.control_limit}".to_f)
+    item.proteins <= current_user.proteins_left * current_user.daily_target_upper_limit && item.proteins >= current_user.proteins_left * current_user.daily_target_lower_limit
   end
 
   def carbs_in_target?(item)
-    item.carbs <= current_user.carbs_left * "1.#{@dailytarget.control_limit}".to_f && item.carbs >= current_user.carbs_left * (1 - "0.#{@dailytarget.control_limit}".to_f)
+    item.carbs <= current_user.carbs_left * current_user.daily_target_upper_limit && item.carbs >= current_user.carbs_left * current_user.daily_target_lower_limit
   end
 
   def fats_in_target?(item)
-    item.fats <= current_user.fats_left * "1.#{@dailytarget.control_limit}".to_f && item.fats >= current_user.fats_left * (1 - "0.#{@dailytarget.control_limit}".to_f)
+    item.fats <= current_user.fats_left * current_user.daily_target_upper_limit && item.fats >= current_user.fats_left * current_user.daily_target_lower_limit
   end
 end

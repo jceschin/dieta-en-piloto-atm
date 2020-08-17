@@ -12,6 +12,16 @@ class User < ApplicationRecord
     orders.pending.last
   end
 
+  def daily_target_upper_limit
+    daily_target = DailyTarget.find_by(user_id: current_user.id)
+    "1.#{daily_target.control_limit}".to_f
+  end
+
+  def daily_target_lower_limit
+    daily_target = DailyTarget.find_by(user_id: current_user.id)
+    (1 - "0.#{daily_target.control_limit}".to_f)
+  end
+
   def cal_left
     orders = Order.where(user_id: current_user.id)
     daily_target = DailyTarget.find_by(user_id: current_user.id)
