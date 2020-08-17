@@ -1,6 +1,14 @@
 <div class="container mt-5" style="background-color: white; width: auto; height: 100%">
   <div class="d-flex flex-column row justify-content-center mt-4">
-    <%= render "form", user_item: @user_item %>
+    <h1>Consumo de Hoy</h1>
+    <%= render "form", item: @item %>
   </div>
+  <br>
+  <%= link_to edit_order_item_path(@order_item.id), class: "link" do  %>
+    <div class="d-flex">
+      <p>Cambiar fecha de consumo</p>
+      <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
+    </div>
+  <% end %>
 </div>
 
