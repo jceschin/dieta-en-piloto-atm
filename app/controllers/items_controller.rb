@@ -24,7 +24,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     authorize @item
-    @item.order_items.build
   end
 
   # Para el tracking
@@ -46,14 +45,16 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     authorize @item
     @order_item = OrderItem.find_by(item_id:@item)
+    authorize @item
+    authorize @order_item
   end
 
   # Para el tracking
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-    @item.order_items.update(item_params)
-    raise
+    @order_item = OrderItem.find_by(item_id:@item)
+    @order_item.update(consumed_at:@item.order_items.last.consumed_at)
     redirect_to daily_target_path(current_user.daily_target.id)
     authorize @item
   end
@@ -70,7 +71,14 @@ class ItemsController < ApplicationController
 
   # Para el tracking
   def item_params
-    params.require(:item).permit(:name, :calories, :proteins, :fats, :carbs, order_items_attribues: [:id, :consumed_at])
+    params.require(:item).permit(
+      :name,
+      :calories,
+      :proteins,
+      :fats,
+      :carbs,
+      order_items_attributes: [:consumed_at]
+    )
   end
 
   # Para el tracking
