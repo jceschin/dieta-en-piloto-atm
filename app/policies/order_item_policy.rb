@@ -12,10 +12,7 @@ class OrderItemPolicy < ApplicationPolicy
 
   #Para el tracking
   def edit?
-    o = Order.find_by(id:record.order_id)
-    i = Item.find_by(id: record.item_id)
-    s = Seller.find_by(id: i.seller_id)
-    o.status == "personal" && o.user_id == user.id && i.origin == "user" && s.name = "user" && s.description == user.email
+    true
   end
 
   #Para el tracking

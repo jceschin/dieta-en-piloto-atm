@@ -15,7 +15,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.origin == "user"
+    true
   end
 
   def update?
