@@ -32,6 +32,7 @@ class OrderItemsController < ApplicationController
     order_item = OrderItem.find(params[:id])
     order_item.update(order_items_params)
     authorize order_item
+    redirect_to daily_target_path(current_user.daily_target.id)
   end
 
   private
