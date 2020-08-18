@@ -19,9 +19,4 @@ class OrderItemPolicy < ApplicationPolicy
   def update?
     edit?
   end
-
-  #Para el tracking
-  def destroy?
-    edit?
-  end
 end

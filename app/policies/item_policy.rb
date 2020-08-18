@@ -15,7 +15,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    new?
   end
 
   def update?
