@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
-  enum status: [:pending, :finished]
+  enum status: %i[pending finished]
   has_many :items, through: :order_items
 
   def total_price
@@ -21,6 +21,6 @@ class Order < ApplicationRecord
   end
 
   def total_cal_in_target?
-    total_cal <= DailyTarget.find_by(user_id:user.id).caloric_target
+    total_cal <= DailyTarget.find_by(user_id: user.id).caloric_target
   end
 end

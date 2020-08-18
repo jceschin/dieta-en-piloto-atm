@@ -14,12 +14,10 @@
         <% if !order.nil? %>
 
           <!-- form route? -->
-
+          <%= form_for [order], html: {class: "cart-modal-form"} do |f| %>
             <% @order.items.each do |item| %>
 
               <div class="d-flex align-items-center justify-content-between cart-modal-item">
-
-
 
                 <h3><%= item.name %></h3>
 
@@ -35,9 +33,9 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-green">Continuar compra</button>
+              <button type="submit" class="btn btn-green">Continuar compra</button>
             </div>
-
+          <% end %>
           <!-- </form> -->
 
 

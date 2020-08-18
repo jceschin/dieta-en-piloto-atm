@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :items, only: %i[index new create edit update] do
     resources :order_items, only: %i[create edit update]
   end
-  resources :orders, only: %i[show]
 
-  resources :order_items, only: %i[edit update]
+  #resources :order_items, only: %i[edit update]
+
+  resources :orders, only: %i[show update]
 
 end
