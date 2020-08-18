@@ -17,4 +17,16 @@ class OrderItemsController < ApplicationController
 
     # render 'items/index'
   end
+
+  def update
+    order_item = OrderItem.find(params[:id])
+    order_item.update(order_items_params)
+    authorize order_item
+  end
+
+  private
+
+  def order_items_params
+    params.require(:order_item).permit(:consumed_at)
+  end
 end
