@@ -12,33 +12,28 @@
 
       <div class="modal-body">
         <% if !order.nil? %>
-
           <!-- form route? -->
           <%= form_for [order], html: {class: "cart-modal-form"} do |f| %>
             <% @order.items.each do |item| %>
-
               <div class="d-flex align-items-center justify-content-between cart-modal-item">
-
                 <h3><%= item.name %></h3>
-
                 <h3>$ <%= item.price %></h3>
-
               </div>
-
+              <div class="inc-dec d-flex align-items-center">
+                <%= link_to "-", "#", class: "btn-inc-dec dec hvr-grow-s" %>
+                <input class="input"
+                 type="text" name="quantity" value="1">
+                <%= link_to "+", "#", class: "btn-inc-dec inc hvr-grow-s" %>
+              </div>
             <% end %>
-
-
             <div class="cart-modal-price">
               <h3>Total: $<%= @order.total_price %></h3>
             </div>
-
             <div class="modal-footer">
               <button type="submit" class="btn btn-green">Continuar compra</button>
             </div>
           <% end %>
           <!-- </form> -->
-
-
         <% else %>
           <h1>Carrito vacío</h1>
         <% end %>
