@@ -3,12 +3,5 @@
     <h1>Consumo de Hoy</h1>
     <%= render "form", item: @item %>
   </div>
-  <br>
-  <%= link_to edit_order_item_path(@order_item.id), class: "link" do  %>
-    <div class="d-flex">
-      <p>Cambiar fecha de consumo</p>
-      <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
-    </div>
-  <% end %>
 </div>
 

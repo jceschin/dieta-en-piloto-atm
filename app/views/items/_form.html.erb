@@ -1,12 +1,44 @@
 <div class="col-12 col-lg-6 px-0">
   <div>
-    <%= simple_form_for @item do |f| %>
-      <%= f.input :name, label: 'Nombre del Plato:', placeholder: "Ensalada Crispy", required: true %>
-      <%= f.input :calories, label: 'Calorías (kcal)', placeholder: '285', collection: 1..2000, required: true %>
-      <%= f.input :proteins, label: 'Proteínas (gr)', placeholder: '24', collection: 1..100, required: true %>
-      <%= f.input :fats, label: 'Grasas Totales (gr)', placeholder: '15', collection: 1..100, required: true %>
-      <%= f.input :carbs, label: 'Carbohidratos (gr)', placeholder: '14', collection: 1..100, required: true %>
+    <% if @item.price.nil? %>
+      <%= form_for [@item] do |f| %>
+        <%= f.label :name, "Nombre" %>
+        <%= f.text_field :name %><br>
+        <%= f.label :calories, "Calorías (kcal): " %>
+        <%= f.text_field :calories %><br>
+        <%= f.label :proteins, "Proteínas (gr): " %>
+        <%= f.text_field :proteins %><br>
+        <%= f.label :fats, "Grasas Totales (gr): " %>
+        <%= f.text_field :fats %><br>
+        <%= f.label :carbs, "Carbohidratos (gr): " %>
+        <%= f.text_field :carbs %><br>
       <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
+      <% end %>
+
+      <% if !@order_item.nil? %>
+        <%= link_to edit_order_item_path(@order_item.id), class: "link" do  %>
+          <div class="d-flex">
+            <p>Cambiar fecha de consumo</p>
+            <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
+          </div>
+      <% end %>
+
+      <% end %>
+
+    <% else %>
+      <h3><%= @item.name %></h3>
+      <span>Calorías (kcal): <%= @item.calories %></span><br>
+      <span>Proteínas (gr): <%= @item.proteins %></span><br>
+      <span>Grasas Totales (gr): <%= @item.fats %></span><br>
+      <span>Carbohidratos (gr): <%= @item.carbs %></span><br><br>
+      <%= link_to edit_order_item_path(@order_item.id), class: "link" do  %>
+        <div class="d-flex">
+          <p>Cambiar fecha de consumo</p>
+          <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
+
+
