@@ -34,7 +34,7 @@ class DailyTargetsController < ApplicationController
 
   def update
     @daily_target.update(daily_target_params)
-    redirect_to items_path
+    redirect_to daily_target_path(current_user.daily_target.id)
     authorize @daily_target
   end
 
