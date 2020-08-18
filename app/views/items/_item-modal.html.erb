@@ -65,17 +65,13 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
           <div class="item-modal-addorder form-row justify-content-between
             align-items-center">
             <!-- <h2>Cantidad:</h2> -->
-            <div class="btn-plus-minus-input d-flex align-items-center">
-              <%= link_to "#", class: "minus hvr-grow-s" do %>
-                -
-              <% end %>
+
+            <div class="inc-dec d-flex align-items-center">
+              <%= link_to "-", "#", class: "btn-inc-dec dec hvr-grow-s" %>
               <input class="input"
                type="text" name="quantity" value="1">
-              <%= link_to "#", class: "plus hvr-grow-s" do %>
-                +
-              <% end %>
+              <%= link_to "+", "#", class: "btn-inc-dec inc hvr-grow-s" %>
             </div>
-
 
             <button type="submit" class="btn btn-add-sm ml-2">Agregar</button>
           </div>
@@ -98,15 +94,12 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
               <h2>¿Queres trackear el plato?</h2>
               <%= f.check_box :consumed_at %>
             </div>
-            <div class="btn-plus-minus-input d-flex align-items-center">
-              <%= link_to "#", class: "minus hvr-grow-s" do %>
-                -
-              <% end %>
+
+            <div class="inc-dec d-flex align-items-center">
+              <%= link_to "-", "#", class: "btn-inc-dec dec hvr-grow-s" %>
               <input class="input"
-               type="text" name="quantity_consumed" value="1">
-              <%= link_to "#", class: "plus hvr-grow-s" do %>
-                +
-              <% end %>
+                type="text" name="quantity_consumed" value="1">
+              <%= link_to "+", "#", class: "btn-inc-dec inc hvr-grow-s" %>
             </div>
 
           </div>
