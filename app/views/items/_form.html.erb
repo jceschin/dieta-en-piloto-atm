@@ -18,11 +18,11 @@
       <% if !@order_item.nil? %>
         <%= link_to edit_order_item_path(@order_item.id), class: "link" do  %>
           <div class="d-flex">
-            <p>Cambiar fecha de consumo</p>
+            <p>Consumido el:</p>
+            <%= @order_item.consumed_at.strftime("%A, %b, %d") %>
             <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
           </div>
-      <% end %>
-
+        <% end %>
       <% end %>
 
     <% else %>
@@ -33,7 +33,8 @@
       <span>Carbohidratos (gr): <%= @item.carbs %></span><br><br>
       <%= link_to edit_order_item_path(@order_item.id), class: "link" do  %>
         <div class="d-flex">
-          <p>Cambiar fecha de consumo</p>
+          <p>Consumido el: </p>
+          <%= @order_item.consumed_at.strftime("%A, %b, %d") %>
           <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
         </div>
       <% end %>
