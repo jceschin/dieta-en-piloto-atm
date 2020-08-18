@@ -17,25 +17,4 @@ class OrderItemsController < ApplicationController
 
     # render 'items/index'
   end
-
-  # Para el tracking
-  def edit
-    @order_item = OrderItem.find(params[:id])
-    authorize @order_item
-    @item = Item.find_by(id:@order_item.item_id)
-  end
-
-  # Para el tracking
-  def update
-    @order_item = OrderItem.find(params[:id])
-    @order_item.update(order_item_params)
-    redirect_to daily_target_path(current_user.daily_target.id)
-    authorize @order_item
-  end
-
-  private
-
-  def order_item_params
-    params.require(:order_item).permit(:consumed_at)
-  end
 end

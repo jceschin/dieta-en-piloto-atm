@@ -45,18 +45,18 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     authorize @item
     @order_item = OrderItem.find_by(item_id:@item)
-    authorize @item
     authorize @order_item
+
   end
 
   # Para el tracking
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
+    authorize @item
     @order_item = OrderItem.find_by(item_id:@item)
     @order_item.update(consumed_at:@item.order_items.last.consumed_at)
     redirect_to daily_target_path(current_user.daily_target.id)
-    authorize @item
   end
 
   private
