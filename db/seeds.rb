@@ -8,6 +8,10 @@
 
 require 'open-uri'
 
+require_relative 'seeds/items'
+require_relative 'seeds/sellers'
+require_relative 'seeds/categories'
+
 puts "destroying all DailyTargets"
 DailyTarget.destroy_all
 puts "destroying all OrderItems"
@@ -30,118 +34,23 @@ puts "destroying all order items"
 OrderItem.destroy_all
 
 
-SELLERS_INFO = [
-  {
-    name: 'Dandy Deli',
-    location: "Olga Cossettini 711, Buenos Aires C1107CDA, Argentina",
-    description: "Opciones sin gluten, Apto para vegetarianos, Opciones veganas, Apto para vegetarianos, Opciones veganas, Opciones sin gluten"
-  },
-  {
-    name: 'Casa Munay',
-    location: "Scalabrini Ortiz 2018, Buenos Aires C1425DBO, Argentina",
-    description: "Saludable, Café, Fusión, Sopas, Opciones sin gluten, Apto para vegetarianos, Opciones veganas"
-  },
-  {
-    name: 'Surris Hill Coffee',
-    location: "Calle Jorge Luis Borges 1842, Buenos Aires C1414DGF, Argentina",
-    description: "Francesa, Estadounidense, Café, Saludable, Desayuno, Almuerzo, Brunch, Bebidas"
-  },
-  {
-    name: 'Moshu',
-    location: "Moldes 3802, Buenos Aires C1429AFT, Argentina",
-    description: "Café, Delicatessen, Saludable, Argentina, Sudamericana, Apto para vegetarianos, Opciones sin gluten"
-  }
-]
 
-ITEMS_INFO = [
-  {
-    name: "Ensalada Mikonos" ,
-    description: "Atún, rúcula, espinaca, aceitunas negras, croutones, palta, tomates y queso sardo...",
-    calories: 451,
-    proteins: 30,
-    fats: 30,
-    carbs: 14,
-    origin: :seller,
-    price: 1000,
-    categories_keywords: ["ensaladas", "pescados"],
-    picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596648435/rh9nfmwoba1hgjxmrx3o.jpg"
-  },
-    {
-    name: "Ensalada Crispy" ,
-    description: "Lechuga romana, tomates cherry, pepino, mango, queso mozarella, pechuga de pollo, ajo, sal y pimienta.",
-    calories: 285,
-    proteins: 24,
-    fats: 15,
-    carbs: 14,
-    origin: :seller,
-    price: 700,
-    categories_keywords: ["ensaladas"],
-    picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596648827/r5r5bezu4uaxdalw8nt4.png"
-  },
-  {
-    name: "Burger Zarpada" ,
-    description: "Doble carne con doble cheddar, mostaza, ketchup y cebolla brunoise.",
-    calories: 490,
-    proteins: 22,
-    fats: 32,
-    carbs: 31,
-    origin: :seller,
-    price: 500,
-    categories_keywords: ["hamburgesas", "carnes"],
-    picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596649435/dbqozlifg2b2fxwwzrul.png"
-  },
-      {
-    name: "Pasta Bolognese" ,
-    description: "pasta aechuga de pollo, aceite de oliva, panceta, cebolla. salsa inglesa",
-    calories: 488,
-    proteins: 26,
-    fats: 25,
-    carbs: 37,
-    origin: :seller,
-    price: 450,
-    categories_keywords: ["pastas", "carnes"],
-    picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596654426/i30zaepgl1soxwwqk2kc.jpg"
-  }
-]
-
-CATEGORIES_INFO = [
-  {
-    name: "ensaladas",
-  },
-  {
-    name: "hamburguesas",
-  },
-  {
-    name: "pollos",
-  },
-  {
-    name: "carnes",
-  },
-  {
-    name: "postres",
-  },
-  {
-    name: "pizzas",
-  },
-  {
-    name: "pastas",
-  },
-  {
-    name: "pescados",
-  }
-]
-
-puts 'creating Category'
+puts 'Creating Categories'
+# Important! when adding a category, add also the picture with its same name
+# in app/assets/images/categories/%category_name%.jpg
 CATEGORIES_INFO.each do |info|
-  c = Category.new(
+  c = Category.create(
     name: info[:name],
     picture: "categories/#{info[:name]}.jpg"
     )
-  c.save
+  # c.save
 end
+
+
+puts 'Creating Sellers'
 n = 0
 SELLERS_INFO.each do |info|
-  puts "creating Seller #{info[:name]}"
+  puts "--creating Seller #{info[:name]}"
   s = Seller.new(
     name: info[:name],
     location: info[:location],
@@ -149,7 +58,7 @@ SELLERS_INFO.each do |info|
     )
 
   s.save
-  puts 'creating Item'
+  puts '--creating Item'
   samplei = ITEMS_INFO[n]
     i = Item.new(
       seller: s,
@@ -166,7 +75,7 @@ SELLERS_INFO.each do |info|
       i.picture.attach(io: picture_file, filename: "#{samplei[:name]}.jpeg", content_type: 'image/jpeg')
     i.save
     n += 1
-  puts 'creating ItemCategory'
+  puts '--creating ItemCategory'
   samplei[:categories_keywords].each do |category|
     ic = ItemCategory.new(
       item: i,
@@ -175,6 +84,7 @@ SELLERS_INFO.each do |info|
   ic.save
   end
 end
+
 
 NAMES_INFO = %w(Armando Juan Juanpablo)
 NAMES_INFO.each do |name|
