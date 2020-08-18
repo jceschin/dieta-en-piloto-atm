@@ -7,6 +7,16 @@
   transition: background 0.3s ease;
 }
 
+.btn-green-order {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background-color: #184D47;
+  border: none;
+  transition: background 0.3s ease;
+  flex-grow: 1;
+}
+
 .btn-green:hover {
   background: #556B2F;
   color: white;
