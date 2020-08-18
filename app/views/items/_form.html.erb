@@ -18,18 +18,7 @@
             <%= builder.date_field :consumed_at %>
           <% end %>
         </div>
-
       <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
-      <% end %>
-
-      <% if !@order_item.nil? %>
-        <%= link_to edit_order_item_path(@order_item.id), class: "link" do  %>
-          <div class="d-flex">
-            <p>Consumido el:</p>
-            <%= @order_item.consumed_at.strftime("%A, %b, %d") %>
-            <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
-          </div>
-        <% end %>
       <% end %>
 
     <% else %>
@@ -38,12 +27,10 @@
       <span>Proteínas (gr): <%= @item.proteins %></span><br>
       <span>Grasas Totales (gr): <%= @item.fats %></span><br>
       <span>Carbohidratos (gr): <%= @item.carbs %></span><br><br>
-      <%= link_to edit_order_item_path(@order_item.id), class: "link" do  %>
-        <div class="d-flex">
-          <p>Consumido el: </p>
-          <%= @order_item.consumed_at.strftime("%A, %b, %d") %>
-          <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
-        </div>
+      <%= form_for @order_item do |f| %>
+        <%= f.label :consumed_at, "Fecha de Consumo (mes/día/año)" %>
+        <%= f.date_field :consumed_at %>
+        <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
       <% end %>
     <% end %>
   </div>
