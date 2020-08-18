@@ -215,12 +215,3 @@ puts "Creating seeds for user-can-buy-items"
 juan_order = Order.create(user: User.find_by(email: "juan@gmail.com"), status: "pending")
 juan_item_first = OrderItem.create(item_id: Item.first.id, order_id: juan_order.id)
 juan_item_second = OrderItem.create(item_id: Item.second.id, order_id: juan_order.id)
-
-# Seller = User to record food consumed elsewhere
-#User.all.each do |u|
- # su = Seller.new(
-  #  name:"user",
-   # description: "#{u.email}"
- # )
- # su.save
-end
