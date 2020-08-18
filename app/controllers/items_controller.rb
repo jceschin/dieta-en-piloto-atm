@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
   # Para el tracking
   def new
     @item = Item.new
-    @items_to_select_from = Item.all
     authorize @item
   end
 
