@@ -83,14 +83,18 @@
           <ul class="w-100 px-0">
             <div class="d-flex justify-content-center">
               <li class="w-100 px-0" style="list-style:none; font-size:120%"><i class="fas fa-utensils mr-2" style="font-size:70%"></i><%= item.name %><br><small>Cal: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas: <%= item.fats%></small></li>
-              <% if item.price.nil? %>
                 <%= link_to edit_item_path(item), class: "link" do  %>
                   <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
                 <% end %>
-
-              <% end %>
             </div>
           </ul>
+        <% end %>
+      <% else %>
+        <%= link_to new_item_path, class: "link" do  %>
+          <div class="d-flex justify-content-center">
+            <h1 class="w-100 font-weight-bold mr-0 pr-0" style="font-size: 28px">No Consumo Registrado hoy</h1>
+            <i class="fas fa-plus ml-0 pl-0" style="font-size:130%"></i>
+          </div>
         <% end %>
       <% end %>
     </div>
