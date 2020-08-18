@@ -6,5 +6,7 @@ class Item < ApplicationRecord
   enum origin: %i[user seller database]
 
   has_one_attached :picture
-  accepts_nested_attributes_for :order_items # Added
+  # Nested form
+  accepts_nested_attributes_for :order_items
+  validates_associated :order_items
 end
