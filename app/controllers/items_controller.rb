@@ -44,9 +44,8 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     authorize @item
-    @order_item = OrderItem.find_by(item_id:@item)
+    @order_item = OrderItem.find_by(item_id: @item)
     authorize @order_item
-
   end
 
   # Para el tracking
@@ -54,8 +53,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
     authorize @item
-    @order_item = OrderItem.find_by(item_id:@item)
-    @order_item.update(consumed_at:@item.order_items.last.consumed_at)
+    @order_item = OrderItem.find_by(item_id: @item)
+    @order_item.update(consumed_at: @item.order_items.last.consumed_at)
     redirect_to daily_target_path(current_user.daily_target.id)
   end
 
@@ -63,9 +62,9 @@ class ItemsController < ApplicationController
 
   # Para el tracking
   def item_order_and_order_items
-    o = Order.new(user_id:current_user.id, status: :finished)
+    o = Order.new(user_id: current_user.id, status: :finished)
     o.save
-    @oi = OrderItem.new(item_id:@item.id, order_id:o.id, consumed_at: Time.zone.now)
+    @oi = OrderItem.new(item_id: @item.id, order_id: o.id, consumed_at: Time.zone.now)
     @oi.save
   end
 
@@ -79,11 +78,6 @@ class ItemsController < ApplicationController
       :carbs,
       order_items_attributes: [:consumed_at]
     )
-  end
-
-  # Para el tracking
-  def order_item_params
-    params.require(:order_item).permit(:consumed_at)
   end
 
   def set_items
