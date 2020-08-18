@@ -17,10 +17,7 @@ class User < ApplicationRecord
   end
 
   def consumed_items
-    sqlq1 = "order_item.item_id = item"
-    sqlq2 = "order_item.order_id = order.id"
-    sqlq3 = "user.id = id"
-    Item.joins(:order_items).where(sqlq1)
+    Item.joins(order_items: [{ order: :user }]).where(consumed_at: "LIKE '%0'", user: id)
   end
 
   def daily_target_upper_limit
