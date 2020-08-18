@@ -1,7 +1,10 @@
 <div class="container mt-5" style="background-color: white; width: auto; height: 100%">
   <div class="text-center">
-    <h1 class="font-weight-bold mt-5" style="font-size: 28px">Mis Objetivos de Hoy</h1>
-    <div class="d-flex justify-content-center align-items-center my-4">
+    <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
+      <h1 class="font-weight-bold mt-5" style="font-size: 28px">Mis Objetivos de Hoy<i class="fas fa-pencil-alt ml-3"></i></h1>
+    <% end %>
+    <p class="m-0 p-0 ml-5 pl-5"><small>objetivo</small></p>
+    <div class="d-flex justify-content-center align-items-center mb-4">
       <div class="border" style="background-color: #C0EA04; border-style: hidden; border-radius: 8px 1px 1px 8px">
         <p class="my-0 p-1">Consumido</p>
       </div>
@@ -69,11 +72,30 @@
   <br>
   <div class="row justify-content-center mt-4">
     <div class="col-12 col-lg-6 text-center px-0">
-      <h1 class="w-100 font-weight-bold" style="font-size: 28px">Mi Consumo de hoy</h1>
-      <% @items_consumed_today.each do |item| %>
-        <ul class="w-100 px-0">
-          <li class="w-100 px-0" style="list-style:none"><i class="fas fa-utensils mr-2"></i><%= item.name %> <br><small>Cal: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas: <%= item.fats%></small></li>
-        </ul>
+      <% if @items_consumed_today.any? %>
+        <div class="d-flex align-items-center">
+          <h1 class="w-100 font-weight-bold mr-0 pr-0" style="font-size: 28px">Mi Consumo de hoy</h1>
+          <%= link_to new_item_path, class: "link" do  %>
+            <i class="fas fa-plus ml-0 pl-0" style="font-size:130%"></i>
+          <% end %>
+        </div>
+        <% @items_consumed_today.each do |item|%>
+          <ul class="w-100 px-0">
+            <div class="d-flex justify-content-center">
+              <li class="w-100 px-0" style="list-style:none; font-size:120%"><i class="fas fa-utensils mr-2" style="font-size:70%"></i><%= item.name %><br><small>Cal: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas: <%= item.fats%></small></li>
+                <%= link_to edit_item_path(item), class: "link" do  %>
+                  <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i>
+                <% end %>
+            </div>
+          </ul>
+        <% end %>
+      <% else %>
+        <%= link_to new_item_path, class: "link" do  %>
+          <div class="d-flex justify-content-center">
+            <h1 class="w-100 font-weight-bold mr-0 pr-0" style="font-size: 28px">No Consumo Registrado hoy</h1>
+            <i class="fas fa-plus ml-0 pl-0" style="font-size:130%"></i>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

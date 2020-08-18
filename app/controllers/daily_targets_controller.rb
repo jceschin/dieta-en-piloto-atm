@@ -19,12 +19,12 @@ class DailyTargetsController < ApplicationController
   end
 
   def show
-    @daily_target = DailyTarget.where(user_id: current_user.id).last
+    @daily_target = DailyTarget.find(params[:id])
     authorize @daily_target
-    cal_left
-    proteins_left
-    carbs_left
-    fats_left
+    cal_left(@daily_target)
+    proteins_left(@daily_target)
+    carbs_left(@daily_target)
+    fats_left(@daily_target)
     consumed_today
   end
 
@@ -34,7 +34,7 @@ class DailyTargetsController < ApplicationController
 
   def update
     @daily_target.update(daily_target_params)
-    redirect_to items_path
+    redirect_to daily_target_path(current_user.daily_target.id)
     authorize @daily_target
   end
 
@@ -48,10 +48,9 @@ class DailyTargetsController < ApplicationController
     params.require(:daily_target).permit(:caloric_target, :protein_target, :carb_target, :fat_target, :control_limit)
   end
 
-  def cal_left
+  def cal_left(daily_target)
     orders = Order.where(user_id: current_user.id)
-    @daily_target = DailyTarget.find(params[:id])
-    @cal_left = @daily_target.caloric_target
+    @cal_left = daily_target.caloric_target
     orders.each do |order|
       order.order_items.each do |item|
         if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
@@ -61,10 +60,9 @@ class DailyTargetsController < ApplicationController
     end
   end
 
-  def proteins_left
+  def proteins_left(daily_target)
     orders = Order.where(user_id: current_user.id)
-    @daily_target = DailyTarget.find(params[:id])
-    @proteins_left = @daily_target.protein_target
+    @proteins_left = daily_target.protein_target
     orders.each do |order|
       order.order_items.each do |item|
         if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
@@ -74,10 +72,9 @@ class DailyTargetsController < ApplicationController
     end
   end
 
-  def carbs_left
+  def carbs_left(daily_target)
     orders = Order.where(user_id: current_user.id)
-    @daily_target = DailyTarget.find(params[:id])
-    @carbs_left = @daily_target.carb_target
+    @carbs_left = daily_target.carb_target
     orders.each do |order|
       order.order_items.each do |item|
         if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
@@ -87,10 +84,9 @@ class DailyTargetsController < ApplicationController
     end
   end
 
-  def fats_left
+  def fats_left(daily_target)
     orders = Order.where(user_id: current_user.id)
-    @daily_target = DailyTarget.find(params[:id])
-    @fats_left = @daily_target.fat_target
+    @fats_left = daily_target.fat_target
     orders.each do |order|
       order.order_items.each do |item|
         if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
@@ -102,8 +98,7 @@ class DailyTargetsController < ApplicationController
 
   def consumed_today
     @items_consumed_today = []
-    Order.where(user_id: current_user.id).each do |order|
-      # order_items = OrderItem.where(order_id:order.id)
+    Order.where(user_id:current_user.id).each do |order|
       order.order_items.each do |order_item|
         if order_item.consumed_at.day == Time.zone.now.day && order_item.consumed_at.month == Time.zone.now.month && order_item.consumed_at.year == Time.zone.now.year
           @items_consumed_today << Item.find_by_id(order_item.item_id)
@@ -112,3 +107,6 @@ class DailyTargetsController < ApplicationController
     end
   end
 end
+
+#####
+# Items_consumed_today deberia ser una coleccion de order_items y no de items.

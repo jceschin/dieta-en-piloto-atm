@@ -1,0 +1,39 @@
+<div class="col-12 col-lg-6 px-0">
+  <div>
+    <% if @item.price.nil? %>
+      <%= form_for @item do |f| %>
+        <%= f.label :name, "Nombre" %>
+        <%= f.text_field :name %><br>
+        <%= f.label :calories, "Calorías (kcal): " %>
+        <%= f.text_field :calories %><br>
+        <%= f.label :proteins, "Proteínas (gr): " %>
+        <%= f.text_field :proteins %><br>
+        <%= f.label :fats, "Grasas Totales (gr): " %>
+        <%= f.text_field :fats %><br>
+        <%= f.label :carbs, "Carbohidratos (gr): " %>
+        <%= f.text_field :carbs %><br>
+        <div class="field">
+          <%= f.fields_for :order_items do |builder| %>
+            <%= builder.label :consumed_at, "Fecha de Consumo (mes/día/año)" %>
+            <%= builder.date_field :consumed_at %>
+          <% end %>
+        </div>
+      <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
+      <% end %>
+
+    <% else %>
+      <h3><%= @item.name %></h3>
+      <span>Calorías (kcal): <%= @item.calories %></span><br>
+      <span>Proteínas (gr): <%= @item.proteins %></span><br>
+      <span>Grasas Totales (gr): <%= @item.fats %></span><br>
+      <span>Carbohidratos (gr): <%= @item.carbs %></span><br><br>
+      <%= form_for @order_item do |f| %>
+        <%= f.label :consumed_at, "Fecha de Consumo (mes/día/año)" %>
+        <%= f.date_field :consumed_at %>
+        <%= f.submit 'Confirmar', class: 'btn btn-green w-100' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+

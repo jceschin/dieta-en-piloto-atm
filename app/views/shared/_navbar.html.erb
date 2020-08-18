@@ -6,10 +6,12 @@
     <%= image_tag "logo.png" %>
   <% end %>
 
+  <% if user_signed_in? && !current_user.daily_target.nil? %>
+    <div class="navbar-targets">
+      <p>Calorias: 2000 Kcal</p>
+    </div>
+  <% end %>
 
-  <div class="navbar-targets">
-    <p>Calorias: 2000 Kcal</p>
-  </div>
 
   <div class="navbar-left d-flex align-items-center">
 
@@ -35,8 +37,7 @@
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Mis objetivos", edit_daily_target_path(current_user.daily_targets.last.id), class: "dropdown-item" %>
-              <%= link_to "Mi consumo", daily_target_path(current_user.daily_targets.last.id), class: "dropdown-item" %>
+              <%= link_to "Mis objetivos", daily_target_path(current_user.daily_target.id), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>

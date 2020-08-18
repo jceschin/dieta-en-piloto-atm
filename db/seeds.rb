@@ -50,7 +50,7 @@ SELLERS_INFO = [
     name: 'Moshu',
     location: "Moldes 3802, Buenos Aires C1429AFT, Argentina",
     description: "Café, Delicatessen, Saludable, Argentina, Sudamericana, Apto para vegetarianos, Opciones sin gluten"
-  }
+  },
 ]
 
 ITEMS_INFO = [
@@ -142,13 +142,13 @@ end
 n = 0
 SELLERS_INFO.each do |info|
   puts "creating Seller #{info[:name]}"
-  s = Seller.new(
-    name: info[:name],
-    location: info[:location],
-    description: info[:description]
-    )
-
+    s = Seller.new(
+      name: info[:name],
+      location: info[:location],
+      description: info[:description]
+      )
   s.save
+
   puts 'creating Item'
   samplei = ITEMS_INFO[n]
     i = Item.new(
@@ -161,9 +161,9 @@ SELLERS_INFO.each do |info|
       carbs: samplei[:carbs],
       origin: samplei[:origin],
       price: samplei[:price],
-      )
-      picture_file = URI.open(samplei[:picture])
-      i.picture.attach(io: picture_file, filename: "#{samplei[:name]}.jpeg", content_type: 'image/jpeg')
+    )
+    picture_file = URI.open(samplei[:picture])
+    i.picture.attach(io: picture_file, filename: "#{samplei[:name]}.jpeg", content_type: 'image/jpeg')
     i.save
     n += 1
   puts 'creating ItemCategory'
