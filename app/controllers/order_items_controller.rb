@@ -33,14 +33,6 @@ class OrderItemsController < ApplicationController
     authorize @order_item
   end
 
-  # Para el tracking
-  def destroy
-    @order_item = OrderItem.find(params[:id])
-    @order_item.delete
-    authorize @order_item
-    redirect_to daily_target_path(current_user.daily_target.id)
-  end
-
   private
 
   def order_item_params
