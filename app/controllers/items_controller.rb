@@ -76,7 +76,7 @@ class ItemsController < ApplicationController
       :proteins,
       :fats,
       :carbs,
-      order_items_attributes: [:consumed_at]
+      order_items_attributes: [:consumed_at, :id]
     )
   end
 
