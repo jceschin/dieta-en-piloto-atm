@@ -54,9 +54,7 @@ class DailyTargetsController < ApplicationController
     @cal_left = @daily_target.caloric_target
     orders.each do |order|
       order.order_items.each do |item|
-        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
-          @cal_left -= Item.find_by_id(item.item_id).calories
-        end
+        @cal_left -= Item.find_by_id(item.item_id).calories if item.consumed_at&.today?
       end
     end
   end
