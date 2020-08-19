@@ -4,7 +4,7 @@
 <% if @item.price.nil? %>
   <%= form_for @item do |f| %>
 
-    <div>
+    <div class="mt-2">
       <div class="row">
         <%= f.label :name, "Nombre" %>
         <%= f.text_field :name, class: 'form-control' %><br>
@@ -19,7 +19,7 @@
             <%= f.range_field(:calories, in: 1..700, :step => 1) %>
           </div>
           <div class="col-6 col-lg-6">
-            <span>max. sugerido:700</span>
+            <span><small>max. recomendado:700</small></span>
           </div>
         </div>
 
@@ -31,7 +31,7 @@
             <%= f.range_field(:proteins, in: 1..30, :step => 1) %>
           </div>
           <div class="col-6 col-lg-6">
-            <span>max. sugerido:30</span>
+            <span><small>max. recomendado:30</small></span>
           </div>
         </div>
 
@@ -43,7 +43,7 @@
             <%= f.range_field(:fats, in: 1..77, :step => 1) %>
           </div>
           <div class="col-6 col-lg-6">
-            <span>max. sugerido:77</span>
+            <span><small>max. recomendado:77</small></span>
           </div>
         </div>
 
@@ -55,7 +55,7 @@
             <%= f.range_field(:carbs, in: 1..130, :step => 1) %>
           </div>
           <div class="col-6 col-lg-6">
-            <span>max. sugerido:130</span>
+            <span><small>max. recomendado:130</small></span>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
       <% end %>
     </div>
 
-    <div class="mt-3">
+    <div class="mt-5">
       <%= f.submit 'Confirmar', class: 'btn btn-green w-100 form-control' %>
     </div>
 
