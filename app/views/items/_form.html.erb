@@ -1,40 +1,92 @@
-<div style="background-color: white; height:100vh; width: auto">
-  <div class="col-12 col-lg-6 px-0" style="background-color: white; height:100vh; width: auto">
-    <div style="background-color: white; height:100vh; width: auto">
-      <% if @item.price.nil? %>
-        <%= form_for @item do |f| %>
-          <%= f.label :name, "Nombre" %>
-          <%= f.text_field :name, class: 'form-control' %><br>
-          <%= f.label :calories, "Calorías (kcal): " %><br>
-          <%= f.range_field(:calories, in: 1..700, :step => 1) %>max. sugerido:700<br>
-          <%= f.label :proteins, "Proteínas (gr): " %><br>
-          <%= f.range_field(:proteins, in: 1..30, :step => 1) %>max. sugerido:30<br>
-          <%= f.label :fats, "Grasas Totales (gr): " %><br>
-          <%= f.range_field(:fats, in: 1..77, :step => 1) %>max. sugerido:77<br>
-          <%= f.label :carbs, "Carbohidratos (gr): " %><br>
-          <%= f.range_field(:carbs, in: 1..130, :step => 1) %>max. sugerido:130<br>
-          <div class="field">
-            <%= f.fields_for :order_items do |builder| %>
-              <%= builder.label :consumed_at, "Fecha de Consumo (mes/día/año)" %>
-              <%= builder.date_field :consumed_at %>
-            <% end %>
-          </div>
-        <%= f.submit 'Confirmar', class: 'btn btn-green w-100 form-control' %>
-        <% end %>
+<div class="row justify-content-center px-1 mx-1 mt-5" style="background-color: white; height:100vh; width: auto">
+  <div class="col-12 col-lg-6" style="background-color: white; height:100vh; width: auto">
+    <h1>Consumo de Hoy</h1>
+<% if @item.price.nil? %>
+  <%= form_for @item do |f| %>
 
-      <% else %>
-        <h3><%= @item.name %></h3>
-        <span>Calorías (kcal): <%= @item.calories %></span><br>
-        <span>Proteínas (gr): <%= @item.proteins %></span><br>
-        <span>Grasas Totales (gr): <%= @item.fats %></span><br>
-        <span>Carbohidratos (gr): <%= @item.carbs %></span><br><br>
-        <%= form_for @order_item do |f| %>
-          <%= f.label :consumed_at, "Fecha de Consumo (mes/día/año)" %>
-          <%= f.date_field :consumed_at %>
-          <%= f.submit 'Confirmar', class: 'btn btn-green w-100 mt-3' %>
-        <% end %>
+    <div>
+      <div class="row">
+        <%= f.label :name, "Nombre" %>
+        <%= f.text_field :name, class: 'form-control' %><br>
+      </div>
+
+      <div>
+        <div class="row mt-3">
+          <%= f.label :calories, "Calorías (kcal):"%><br>
+        </div>
+        <div class="row">
+          <div class="col-6 col-lg-6">
+            <%= f.range_field(:calories, in: 1..700, :step => 1) %>
+          </div>
+          <div class="col-6 col-lg-6">
+            <span>max. sugerido:700</span>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <%= f.label :proteins, "Proteínas (gr):"%><br>
+        </div>
+        <div class="row">
+          <div class="col-6 col-lg-6">
+            <%= f.range_field(:proteins, in: 1..30, :step => 1) %>
+          </div>
+          <div class="col-6 col-lg-6">
+            <span>max. sugerido:30</span>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <%= f.label :fats, "Grasas Totales (gr):"%><br>
+        </div>
+        <div class="row">
+          <div class="col-6 col-lg-6">
+            <%= f.range_field(:fats, in: 1..77, :step => 1) %>
+          </div>
+          <div class="col-6 col-lg-6">
+            <span>max. sugerido:77</span>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <%= f.label :carbs, "Carbohidratos (gr): " %><br>
+        </div>
+        <div class="row">
+          <div class="col-6 col-lg-6">
+            <%= f.range_field(:carbs, in: 1..130, :step => 1) %>
+          </div>
+          <div class="col-6 col-lg-6">
+            <span>max. sugerido:130</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="field">
+      <%= f.fields_for :order_items do |builder| %>
+        <%= builder.label :consumed_at, "Fecha de Consumo (mes/día/año)" %>
+        <%= builder.date_field :consumed_at %>
       <% end %>
     </div>
-  </div>
+
+    <div class="mt-3">
+      <%= f.submit 'Confirmar', class: 'btn btn-green w-100 form-control' %>
+    </div>
+
+  <% end %>
+
+<% else %>
+  <h3><%= @item.name %></h3>
+  <span>Calorías (kcal): <%= @item.calories %></span><br>
+  <span>Proteínas (gr): <%= @item.proteins %></span><br>
+  <span>Grasas Totales (gr): <%= @item.fats %></span><br>
+  <span>Carbohidratos (gr): <%= @item.carbs %></span><br><br>
+  <%= form_for @order_item do |f| %>
+    <%= f.label :consumed_at, "Fecha de Consumo (mes/día/año)" %>
+    <%= f.date_field :consumed_at %>
+    <%= f.submit 'Confirmar', class: 'btn btn-green w-100 mt-3' %>
+  <% end %>
+<% end %>
+</div>
 </div>
 
