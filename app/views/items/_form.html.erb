@@ -11,51 +11,51 @@
       </div>
 
       <div>
-        <div class="row mt-4 ml-1">
+        <div class="row mt-4 mx-1 w-auto">
           <%= f.label :calories, "Calorías (kcal):"%><br>
         </div>
-        <div class="row">
-          <div class="col-3 col-lg-6 text-center font-weight-bold">
-            <output type="text" id="putcal" class="mx-4 range-number"></output>
+        <div class="row mx-1">
+          <div class="col-2 col-lg-4 text-center font-weight-bold w-100">
+            <output type="text" id="putcal" class="mx-3 range-number"></output>
           </div>
-          <div class="col-9 col-lg-6 text-center">
-            <%= f.range_field(:calories, in: 1..700, :step => 1, id:'getcal', class:'align-middle range-bar', onchange:'fetch_cal()')%>
+          <div class="col-10 col-lg-8 text-center">
+            <%= f.range_field(:calories, in: 1..700, :step => 1, id:'getcal', class:'align-middle range-bar w-100', onchange:'fetch_cal()')%>
           </div>
         </div>
 
-        <div class="row mt-2 ml-1">
+        <div class="row mt-2 mx-1">
           <%= f.label :proteins, "Proteínas (gr):"%><br>
         </div>
-        <div class="row">
-          <div class="col-3 col-lg-6 text-center font-weight-bold">
-            <output type="text" id="putprot" class="mx-4 range-number"></output>
+        <div class="row mx-1">
+          <div class="col-2 col-lg-4 text-center font-weight-bold">
+            <output type="text" id="putprot" class="mx-3 range-number"></output>
           </div>
-          <div class="col-9 col-lg-6">
-            <%= f.range_field(:proteins, in: 1..30, :step => 1, id:'getprot', class:'align-middle range-bar', onchange:'fetch_prot()') %>
+          <div class="col-10 col-lg-8">
+            <%= f.range_field(:proteins, in: 1..30, :step => 1, id:'getprot', class:'align-middle range-bar w-100', onchange:'fetch_prot()') %>
           </div>
         </div>
 
-        <div class="row mt-2 ml-1">
+        <div class="row mt-2 mx-1">
           <%= f.label :fats, "Grasas Totales (gr):"%><br>
         </div>
-        <div class="row">
-          <div class="col-3 col-lg-6 text-center font-weight-bold">
-            <output type="text" id="putfat" class="mx-4 range-number"></output>
+        <div class="row mx-1">
+          <div class="col-2 col-lg-4 text-center font-weight-bold">
+            <output type="text" id="putfat" class="mx-3 range-number"></output>
           </div>
-          <div class="col-9 col-lg-6">
-            <%= f.range_field(:fats, in: 1..77, :step => 1, id:'getfat', class:'align-middle range-bar', onchange:'fetch_fat()') %>
+          <div class="col-10 col-lg-8">
+            <%= f.range_field(:fats, in: 1..77, :step => 1, id:'getfat', class:'align-middle range-bar w-100', onchange:'fetch_fat()') %>
           </div>
         </div>
 
-        <div class="row mt-2 ml-1">
+        <div class="row mt-2 mx-1">
           <%= f.label :carbs, "Carbohidratos (gr): " %><br>
         </div>
-        <div class="row">
-          <div class="col-3 col-lg-6 text-center font-weight-bold">
-            <output type="text" id="putcarb" class="mx-4 range-number"></output>
+        <div class="row mx-1">
+          <div class="col-2 col-lg-4 text-center font-weight-bold">
+            <output type="text" id="putcarb" class="mx-3 range-number"></output>
           </div>
-          <div class="col-9 col-lg-6">
-            <%= f.range_field(:carbs, in: 1..130, :step => 1, id:'getcarb', class:'align-middle range-bar', onchange:'fetch_carb()') %>
+          <div class="col-10 col-lg-8">
+            <%= f.range_field(:carbs, in: 1..130, :step => 1, id:'getcarb', class:'align-middle range-bar w-100', onchange:'fetch_carb()') %>
           </div>
         </div>
       </div>
