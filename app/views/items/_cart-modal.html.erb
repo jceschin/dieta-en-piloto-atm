@@ -30,8 +30,18 @@
               <h3>Total:</h3>
               <h3>$<%= @order.total_price %></h3>
             </div>
+            <div class="btn-group payment-options">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                Left-aligned but right aligned when large screen
+              </button>
+              <div class="dropdown-menu dropdown-menu-lg-right">
+                <button class="dropdown-item" type="button">Action</button>
+                <button class="dropdown-item" type="button">Another action</button>
+                <button class="dropdown-item" type="button">Something else here</button>
+              </div>
+            </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-green-order">Continuar compra</button>
+              <button type="submit" class="btn btn-green-order">Confirmar</button>
             </div>
           <% end %>
           <!-- </form> -->
