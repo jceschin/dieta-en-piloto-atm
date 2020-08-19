@@ -16,8 +16,8 @@ class User < ApplicationRecord
     DailyTarget.find_by(user_id: current_user.id)
   end
 
-  def consumed_items
-    Item.joins(order_items: [{ order: :user }]).where(consumed_at: "LIKE '%0'", user: id)
+  def orders
+    Order.where(user_id: current_user.id)
   end
 
   def daily_target_upper_limit
