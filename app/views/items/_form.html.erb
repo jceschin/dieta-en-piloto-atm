@@ -16,7 +16,8 @@
         </div>
         <div class="row">
           <div class="col-6 col-lg-6">
-            <%= f.range_field(:calories, in: 1..700, :step => 1) %>
+            <output type="text" id="putcal"></output>
+            <%= f.range_field(:calories, in: 1..700, :step => 1, id:'getcal', onchange:'fetch_cal()')%>
           </div>
           <div class="col-6 col-lg-6">
             <span><small>max. recomendado:700</small></span>
@@ -28,7 +29,8 @@
         </div>
         <div class="row">
           <div class="col-6 col-lg-6">
-            <%= f.range_field(:proteins, in: 1..30, :step => 1) %>
+            <output type="text" id="putprot"></output>
+            <%= f.range_field(:proteins, in: 1..30, :step => 1, id:'getprot', onchange:'fetch_prot()') %>
           </div>
           <div class="col-6 col-lg-6">
             <span><small>max. recomendado:30</small></span>
@@ -40,7 +42,8 @@
         </div>
         <div class="row">
           <div class="col-6 col-lg-6">
-            <%= f.range_field(:fats, in: 1..77, :step => 1) %>
+            <output type="text" id="putfat"></output>
+            <%= f.range_field(:fats, in: 1..77, :step => 1, id:'getfat', onchange:'fetch_fat()') %>
           </div>
           <div class="col-6 col-lg-6">
             <span><small>max. recomendado:77</small></span>
@@ -52,7 +55,8 @@
         </div>
         <div class="row">
           <div class="col-6 col-lg-6">
-            <%= f.range_field(:carbs, in: 1..130, :step => 1) %>
+            <output type="text" id="putcarb"></output>
+            <%= f.range_field(:carbs, in: 1..130, :step => 1, id:'getcarb', onchange:'fetch_carb()') %>
           </div>
           <div class="col-6 col-lg-6">
             <span><small>max. recomendado:130</small></span>
@@ -90,3 +94,21 @@
 </div>
 </div>
 
+<script>
+  function fetch_cal () {
+    const getcal =  document.getElementById('getcal').value;
+    document.getElementById('putcal').value = getcal;
+  }
+    function fetch_prot () {
+    const getprot =  document.getElementById('getprot').value;
+    document.getElementById('putprot').value = getprot;
+  }
+    function fetch_fat () {
+    const getfat =  document.getElementById('getfat').value;
+    document.getElementById('putfat').value = getfat;
+  }
+    function fetch_carb () {
+    const getcarb =  document.getElementById('getcarb').value;
+    document.getElementById('putcarb').value = getcarb;
+  }
+</script>
