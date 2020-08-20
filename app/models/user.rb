@@ -13,11 +13,11 @@ class User < ApplicationRecord
   end
 
   # def daily_target
-    # DailyTarget.find_by(user_id: id)
+  # DailyTarget.find_by(user_id: id)
   # end
 
   # def orders
-    # Order.where(user_id: id)
+  # Order.where(user_id: id)
   # end
 
   def daily_target_upper_limit
