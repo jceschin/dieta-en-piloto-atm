@@ -1,7 +1,7 @@
 <div class="container "style="background-color: white; height:100vh; width: auto">
 
   <div class="row px-1 mx-auto mt-4 justify-content-center">
-    <div class="col-12 col-md-7 col-lg-5 col-xl-4 border" style="background-color: white; height:auto; width: auto; border-radius: 8px">
+    <div class="col-12 col-md-7 col-lg-5 col-xl-4 border mt-4" style="background-color: white; height:auto; width: auto; border-radius: 8px">
         <h1 class="mt-2 text-center" style="font-size:190%">Consumo de Hoy</h1>
         <% if @item.price.nil? %>
           <%= form_for @item do |f| %>
@@ -81,7 +81,7 @@
 
         <% else %>
 
-          <ul class="mt-5 px-0" style="list-style:none; margin-left:25%">
+          <ul class="mt-5 px-0" style="list-style:none; margin-left:23%">
             <h4 class="font-weight-bold" style="color:#C0EA04"><%= @item.name %></h4>
             <li>Calorías (kcal): <strong><%= @item.calories %></strong></li>
             <li>Proteínas (gr): <strong><%= @item.proteins %></strong></li>
@@ -91,7 +91,7 @@
             <div>
               <%= form_for @order_item do |f| %>
               <div class="row field mt-4 ml-1">
-                <div class="d-flex flex-column mb-5" style="margin-left:25%">
+                <div class="d-flex flex-column mb-5" style="margin-left:23%">
                   <%= f.label :consumed_at, "Consumido el (m/d/a):" %>
                   <%= f.date_field :consumed_at %>
                 </div>
