@@ -52,8 +52,8 @@ class DailyTargetsController < ApplicationController
     orders = Order.where(user_id: current_user.id)
     @cal_left = daily_target.caloric_target
     orders.each do |order|
-      order.order_items.each do |order_item|
-        @cal_left -= Item.find_by_id(order_item.item_id).calories if order_item.consumed_at&.today?
+      order.order_items.each do |item|
+        @cal_left -= Item.find_by_id(item.item_id).calories if item.consumed_at&.today?
       end
     end
   end
@@ -62,8 +62,8 @@ class DailyTargetsController < ApplicationController
     orders = Order.where(user_id: current_user.id)
     @proteins_left = daily_target.protein_target
     orders.each do |order|
-      order.order_items.each do |order_item|
-        @proteins_left -= Item.find_by_id(order_item.item_id).proteins if order_item.consumed_at&.today?
+      order.order_items.each do |item|
+        @proteins_left -= Item.find_by_id(item.item_id).proteins if item.consumed_at&.today?
       end
     end
   end
@@ -72,8 +72,8 @@ class DailyTargetsController < ApplicationController
     orders = Order.where(user_id: current_user.id)
     @carbs_left = daily_target.carb_target
     orders.each do |order|
-      order.order_items.each do |order_item|
-        @carbs_left -= Item.find_by_id(order_item.item_id).carbs if order_item.consumed_at&.today?
+      order.order_items.each do |item|
+        @carbs_left -= Item.find_by_id(item.item_id).carbs if item.consumed_at&.today?
       end
     end
   end
@@ -82,8 +82,8 @@ class DailyTargetsController < ApplicationController
     orders = Order.where(user_id: current_user.id)
     @fats_left = daily_target.fat_target
     orders.each do |order|
-      order.order_items.each do |order_item|
-        @fats_left -= Item.find_by_id(order_item.item_id).fats if order_item.consumed_at&.today?
+      order.order_items.each do |item|
+        @fats_left -= Item.find_by_id(item.item_id).fats if item.consumed_at&.today?
       end
     end
   end
