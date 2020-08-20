@@ -6,9 +6,10 @@
 <%= render 'cart-modal', order: @order%>
 
 <div class="container categories">
-  <% @categories.sample(8).each do |category| %>
-    <%= link_to "#", class: "hvr-grow" do %>
-      <%= image_tag "#{category.picture}", alt: "CategoryX", class: "category hvr-grow-s" %>
+  <% @categories.sample(4).each do |category| %>
+    <%= link_to "#", class: "category hvr-grow" do %>
+      <%= image_tag "#{category.picture}", alt: "#{category.name}", class: "category hvr-grow-s" %>
+      <h2> <%= category.name.upcase %> </h2>
     <% end %>
   <% end %>
 </div>
@@ -25,4 +26,3 @@
     <% end %>
   <% end %>
 </div>
-
