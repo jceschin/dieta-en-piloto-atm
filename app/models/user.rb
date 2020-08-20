@@ -12,13 +12,13 @@ class User < ApplicationRecord
     orders.pending.last
   end
 
-  def daily_target
-    DailyTarget.find_by(user_id: id)
-  end
+  # def daily_target
+    # DailyTarget.find_by(user_id: id)
+  # end
 
-  def orders
-    Order.where(user_id: id)
-  end
+  # def orders
+    # Order.where(user_id: id)
+  # end
 
   def daily_target_upper_limit
     "1.#{daily_target.control_limit}".to_f
