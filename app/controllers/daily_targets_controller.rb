@@ -49,60 +49,50 @@ class DailyTargetsController < ApplicationController
   end
 
   def cal_left(daily_target)
-    orders = Order.where(user_id: current_user.id, status: :finished)
+    orders = Order.where(user_id: current_user.id)
     @cal_left = daily_target.caloric_target
     orders.each do |order|
       order.order_items.each do |order_item|
-        if order_item.consumed_at.day == Time.zone.now.day && order_item.consumed_at.month == Time.zone.now.month && order_item.consumed_at.year == Time.zone.now.year
-          @cal_left -= Item.find_by_id(order_item.item_id).calories
-        end
+        @cal_left -= Item.find_by_id(order_item.item_id).calories if order_item.consumed_at&.today?
       end
     end
   end
 
   def proteins_left(daily_target)
-    orders = Order.where(user_id: current_user.id, status: :finished)
+    orders = Order.where(user_id: current_user.id)
     @proteins_left = daily_target.protein_target
     orders.each do |order|
-      order.order_items.each do |item|
-        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
-          @proteins_left -= Item.find_by_id(item.item_id).proteins
-        end
+      order.order_items.each do |order_item|
+        @proteins_left -= Item.find_by_id(order_item.item_id).proteins if order_item.consumed_at&.today?
       end
     end
   end
 
   def carbs_left(daily_target)
-    orders = Order.where(user_id: current_user.id, status: :finished)
+    orders = Order.where(user_id: current_user.id)
     @carbs_left = daily_target.carb_target
     orders.each do |order|
-      order.order_items.each do |item|
-        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
-          @carbs_left -= Item.find_by_id(item.item_id).carbs
-        end
+      order.order_items.each do |order_item|
+        @carbs_left -= Item.find_by_id(order_item.item_id).carbs if order_item.consumed_at&.today?
       end
     end
   end
 
   def fats_left(daily_target)
-    orders = Order.where(user_id: current_user.id, status: :finished)
+    orders = Order.where(user_id: current_user.id)
     @fats_left = daily_target.fat_target
     orders.each do |order|
-      order.order_items.each do |item|
-        if item.consumed_at.day == Time.zone.now.day && item.consumed_at.month == Time.zone.now.month && item.consumed_at.year == Time.zone.now.year
-          @fats_left -= Item.find_by_id(item.item_id).fats
-        end
+      order.order_items.each do |order_item|
+        @fats_left -= Item.find_by_id(order_item.item_id).fats if order_item.consumed_at&.today?
       end
     end
   end
 
   def consumed_today
     @items_consumed_today = []
-    Order.where(user_id:current_user.id, status: :finished).each do |order|
+    Order.where(user_id:current_user.id).each do |order|
       order.order_items.each do |order_item|
-        if order_item.consumed_at.day == Time.zone.now.day && order_item.consumed_at.month == Time.zone.now.month && order_item.consumed_at.year == Time.zone.now.year
-          @items_consumed_today << Item.find_by_id(order_item.item_id)
-        end
+        @items_consumed_today << Item.find_by_id(order_item.item_id) if order_item.consumed_at&.today?
       end
     end
   end
