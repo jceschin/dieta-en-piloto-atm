@@ -14,19 +14,19 @@
         <% if !order.nil? %>
           <!-- form route? -->
           <%= form_for [order], html: {class: "cart-modal-form"} do |f| %>
-            <% @order.items.each do |item| %>
-            <div class="d-flex flex-column align-items-center">
-              <div class="d-flex align-items-center justify-content-between cart-modal-item w-100">
-                <h3><%= item.name %></h3>
-                <h3>$<%= item.price %></h3>
-              </div>
-              <div class="inc-dec d-flex align-items-center">
-                <%= link_to "-", "#", class: "btn-inc-dec dec hvr-grow-s" %>
-                <input class="input"
-                 type="text" name="quantity" value="1">
-                <%= link_to "+", "#", class: "btn-inc-dec inc hvr-grow-s" %>
-              </div>
-            </div>
+            <% @order.items_and_qty.each do |key, item| %>
+                <div class="d-flex flex-column align-items-center">
+                  <div class="d-flex align-items-center justify-content-between cart-modal-item w-100">
+                    <h3><%= item[0].name %></h3>
+                    <h3>$<%= item[0].price %></h3>
+                  </div>
+                  <div class="inc-dec d-flex align-items-center">
+                    <%= link_to "-", "#", class: "btn-inc-dec dec hvr-grow-s" %>
+                    <input class="input"
+                     type="text" name="quantity" value= <%= item[1] %> >
+                    <%= link_to "+", "#", class: "btn-inc-dec inc hvr-grow-s" %>
+                  </div>
+                </div>
             <% end %>
             <div class="d-flex justify-content-between cart-modal-price">
               <h3>Total:</h3>
@@ -43,7 +43,7 @@
               <button type="submit" class="btn btn-green-order">Confirmar</button>
             </div>
           <% end %>
-          <!-- </form> -->
+            <!-- </form> -->
         <% else %>
           <h1>Carrito vacío</h1>
         <% end %>
