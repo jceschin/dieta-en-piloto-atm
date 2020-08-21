@@ -10,11 +10,11 @@
     </div>
   </div>
 
-
   <div class="categories">
-    <% @categories.sample(8).each do |category| %>
-      <%= link_to "#", class: "hvr-grow" do %>
-        <%= image_tag "#{category.picture}", alt: "CategoryX", class: "category hvr-grow-s" %>
+    <% @categories.sample(4).each do |category| %>
+      <%= link_to "#", class: "category hvr-grow" do %>
+        <%= image_tag "#{category.picture}", alt: "#{category.name}", class: "category hvr-grow-s" %>
+        <h2> <%= category.name.upcase %> </h2>
       <% end %>
     <% end %>
   </div>
@@ -31,14 +31,17 @@
       <% end %>
     <% end %>
   </div>
+  <div class="filler-space-consumption"></div>
+  <div class="add-consumption fixed-bottom">
+    <%= link_to new_item_path, class: "hvr-grow-s d-flex justify-content-center" do%>
+      <div class="btn-add-consumption d-flex align-items-center">
+        <%= image_tag "components/plus_button_big.png" %>
+        <h2>Registrar consumo</h2>
+      </div>
+    <% end %>
+  </div>
 </div>
+<<<<<<< HEAD
+=======
 
-<div class="filler-space-consumption"></div>
-<div class="add-consumption fixed-bottom">
-  <%= link_to new_item_path, class: "hvr-grow-s d-flex justify-content-center" do%>
-    <div class="btn-add-consumption d-flex align-items-center">
-      <%= image_tag "components/plus_button_big.png" %>
-      <h2>Registrar consumo</h2>
-    </div>
-  <% end %>
-</div>
+>>>>>>> master
