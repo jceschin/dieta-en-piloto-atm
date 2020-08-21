@@ -36,11 +36,11 @@ const initIncrementButtons = () => {
       // case for the item_Modal
       const $priceP = $(`#${idName}-total`)
       $priceP.text(`$${changeTotalItem($priceP, oldValue, newVal)}`);
-    } else {
+    } else if ( oldValue - newVal != 0 ) {
       // case for the cart modal
-      const $priceP = $(`#${idName}-total`)
+      const $priceP = $(`#${idName}-price`)
       const $priceTotal = $(`#cart-total-price`)
-      $priceP.text(`$${changeTotalCart($priceP, $priceTotal, incrementType)}`);
+      $priceTotal.text(`$${changeTotalCart($priceP, $priceTotal, incrementType)}`);
     }
   });
 };
@@ -58,13 +58,10 @@ const changeTotalItem = ($element, oldQty, newQty) => {
 const changeTotalCart = ($element, $total, incrementType) => {
   console.log(`${incrementType}`);
   if ( $element.length ){
-    const oldValue = parseFloat($element.text().replace('$', ''));
-    const singleValue = oldValue / oldQty;
-    return(singleValue * newQty);
-    // console.log(`this: ${oldValue}`);
+    const price = parseFloat($element.text().replace('$', ''));
+    const total = parseFloat($total.text().replace('$', ''));
+    return( (incrementType == "inc" ) ? total + price : total - price );
   }
-  // const partial =
-  // accessory = (raining ? "umbrella" : "sunglasses")
 };
 
 
