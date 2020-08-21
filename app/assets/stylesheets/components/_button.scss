@@ -70,4 +70,39 @@
   color: #4B4B4B;
 }
 
+.add-consumption {
+  background-color: white;
+  color: #184D47;
+}
 
+.add-consumption a {
+  color: #184D47;
+  text-decoration: none
+}
+
+.add-consumption h2 {
+  font-size: 16px;
+  margin: 0;
+  padding-left: 8px;
+  font-weight: bold;
+}
+
+.btn-add-consumption {
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 3px solid;
+  border-color: #184D47;
+  border-radius: 16px;
+  // align-self: center;
+  margin: 5px 0px;
+}
+
+.btn-add-consumption img {
+  height: 30px;
+}
+
+.filler-space-consumption {
+  height: 50px;
+  background-color: white;
+}
