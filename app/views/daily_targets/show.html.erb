@@ -16,7 +16,9 @@
 
   <p class="mb-0 mt-4">Calorías (kcal)</p>
   <div class="text-right my-0">
-    <span><small><%= @daily_target.caloric_target %></small></span>
+    <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
+      <span><small><%= @daily_target.caloric_target %></small></span>
+    <% end %>
   </div>
   <% width_consumed_cal = (@daily_target.caloric_target - @cal_left)/@daily_target.caloric_target.to_f*100 %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
@@ -32,7 +34,9 @@
 
   <p class="mb-0 mt-4">Proteínas (g)</p>
   <div class="text-right my-0">
-    <span><small><%= @daily_target.protein_target %></small></span>
+    <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
+      <span><small><%= @daily_target.protein_target %></small></span>
+    <% end %>
   </div>
   <% width_consumed_proteins = (@daily_target.protein_target - @proteins_left)/@daily_target.protein_target.to_f*100 %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
@@ -47,7 +51,9 @@
 
   <p class="mb-0 mt-4">Carbohidratos (g)</p>
   <div class="text-right my-0">
-    <span><small><%= @daily_target.carb_target %></small></span>
+    <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
+      <span><small><%= @daily_target.carb_target %></small></span>
+    <% end %>
   </div>
   <% width_consumed_carbs = (@daily_target.carb_target - @carbs_left)/@daily_target.carb_target.to_f*100 %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
@@ -62,7 +68,9 @@
 
   <p class="mb-0 mt-4">Grasas totales (g)</p>
   <div class="text-right my-0">
-    <span><small><%= @daily_target.fat_target %></small></span>
+    <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
+      <span><small><%= @daily_target.fat_target %></small></span>
+    <% end %>
   </div>
   <% width_consumed_fats = (@daily_target.fat_target - @fats_left)/@daily_target.fat_target.to_f*100 %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
