@@ -38,8 +38,9 @@ const initIncrementButtons = () => {
       $priceP.text(`$${changeTotalItem($priceP, oldValue, newVal)}`);
     } else {
       // case for the cart modal
-      const $priceP = $(`#cart-total-price`)
-      $priceP.text(`$${changeTotalCart($priceP, incrementType)}`);
+      const $priceP = $(`#${idName}-total`)
+      const $priceTotal = $(`#cart-total-price`)
+      $priceP.text(`$${changeTotalCart($priceP, $priceTotal, incrementType)}`);
     }
   });
 };
