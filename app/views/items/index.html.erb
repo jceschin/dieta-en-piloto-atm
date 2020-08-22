@@ -1,29 +1,43 @@
 <!-- index.html.erb -->
-
-<% @items.each do |item|  %>
-  <%= render 'item-modal', item: item, order_item: @order_item %>
-<% end %>
-
-<%= render 'cart-modal', order: @order%>
-
-<div class="container categories">
-  <% @categories.sample(8).each do |category| %>
-    <%= link_to "#", class: "hvr-grow" do %>
-      <%= image_tag "#{category.picture}", alt: "CategoryX", class: "category hvr-grow-s" %>
-    <% end %>
+<div class="container">
+  <% @items.each do |item|  %>
+    <%= render 'item-modal', item: item, order_item: @order_item %>
   <% end %>
-</div>
 
-<div class="container text-center pt-3 pb-0 sugerencias bg-white">
-  <h2>Tus sugeridos</h2>
-</div>
-<div class="container item-cards">
-  <% if @items.count == 0 %>
-    <%= render 'control_limit' %>
-  <% else %>
-    <% @items.each do |item|  %>
-      <%= render 'item-card', item: item %>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= render 'cart-modal', order: @order%>
+    </div>
+  </div>
+
+  <div class="categories">
+    <% @categories.sample(4).each do |category| %>
+      <%= link_to "#", class: "category hvr-grow" do %>
+        <%= image_tag "#{category.picture}", alt: "#{category.name}", class: "category hvr-grow-s" %>
+        <h2> <%= category.name.upcase %> </h2>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
+  <div class="text-center pt-3 pb-0 sugerencias bg-white">
+    <h2>Tus sugeridos</h2>
+  </div>
+  <div class="item-cards">
+    <% if @items.count == 0 %>
+      <%= render 'control_limit' %>
+    <% else %>
+      <% @items.each do |item|  %>
+        <%= render 'item-card', item: item %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="filler-space-consumption"></div>
+  <div class="add-consumption fixed-bottom">
+    <%= link_to new_item_path, class: "hvr-grow-s d-flex justify-content-center" do%>
+      <div class="btn-add-consumption d-flex align-items-center">
+        <%= image_tag "components/plus_button_big.png" %>
+        <h2>Registrar consumo</h2>
+      </div>
+    <% end %>
+  </div>
+</div>

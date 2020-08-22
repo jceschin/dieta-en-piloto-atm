@@ -1,0 +1,124 @@
+<div class="container "style="background-color: white; height:100vh; width: auto">
+
+  <div class="row px-1 mx-auto mt-4 justify-content-center">
+    <div class="col-12 col-md-7 col-lg-5 col-xl-4 border mt-4" style="background-color: white; height:auto; width: auto; border-radius: 8px">
+        <h1 class="mt-2 text-center" style="font-size:190%">Registrar una comida</h1>
+        <% if @item.price.nil? %>
+          <%= form_for @item do |f| %>
+
+            <div class="mt-4">
+              <div class="row mx-1">
+                <%= f.label :name, "Nombre" %>
+                <%= f.text_field :name, class: 'form-control', style:'border-radius:8px' %><br>
+              </div>
+
+              <div>
+                <div class="row mt-4 mx-1 w-auto">
+                  <%= f.label :calories, "Calorías (kcal):"%><br>
+                </div>
+                <div class="row mx-1">
+                  <div class="col-2 col-lg-4 text-center font-weight-bold w-100">
+                    <output type="text" id="putcal" class="mx-3 range-number"></output>
+                  </div>
+                  <div class="col-10 col-lg-8 text-center">
+                    <%= f.range_field(:calories, in: 1..2000, :step => 1, id:'getcal', class:'align-middle w-100', onchange:'fetch_cal()')%>
+                  </div>
+                </div>
+
+                <div class="row mt-2 mx-1">
+                  <%= f.label :proteins, "Proteínas (gr):"%><br>
+                </div>
+                <div class="row mx-1">
+                  <div class="col-2 col-lg-4 text-center font-weight-bold">
+                    <output type="text" id="putprot" class="mx-3 range-number"></output>
+                  </div>
+                  <div class="col-10 col-lg-8">
+                    <%= f.range_field(:proteins, in: 1..100, :step => 1, id:'getprot', class:'align-middle w-100', onchange:'fetch_prot()') %>
+                  </div>
+                </div>
+
+                <div class="row mt-2 mx-1">
+                  <%= f.label :fats, "Grasas Totales (gr):"%><br>
+                </div>
+                <div class="row mx-1">
+                  <div class="col-2 col-lg-4 text-center font-weight-bold">
+                    <output type="text" id="putfat" class="mx-3 range-number"></output>
+                  </div>
+                  <div class="col-10 col-lg-8">
+                    <%= f.range_field(:fats, in: 1..100, :step => 1, id:'getfat', class:'align-middle w-100', onchange:'fetch_fat()') %>
+                  </div>
+                </div>
+
+                <div class="row mt-2 mx-1">
+                  <%= f.label :carbs, "Carbohidratos (gr): " %><br>
+                </div>
+                <div class="row mx-1">
+                  <div class="col-2 col-lg-4 text-center font-weight-bold">
+                    <output type="text" id="putcarb" class="mx-3 range-number"></output>
+                  </div>
+                  <div class="col-10 col-lg-8">
+                    <%= f.range_field(:carbs, in: 1..250, :step => 1, id:'getcarb', class:'align-middle w-100', onchange:'fetch_carb()') %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row field mt-4 ml-1">
+                <%= f.fields_for :order_items do |builder| %>
+                  <div class="d-flex flex-column">
+                    <%= builder.label :consumed_at, "Consumido el (m/d/a):" %>
+                    <%= builder.date_field :consumed_at, min: Date.today - 15, max: Date.tomorrow, class:'border form-control', style:'border-radius:8px'%>
+                  </div>
+                <% end %>
+              </div>
+
+            </div>
+
+            <div class="mt-4">
+              <%= f.submit 'Confirmar', class: 'btn btn-green w-100 form-control mb-2' %>
+            </div>
+
+          <% end %>
+
+        <% else %>
+
+          <ul class="mt-5 px-0" style="list-style:none; margin-left:23%">
+            <h4 class="font-weight-bold" style="color:#C0EA04"><%= @item.name %></h4>
+            <li>Calorías (kcal): <strong><%= @item.calories %></strong></li>
+            <li>Proteínas (gr): <strong><%= @item.proteins %></strong></li>
+            <li>Grasas Totales (gr): <strong><%= @item.fats %></strong></li>
+            <li>Carbohidratos (gr): <strong><%= @item.carbs %></strong></li>
+          </ul>
+            <div>
+              <%= form_for @order_item do |f| %>
+              <div class="row field mt-4 ml-1">
+                <div class="d-flex flex-column mb-5" style="margin-left:23%">
+                  <%= f.label :consumed_at, "Consumido el (m/d/a):" %>
+                  <%= f.date_field :consumed_at, min: Date.today - 15, max: Date.tomorrow, class:'border form-control', style:'border-radius:8px' %>
+                </div>
+              </div>
+              <%= f.submit 'Confirmar', class: 'btn btn-green w-100 form-control mb-2' %>
+              <% end %>
+            </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  function fetch_cal () {
+    const getcal =  document.getElementById('getcal').value;
+    document.getElementById('putcal').value = getcal;
+  }
+    function fetch_prot () {
+    const getprot =  document.getElementById('getprot').value;
+    document.getElementById('putprot').value = getprot;
+  }
+    function fetch_fat () {
+    const getfat =  document.getElementById('getfat').value;
+    document.getElementById('putfat').value = getfat;
+  }
+    function fetch_carb () {
+    const getcarb =  document.getElementById('getcarb').value;
+    document.getElementById('putcarb').value = getcarb;
+  }
+</script>

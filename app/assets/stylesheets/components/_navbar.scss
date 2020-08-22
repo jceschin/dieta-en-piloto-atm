@@ -4,6 +4,10 @@
   box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
+.filler-space-navbar {
+  height: 70px;
+}
+
 .navbar-tudieta .navbar-collapse {
   flex-grow: 0;
 }
@@ -46,6 +50,11 @@
 // }
 
 @media(max-width:450px) {
+
+  .filler-space-navbar {
+    height: 50px;
+  }
+
   .navbar-tudieta {
     padding: 2px;
   }
@@ -117,6 +126,11 @@
     margin-right: 0px;
     font-size: 16px;
     color: #184D47;
+  }
+
+  body > div.navbar.navbar-expand-sm.navbar-light.navbar-tudieta.fixed-top > div.navbar-left.d-flex.align-items-center > button {
+    display: none;
+    padding:0px;
   }
 
 }

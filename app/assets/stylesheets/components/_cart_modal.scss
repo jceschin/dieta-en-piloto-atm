@@ -1,6 +1,10 @@
-.cart-modal .modal-header h2 {
-  font-size: 22;
+.cart-modal-header h2 {
+  margin: 0;
   font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #184D47;
+  font-size: 24px;
+  padding: 15px;
 }
 
 .cart-modal-item h3 {
@@ -9,6 +13,7 @@
   font-family: Roboto, sans-serif;
   color: #184D47;
   font-size: 20px;
+  padding: 15px;
 }
 
 .cart-modal-price h3 {
@@ -17,5 +22,6 @@
   font-family: Roboto, sans-serif;
   color: black;
   font-size: 20px;
+  padding: 15px;
 }
 

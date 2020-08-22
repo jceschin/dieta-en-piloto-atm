@@ -34,7 +34,6 @@ puts "destroying all order items"
 OrderItem.destroy_all
 
 
-
 puts 'Creating Categories'
 # Important! when adding a category, add also the picture with its same name
 # in app/assets/images/categories/%category_name%.jpg
@@ -59,6 +58,7 @@ SELLERS_INFO.each do |info|
 
   s.save
   puts '--creating Item'
+
   samplei = ITEMS_INFO[n]
     i = Item.new(
       seller: s,
@@ -70,9 +70,9 @@ SELLERS_INFO.each do |info|
       carbs: samplei[:carbs],
       origin: samplei[:origin],
       price: samplei[:price],
-      )
-      picture_file = URI.open(samplei[:picture])
-      i.picture.attach(io: picture_file, filename: "#{samplei[:name]}.jpeg", content_type: 'image/jpeg')
+    )
+    picture_file = URI.open(samplei[:picture])
+    i.picture.attach(io: picture_file, filename: "#{samplei[:name]}.jpeg", content_type: 'image/jpeg')
     i.save
     n += 1
   puts '--creating ItemCategory'
@@ -119,9 +119,9 @@ NAMES_INFO.each do |name|
   dt.save
 end
 
-# Seeds for user-can-buy-items
-puts "Creating seeds for user-can-buy-items"
+# # Seeds for user-can-buy-items
+# puts "Creating seeds for user-can-buy-items"
 
-juan_order = Order.create(user: User.find_by(email: "juan@gmail.com"), status: "pending")
-juan_item_first = OrderItem.create(item_id: Item.first.id, order_id: juan_order.id)
-juan_item_second = OrderItem.create(item_id: Item.second.id, order_id: juan_order.id)
+# juan_order = Order.create(user: User.find_by(email: "juan@gmail.com"), status: "pending")
+# juan_item_first = OrderItem.create(item_id: Item.first.id, order_id: juan_order.id)
+# juan_item_second = OrderItem.create(item_id: Item.second.id, order_id: juan_order.id)

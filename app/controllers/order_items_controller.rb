@@ -28,9 +28,16 @@ class OrderItemsController < ApplicationController
     redirect_to items_path
   end
 
-  # private
+  def update
+    order_item = OrderItem.find(params[:id])
+    order_item.update(order_items_params)
+    authorize order_item
+    redirect_to daily_target_path(current_user.daily_target.id)
+  end
 
-  # def order_item_params
-  #   params.require(:order_item).permit(:item_id)
-  # end
+  private
+
+  def order_items_params
+    params.require(:order_item).permit(:consumed_at)
+  end
 end

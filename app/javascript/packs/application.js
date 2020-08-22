@@ -28,9 +28,11 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 // import { initItemModalFunctions } from '../components/modal_functions';
+import { initIncrementButtons } from '../components/increment_buttons';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // initItemModalFunctions();
+  initIncrementButtons();
 });
