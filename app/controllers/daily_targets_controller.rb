@@ -49,7 +49,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def cal_left(daily_target)
-    orders = Order.where(user_id: current_user.id)
+    orders = Order.where(user_id: current_user.id, status: :finished)
     @cal_left = daily_target.caloric_target
     orders.each do |order|
       order.order_items.each do |item|
@@ -59,7 +59,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def proteins_left(daily_target)
-    orders = Order.where(user_id: current_user.id)
+    orders = Order.where(user_id: current_user.id, status: :finished)
     @proteins_left = daily_target.protein_target
     orders.each do |order|
       order.order_items.each do |item|
@@ -69,7 +69,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def carbs_left(daily_target)
-    orders = Order.where(user_id: current_user.id)
+    orders = Order.where(user_id: current_user.id, status: :finished)
     @carbs_left = daily_target.carb_target
     orders.each do |order|
       order.order_items.each do |item|
@@ -79,7 +79,7 @@ class DailyTargetsController < ApplicationController
   end
 
   def fats_left(daily_target)
-    orders = Order.where(user_id: current_user.id)
+    orders = Order.where(user_id: current_user.id, status: :finished)
     @fats_left = daily_target.fat_target
     orders.each do |order|
       order.order_items.each do |item|
@@ -90,7 +90,7 @@ class DailyTargetsController < ApplicationController
 
   def consumed_today
     @items_consumed_today = []
-    Order.where(user_id: current_user.id).each do |order|
+    Order.where(user_id: current_user.id, status: :finished).each do |order|
       order.order_items.each do |order_item|
         @items_consumed_today << Item.find_by_id(order_item.item_id) if order_item.consumed_at&.today?
       end
