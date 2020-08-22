@@ -1,25 +1,24 @@
 <div class="container mt-5" style="background-color:white">
-  <h2 class="cart-modal-header">Tu orden confirmada</h2>
+  <h2 class="order-modal-header">Tu orden confirmada</h2>
 
     <% @order.items_and_qty.each do |key, item|  %>
       <div class="row">
-        <div class="col-6 cart-modal-item">
+        <div class="col-8 order-modal-item">
           <h3><%= item[0].name %></h3>
         </div>
-        <div class="col-2 cart-modal-item">
+        <div class="col-1 order-modal-item">
           <h3>X<%= item[1] %></h3>
         </div>
-        <div class="col-4 cart-modal-price">
+        <div class="col-3 order-modal-price">
           <h3>$<%= item[0].price %></h3>
         </div>
       </div>
     <% end %>
-
     <div class="row">
-      <div class="col-8 cart-modal-item">
+      <div class="col-8 order-modal-item">
         <h3>Precio total:</h3>
       </div>
-      <div class="col-4 cart-modal-price">
+      <div class="col-4 order-modal-price">
         <h3>$<%= @order.total_price %></h3>
       </div>
     </div>
