@@ -18,10 +18,10 @@
                 </div>
                 <div class="row mx-1">
                   <div class="col-2 col-lg-4 text-center font-weight-bold w-100">
-                    <output type="text" id="putcal" class="mx-3 range-number"></output>
+                    <span type="text" id="putcal" class="mx-3 range-number"><%=@item.calories%></span>
                   </div>
                   <div class="col-10 col-lg-8 text-center">
-                    <%= f.range_field(:calories, in: 1..2000, :step => 1, :value => 0, id:'getcal', class:'align-middle w-100', onchange:'fetch_cal()')%>
+                    <%= f.range_field(:calories, in: 1..2000, :step => 1, :value => 0, class:'align-middle w-100', onchange:'fetch_cal(this.value)')%>
                   </div>
                 </div>
 
@@ -30,22 +30,10 @@
                 </div>
                 <div class="row mx-1">
                   <div class="col-2 col-lg-4 text-center font-weight-bold">
-                    <output type="text" id="putprot" class="mx-3 range-number"></output>
+                    <span type="text" id="putprot" class="mx-3 range-number"><%=@item.proteins%></span>
                   </div>
                   <div class="col-10 col-lg-8">
-                    <%= f.range_field(:proteins, in: 1..100, :step => 1, :value => 0, id:'getprot', class:'align-middle w-100', onchange:'fetch_prot()') %>
-                  </div>
-                </div>
-
-                <div class="row mt-2 mx-1">
-                  <%= f.label :fats, "Grasas Totales (gr):"%><br>
-                </div>
-                <div class="row mx-1">
-                  <div class="col-2 col-lg-4 text-center font-weight-bold">
-                    <output type="text" id="putfat" class="mx-3 range-number"></output>
-                  </div>
-                  <div class="col-10 col-lg-8">
-                    <%= f.range_field(:fats, in: 1..100, :step => 1, :value => 0, id:'getfat', class:'align-middle w-100', onchange:'fetch_fat()') %>
+                    <%= f.range_field(:proteins, in: 1..100, :step => 1, :value => 0, id:'getprot', class:'align-middle w-100', onchange:'fetch_prot(this.value)') %>
                   </div>
                 </div>
 
@@ -54,13 +42,25 @@
                 </div>
                 <div class="row mx-1">
                   <div class="col-2 col-lg-4 text-center font-weight-bold">
-                    <output type="text" id="putcarb" class="mx-3 range-number"></output>
+                    <span type="text" id="putcarb" class="mx-3 range-number"><%=@item.carbs%></span>
                   </div>
                   <div class="col-10 col-lg-8">
-                    <%= f.range_field(:carbs, in: 1..250, :step => 1, :value => 0, id:'getcarb', class:'align-middle w-100', onchange:'fetch_carb()') %>
+                    <%= f.range_field(:carbs, in: 1..250, :step => 1, :value => 0, class:'align-middle w-100', onchange:'fetch_carb(this.value)') %>
                   </div>
                 </div>
               </div>
+
+                <div class="row mt-2 mx-1">
+                  <%= f.label :fats, "Grasas Totales (gr):"%><br>
+                </div>
+                <div class="row mx-1">
+                  <div class="col-2 col-lg-4 text-center font-weight-bold">
+                    <span type="text" id="putfat" class="mx-3 range-number"><%=@item.fats%></span>
+                  </div>
+                  <div class="col-10 col-lg-8">
+                    <%= f.range_field(:fats, in: 1..100, :step => 1, :value => 0, class:'align-middle w-100', onchange:'fetch_fat(this.value)') %>
+                  </div>
+                </div>
 
               <div class="row field mt-4 ml-1">
                 <%= f.fields_for :order_items do |builder| %>
@@ -105,20 +105,20 @@
 </div>
 
 <script>
-  function fetch_cal () {
-    const getcal =  document.getElementById('getcal').value;
-    document.getElementById('putcal').value = getcal;
+  function fetch_cal (value) {
+    document.getElementById('putcal').innerHTML = value;
+
   }
-    function fetch_prot () {
-    const getprot =  document.getElementById('getprot').value;
-    document.getElementById('putprot').value = getprot;
+    function fetch_prot (value) {
+      document.getElementById('putprot').innerHTML = value;
   }
-    function fetch_fat () {
-    const getfat =  document.getElementById('getfat').value;
-    document.getElementById('putfat').value = getfat;
+
+      function fetch_carb (value) {
+      document.getElementById('putcarb').innerHTML = value;
   }
-    function fetch_carb () {
-    const getcarb =  document.getElementById('getcarb').value;
-    document.getElementById('putcarb').value = getcarb;
-  }
+
+    function fetch_fat (value) {
+      document.getElementById('putfat').innerHTML = value;
+      }
+
 </script>
