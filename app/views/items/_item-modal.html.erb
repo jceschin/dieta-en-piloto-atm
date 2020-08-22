@@ -73,7 +73,13 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
               <%= link_to "+", "#", class: "btn-inc-dec inc hvr-grow-s" %>
             </div>
 
-            <button type="submit" class="btn btn-add-sm ml-2">Agregar</button>
+            <!-- <button type="submit" class="btn btn-add-sm ml-2"
+            data-disable_with= "Processsing..."
+            >Agregar</button> -->
+            <%= f.submit class:"btn btn-add-sm ml-2",
+              data: { disable_with: "Procesando..." },
+              value: "Agregar" %>
+
           </div>
 
           <div class="item-modal-price-unit d-flex justify-content-between
