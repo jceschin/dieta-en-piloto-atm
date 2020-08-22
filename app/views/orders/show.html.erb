@@ -1,20 +1,26 @@
   <div class="container mt-5" style="background-color:white">
   <h1 class="font-weight-bold">Orden Confirmada</h1>
   <div class="row border border-dark">
-    <% @order.order_items.each do |order_item|  %>
-      <div class="col-4">
+
+    <% @order.items_and_qty.each do |key, item|  %>
+      <div class="col-3">
         <h2 class="font-weight-bold">Plato</h2>
-        <%= order_item.item.name %>
+        <%= item[0].name %>
       </div>
-      <div class="col-4">
+      <div class="col-3">
         <h2 class="font-weight-bold">Calorías</h2>
-        <%= order_item.item.calories %> kcal
+        <%= item[0].calories %> kcal
       </div>
-      <div class="col-4">
+      <div class="col-3">
         <h2 class="font-weight-bold">Precio</h2>
-        $<%= order_item.item.price %>
+        $<%= item[0].price %>
+      </div>
+      <div class="col-3">
+        <h2 class="font-weight-bold">Cantidad</h2>
+        <%= item[1] %>
       </div>
     <% end %>
+
     <div>
       <h4 class="mt-4 ml-4 font-weight-bold">$<%= @order.total_price %></h4>
       <div class="d-flex align-items-center">
