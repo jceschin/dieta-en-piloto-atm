@@ -1,4 +1,4 @@
-.order-modal-header h2 {
+.order-header h2 {
   margin: 0;
   font-weight: bold;
   font-family: Roboto, sans-serif;
@@ -7,16 +7,35 @@
   padding: 15px;
 }
 
-.order-modal-item h3 {
+.order-regard h2 {
   margin: 0;
   font-weight: bold;
   font-family: Roboto, sans-serif;
   color: #184D47;
-  font-size: 20px;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.order-item-name h3 {
+  margin: 0;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #184D47;
+  font-size: 18px;
   padding: 15px;
 }
 
-.order-modal-price h3 {
+.order-item-quantity h3 {
+  margin: 0;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  color: #184D47;
+  font-size: 18px;
+  padding: 15px;
+}
+
+.order-item-price h3 {
   margin: 0;
   font-weight: bold;
   font-family: Roboto, sans-serif;
