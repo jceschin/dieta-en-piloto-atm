@@ -12,6 +12,7 @@
 
       <div class="modal-body">
         <% if !order.nil? %>
+
           <!-- form route? -->
           <%= form_for [order], html: {class: "cart-modal-form"} do |f| %>
             <% @order.items_and_qty.each do |key, item| %>
@@ -43,7 +44,8 @@
               <button type="submit" class="btn btn-green-order">Confirmar</button>
             </div>
           <% end %>
-            <!-- </form> -->
+           <!-- </form> -->
+
         <% else %>
           <h1>Carrito vacío</h1>
         <% end %>
