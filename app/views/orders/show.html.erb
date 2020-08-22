@@ -1,19 +1,21 @@
 <div class="container mt-5" style="background-color:white">
   <h2 class="card-header order-header">Tu orden confirmada</h2>
     <% @order.items_and_qty.each do |key, item|  %>
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between mt-1">
         <div class="order-item-name">
           <h3><%= item[0].name %></h3>
         </div>
-        <div class="order-item-quantity">
-          <h3>X<%= item[1] %></h3>
-        </div>
-        <div class="order-item-price">
-          <h3>$<%= item[0].price %></h3>
+        <div class="d-flex justify-content-between">
+          <div class="order-item-quantity">
+            <h3>X<%= item[1] %></h3>
+          </div>
+          <div class="order-item-price">
+            <h3>$<%= item[0].price %></h3>
+          </div>
         </div>
       </div>
     <% end %>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between mt-1">
       <div class="order-item-name">
         <h3>Precio total:</h3>
       </div>
@@ -21,7 +23,7 @@
         <h3>$<%= @order.total_price %></h3>
       </div>
     </div>
-    <div class="order-regard">
+    <div class="order-regard mt-4">
       <h2>¡Gracias por tu compra!</h2>
     </div>
 </div>
