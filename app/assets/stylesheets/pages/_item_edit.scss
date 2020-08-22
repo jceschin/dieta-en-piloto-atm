@@ -19,5 +19,23 @@ li {
 }
 
 .range-number {
-  font-size: 110%;
+  font-size: 150%;
+}
+
+.range {
+  margin-top: 5%;
+  -webkit-appearance:none;
+  border-radius:15px;
+  background: #71CC34;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance:none;
+  width: 15px;
+  height: 15px;
+  border-radius:50%;
+  background: gray;
+  cursor: pointer;
+  border: 4px solid #333;
 }
