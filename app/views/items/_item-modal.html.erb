@@ -69,7 +69,7 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
             <div class="inc-dec d-flex align-items-center">
               <%= link_to "-", "#", class: "btn-inc-dec dec hvr-grow-s" %>
               <input class="input"
-               type="text" name="quantity" value="1">
+               type="text" id="item-quantity" name="quantity" value="1">
               <%= link_to "+", "#", class: "btn-inc-dec inc hvr-grow-s" %>
             </div>
 
@@ -85,7 +85,7 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
           <div class="item-modal-price d-flex justify-content-between
             align-items-center">
             <p>Total</p>
-            <p class="price"> $<%= item.price %> </p>
+            <p class="price" id="item-quantity-total"> $<%= item.price %> </p>
           </div>
 
           <div class="item-modal-addtracking form-row align-items-center
