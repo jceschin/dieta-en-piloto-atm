@@ -96,9 +96,13 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
 
           <div class="item-modal-addtracking form-row align-items-center
           justify-content-between">
-            <div class="opt-track d-flex justify-content-center">
-              <h2>¿Queres trackear el plato?</h2>
-              <%= f.check_box :consumed_at %>
+
+            <div class="opt-track d-flex justify-content-center
+              align-items-center">
+              <h2>Lo voy a consumir hoy</h2>
+              <div class="ml-2 nice-checkbox">
+                <%= f.check_box :consumed_at, checked: true %>
+              </div>
             </div>
 
             <div class="inc-dec d-flex align-items-center">
