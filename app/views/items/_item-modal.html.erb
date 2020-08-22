@@ -6,7 +6,7 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
 
       <div class="modal-header item-modal-header flex-column align-items-stretch"
       style="background-image: linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.0) 100%),
-      url(' <%= cl_image_path item.picture.key %> ')">
+      url(' <%= cl_image_path item.picture.key %> '); border-radius: 8px 8px 0 0">
         <div class="modal-header-top d-flex justify-content-between">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <i class="far fa-times-circle"></i>
@@ -69,11 +69,17 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
             <div class="inc-dec d-flex align-items-center">
               <%= link_to "-", "#", class: "btn-inc-dec dec hvr-grow-s" %>
               <input class="input"
-               type="text" name="quantity" value="1">
+               type="text" id="item-quantity" name="quantity" value="1">
               <%= link_to "+", "#", class: "btn-inc-dec inc hvr-grow-s" %>
             </div>
 
-            <button type="submit" class="btn btn-add-sm ml-2">Agregar</button>
+            <!-- <button type="submit" class="btn btn-add-sm ml-2"
+            data-disable_with= "Processsing..."
+            >Agregar</button> -->
+            <%= f.submit class:"btn btn-add-sm ml-2",
+              data: { disable_with: "Procesando..." },
+              value: "Agregar" %>
+
           </div>
 
           <div class="item-modal-price-unit d-flex justify-content-between
@@ -85,7 +91,7 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
           <div class="item-modal-price d-flex justify-content-between
             align-items-center">
             <p>Total</p>
-            <p class="price"> $<%= item.price %> </p>
+            <p class="price" id="item-quantity-total"> $<%= item.price %> </p>
           </div>
 
           <div class="item-modal-addtracking form-row align-items-center
