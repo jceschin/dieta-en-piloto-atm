@@ -12,8 +12,8 @@
 
   <div class="categories">
     <% @categories.sample(4).each do |category| %>
-      <%= link_to "#", class: "category hvr-grow" do %>
-        <%= image_tag "#{category.picture}", alt: "#{category.name}", class: "category hvr-grow-s" %>
+      <%= link_to "", class: "category hvr-grow" do %>
+        <%= image_tag "#{category.picture}", alt: "#{category.name}", id:"#{category.name}", class: "category hvr-grow-s" %>
         <h2> <%= category.name.upcase %> </h2>
       <% end %>
     <% end %>
@@ -41,3 +41,24 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  const ensaladas = document.querySelector('#ensaladas');
+    console.log(ensaladas);
+  const hamburguesas = document.querySelector('#hamburguesas');
+    console.log(hamburguesas);
+  const pollos = document.querySelector('#pollos');
+    pollos.addEventListener('click', (event) => {
+      console.log(event.currentTarget)
+    });
+  const carnes = document.querySelector('#carnes');
+    console.log(carnes);
+  const postres = document.querySelector('#postres');
+    console.log(postres);
+  const pizzas = document.querySelector('#pizzas');
+    console.log(pizzas);
+  const pastas = document.querySelector('#pastas');
+    console.log(pastas);
+  const pescados = document.querySelector('#pescados');
+    console.log(pescados);
+</script>
