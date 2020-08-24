@@ -76,13 +76,14 @@
 }
 
 .item-modal-description {
-  padding-bottom: 5px;
+  padding: 4px;
   height: 65px;
   overflow: scroll;
   flex-shrink: 1;
   flex-grow: 1;
   margin: 0px 5px 10px 5px;
   border: 1px solid rgba(24,77,71,0.2);
+  border-radius: 4px;
 }
 
 .item-modal-description p {
