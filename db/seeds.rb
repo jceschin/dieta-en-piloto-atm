@@ -87,7 +87,7 @@ ITEMS_INFO = [
     carbs: 31,
     origin: :seller,
     price: 500,
-    categories_keywords: ["hamburgesas", "carnes"],
+    categories_keywords: ["hamburguesas", "carnes"],
     picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596649435/dbqozlifg2b2fxwwzrul.png"
   },
       {
