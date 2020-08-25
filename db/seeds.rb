@@ -42,9 +42,9 @@ puts 'Creating Items'
 ITEMS_INFO.each do |info|
   puts "--creating #{info[:name]}"
   item = Item.new(
-    name: info[:name],
+    name: info[:name].capitalize,
     seller: Seller.find_by(name: info[:seller]),
-    description:info[:description],
+    description: info[:description].capitalize,
     calories: info[:calories],
     proteins: info[:proteins],
     fats: info[:fats],

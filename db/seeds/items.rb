@@ -97,7 +97,7 @@ ITEMS_INFO = [
     seller: 'Simpleat'
   },
   {
-    name: "Fitbowl de pollo/calabazas asadas/berenjenas/ lentejas y porotos",
+    name: "Fitbowl de pollo calabazas asadas berenjenas lentejas y porotos",
     description: "Pechuga de pollo, zapallo, lentejas, porotos, cebolla, semillas de girasol, agua, ajo, romero fresco, aceite de girasol, sal fina, jugo de limón, cilantro fresco.",
     calories: 422,
     proteins: 37,
@@ -110,7 +110,7 @@ ITEMS_INFO = [
     seller: 'Simpleat'
   },
   {
-    name: "Fitbowl de quinoa/garbanzos/zanahoria/repolllo y arvejas",
+    name: "Fitbowl de quinoa garbanzos zanahoria repolllo y arvejas",
     description: "Ingredientes: Quinoa, garbanzos, zanahoria, repollo morado, arvejas, cebolla, ajo, aceite de girasol, albahaca, pimentón, romero fresco, tomillo fresco, nuez moscada, agua, jugo de limón, cilantro fresco, sal fina.",
     calories: 258,
     proteins: 13,
@@ -197,7 +197,7 @@ ITEMS_INFO = [
     origin: :seller,
     price: 190,
     categories_keywords: ["postres"],
-    picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598387814/seeds%20tu%20dieta/havanette-600x600_d3jxyd.jpg",
+    picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598387815/seeds%20tu%20dieta/chococake-600x600_egmrxg.jpg",
     seller: 'Simpleat'
   },
   {
