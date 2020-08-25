@@ -17,7 +17,6 @@ require_relative 'seeds/categories'
 # Deletes all table data in db
 reset_data
 
-<<<<<<< HEAD
 ITEMS_INFO = [
   {
     name: "Ensalada Mikonos" ,
@@ -96,12 +95,10 @@ CATEGORIES_INFO = [
   }
 ]
 
-puts 'creating Category'
-=======
 puts 'Creating Categories'
 # Important! when adding a category, add also the picture with its same name
 # in app/assets/images/categories/%category_name%.jpg
->>>>>>> master
+
 CATEGORIES_INFO.each do |info|
   puts "--creating #{info[:name]}"
   Category.create!(
