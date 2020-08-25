@@ -1,0 +1,32 @@
+<div class="container">
+  <% @items.each do |item|  %>
+    <%= render 'items/item-modal', item: item, order_item: @order_item %>
+  <% end %>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <%= render 'items/cart-modal', order: @order%>
+    </div>
+  </div>
+  <div class="text-center pt-3 pb-0 sugerencias bg-white">
+    <h2>Tus sugeridos</h2>
+  </div>
+  <div class="item-cards">
+    <% if @items.count == 0 %>
+      <span class='text-center'>0 resultados</span>
+    <% else %>
+      <% @items.each do |item|  %>
+        <%= render 'items/item-card', item: item %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="filler-space-consumption"></div>
+  <div class="add-consumption fixed-bottom">
+    <%= link_to new_item_path, class: "hvr-grow-s d-flex justify-content-center" do%>
+      <div class="btn-add-consumption d-flex align-items-center">
+        <%= image_tag "components/plus_button_big.png" %>
+        <h2>Registrar consumo</h2>
+      </div>
+    <% end %>
+  </div>
+</div>
