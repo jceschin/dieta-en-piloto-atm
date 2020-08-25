@@ -21,10 +21,15 @@ SELLERS_INFO = [
     name: 'Moshu',
     location: "Moldes 3802, Buenos Aires C1429AFT, Argentina",
     description: "Café, Delicatessen, Saludable, Argentina, Sudamericana, Apto para vegetarianos, Opciones sin gluten"
-  }
+  },
   {
     name: 'Simpleat',
-    location: "Moldes 3802, Buenos Aires C1429AFT, Argentina",
-    description: "Café, Delicatessen, Saludable, Argentina, Sudamericana, Apto para vegetarianos, Opciones sin gluten"
+    location: "Juramento 2527 Local 63, Buenos Aires, Argentina",
+    description: ""
+  },
+  {
+    name: 'Comodos',
+    location: "Scalabrini Ortiz 3064, Buenos Aires, Argentina",
+    description: "UN PRODUCTO SIMPLE QUE APORTA SOLUCIONES RAPIDAS AL UTILIZAR LA TECNOLOGIA DEL ENVASADO AL VACIO Y EL SUPERCONGELADO, QUE PRESERVAN LAS CUALIDADES DEL PRODUCTO, SE OBTIENE COMIDA CASERA QUE AL SER CONSUMIDA MANTIENE LAS MISMAS PROPIEDADES QUE UN PRODUCTO FRESCO, DE ESTA MANERA COMODOS TE BRINDA UNA OPCION PRACTICA SALUDABLE Y RICA."
   }
 ]

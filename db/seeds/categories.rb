@@ -1,5 +1,9 @@
 # categories.rb
 
+# Important! when adding a category, add also
+# the picture with its same name
+# in app/assets/images/categories/%category_name%.jpg
+
 CATEGORIES_INFO = [
   {
     name: "ensaladas",
@@ -24,5 +28,9 @@ CATEGORIES_INFO = [
   },
   {
     name: "pescados",
+  },
+  {
+    name: "vegetales",
   }
 ]
+
