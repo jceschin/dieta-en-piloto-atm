@@ -75,7 +75,7 @@ ITEMS_INFO = [
     carbs: 14,
     origin: :seller,
     price: 700,
-    categories_keywords: ["ensaladas"],
+    categories_keywords: ["ensaladas", "pollos"],
     picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596648827/r5r5bezu4uaxdalw8nt4.png"
   },
   {
