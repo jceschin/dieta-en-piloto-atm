@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
 
     @order_item = OrderItem.new
     @categories = Category.all
-    @order = current_user&.pending_orders
+    @order = current_user&.pending_order
   end
 
   # Para el tracking
