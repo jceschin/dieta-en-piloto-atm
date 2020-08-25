@@ -45,6 +45,11 @@
   text-shadow: 2px 0px 1px rgba(0,0,0,1);
 }
 
+#carousel-item-override {
+  min-height: auto;
+  height:auto;
+}
+
 @media(max-width: 992px) {
   .categories {
     grid-template-columns: 1fr 1fr;
