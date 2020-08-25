@@ -27,7 +27,7 @@
 
       <div id="carousel-item-override" class="carousel-item">
         <div class="categories mt-2">
-          <% @categories[4..8].each do |category| %>
+          <% @categories[4..7].each do |category| %>
           <%= link_to category_path(category.id), class: "category hvr-grow" do %>
             <%= image_tag "#{category.picture}", alt: "#{category.name}", id:"#{category.name}", class: "category hvr-grow-s" %>
               <h2> <%= category.name.upcase %> </h2>
@@ -35,6 +35,7 @@
           <% end %>
         </div>
       </div>
+
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <i style="font-size: 15px; color:white" class="fas fa-arrow-alt-circle-left"></i>
