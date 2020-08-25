@@ -32,12 +32,15 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
       <div class="modal-body item-modal-body
         d-flex flex-column justify-content-between align-items-center">
 
-        <div class="item-modal-info">
+        <!--<div class="item-modal-info">
           <div class="item-modal-description">
             <p> <%= item.description %> </p>
           </div>
-        </div>
+        </div>-->
 
+        <div class="item-modal-description">
+          <p> <%= item.description %> </p>
+        </div>
 
         <table class="item-nutritonal-table">
           <tbody>
@@ -78,15 +81,15 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
             >Agregar</button> -->
             <%= f.submit class:"btn btn-add-sm ml-2",
               data: { disable_with: "Procesando..." },
-              value: "Agregar" %>
+              value: "Agregar al carrito" %>
 
           </div>
 
-          <div class="item-modal-price-unit d-flex justify-content-between
+          <!--<div class="item-modal-price-unit d-flex justify-content-between
             align-items-center">
             <p>Precio por unidad</p>
             <p class="price"> $<%= item.price %> </p>
-          </div>
+          </div>-->
 
           <div class="item-modal-price d-flex justify-content-between
             align-items-center">
@@ -99,7 +102,7 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
 
             <div class="opt-track d-flex justify-content-center
               align-items-center">
-              <h2>Lo voy a consumir hoy</h2>
+              <h2>Lo voy a comer hoy</h2>
               <div class="ml-2 nice-checkbox">
                 <%= f.check_box :consumed_at, checked: true %>
               </div>
