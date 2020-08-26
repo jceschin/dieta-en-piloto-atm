@@ -30,9 +30,10 @@ const initIncrementButtons = () => {
 
     const idName = $input.attr('id');
 
-    // Optional change to total value, if the clases are note in the html
+    // Optional change to total value, if the classes are not in the html
     // it does nothing
-    if (idName == 'item-quantity'){
+    // if (idName == 'item-quantity'){
+    if (idName.match(/item-quantity.*/)){
       // case for the item_Modal
       const $priceP = $(`#${idName}-total`)
       $priceP.text(`$${changeTotalItem($priceP, oldValue, newVal)}`);
