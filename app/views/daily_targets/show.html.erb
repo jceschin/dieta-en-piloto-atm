@@ -22,12 +22,18 @@
       <span><small><%= @daily_target.caloric_target %></small></span>
     <% end %>
   </div> -->
-  <% width_consumed_cal = (@daily_target.caloric_target - @cal_left)/@daily_target.caloric_target.to_f*100 %>
+
+  <% if @cal_left <= 0 %>
+    <% width_consumed_cal = 100 && @cal_left = 0 && width_cal_left = 0%>
+    <% else %>
+    <% width_consumed_cal = (@daily_target.caloric_target - @cal_left)/@daily_target.caloric_target.to_f*100 %>
+    <% width_cal_left = @cal_left/@daily_target.caloric_target.to_f*100 %>
+  <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
     <div class="text-left px-2 border" style="width:<%= width_consumed_cal %>%; background-color: #71CC34; border-style: hidden; border-radius: 8px 1px 1px 8px">
       <span class="font-weight-bold"><%= @daily_target.caloric_target - @cal_left %></span>
     </div>
-    <% width_cal_left = @cal_left/@daily_target.caloric_target.to_f*100 %>
+
     <div class="text-right px-2 border" style="width:<%= width_cal_left %>%; border-style: hidden; border-radius: 1px 8px 8px 1px">
       <span class="font-weight-bold"><%= @cal_left %></span>
     </div>
