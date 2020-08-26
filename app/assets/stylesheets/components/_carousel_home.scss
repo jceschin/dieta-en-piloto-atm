@@ -119,6 +119,12 @@
 
 }
 
+@media(max-width: 375px) {
+  .text-div h1 {
+    font-size: 170%;
+  }
+}
+
 @media(max-height: 425px) {
 
 .text-div {
