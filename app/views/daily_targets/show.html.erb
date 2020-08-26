@@ -23,17 +23,30 @@
     <% end %>
   </div> -->
 
+  <% width_consumed_cal = (@daily_target.caloric_target - @cal_left)/@daily_target.caloric_target.to_f*100 %>
   <% if @cal_left <= 0 %>
-    <% width_consumed_cal = 100 && @cal_left = 0 && width_cal_left = 0%>
-    <% else %>
-    <% width_consumed_cal = (@daily_target.caloric_target - @cal_left)/@daily_target.caloric_target.to_f*100 %>
+    <% width_consumed_cal = 100%>
+    <% cal_range_color = "red"%>
+    <% cal_text_color = "white" %>
+  <% elsif width_consumed_cal >= 60 %>
+    <% cal_range_color = "#ffc93c"%>
+    <% width_consumed_cal %>
+  <%else%>
+    <% width_consumed_cal %>
+    <% cal_range_color = "#71CC34" %>
     <% width_cal_left = @cal_left/@daily_target.caloric_target.to_f*100 %>
   <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
-    <div class="text-left px-2 border" style="width:<%= width_consumed_cal %>%; background-color: #71CC34; border-style: hidden; border-radius: 8px 1px 1px 8px">
-      <span class="font-weight-bold"><%= @daily_target.caloric_target - @cal_left %></span>
+    <div class="text-left px-2 border" style="width:<%= width_consumed_cal %>%; background-color: <%= cal_range_color %>; border-style: hidden; border-radius: 8px 1px 1px 8px">
+      <span class="font-weight-bold" style="color:<%= cal_text_color %>" ><%= @daily_target.caloric_target - @cal_left %></span>
     </div>
 
+    <% if @cal_left <= 0 %>
+      <% @cal_left = nil%>
+      <%else%>
+      <% @cal_left %>
+      <% width_cal_left = @cal_left/@daily_target.caloric_target.to_f*100 %>
+    <% end %>
     <div class="text-right px-2 border" style="width:<%= width_cal_left %>%; border-style: hidden; border-radius: 1px 8px 8px 1px">
       <span class="font-weight-bold"><%= @cal_left %></span>
     </div>
