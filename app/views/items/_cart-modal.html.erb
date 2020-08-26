@@ -30,6 +30,21 @@
                 </div>
               </div>
             <% end %>
+            <form>
+              <div class="form-group">
+                <input class="form-control" style="margin-top: 14px" id="exampleFormControlInput1" placeholder="Tu dirección">
+              </div>
+              <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" placeholder="Forma de pago">
+                  <option selected disabled value="">Forma de pago</option>
+                  <option>Efectivo</option>
+                  <option>Tarjeta</option>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-green-order">Confirmar</button>
+              </div>
+            </form>
             <!--<div class="d-flex justify-content-between cart-modal-price">
               <h3>Total:</h3>
               <h3 id="cart-total-price" >$<%= @order.total_price %></h3>
@@ -44,7 +59,7 @@
                 <option value="2">Tarjeta</option>
               </select>
             </div>-->
-            <form class="needs-validation" novalidate>
+            <!--<form class="needs-validation" novalidate>
               <div class="form-row">
                 <div class="col-12">
                   <input type="text" class="form-control" style="width: 293px; margin: 8px 0px" id="validationCustom01" placeholder="Tu dirección" required>
@@ -58,12 +73,8 @@
                 </select>
               </div>
             </form>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-green-order">Confirmar</button>
-            </div>
-          <% end %>
+          <% end %>-->
            <!-- </form> -->
-
         <% else %>
           <h1>Carrito vacío</h1>
         <% end %>
