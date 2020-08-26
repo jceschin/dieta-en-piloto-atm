@@ -10,6 +10,8 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 18px;
   box-shadow: 0 4px 2px -2px rgba(24,77,71,0.6);
+  max-width:80%;
+  margin: auto;
 }
 
 .categories a {
@@ -30,6 +32,7 @@
   // box-shadow: 4px 0px 3px rgba(0,0,0,0.4);
   box-shadow: inset 100px 4px 1px rgba(0, 0, 0, 0.5);
   border: rgba(24, 77, 71, 0.5) 1px solid;
+  opacity: 1 !important;
 }
 
 .category h2 {
@@ -45,6 +48,11 @@
   text-shadow: 2px 0px 1px rgba(0,0,0,1);
 }
 
+#carousel-item-override {
+  min-height: auto;
+  height:auto;
+}
+
 @media(max-width: 992px) {
   .categories {
     grid-template-columns: 1fr 1fr;
@@ -55,6 +63,7 @@
   .categories {
     grid-gap: 8px 4px;
     padding: 10px 10px;
+    max-width:100%;
   }
 
   .categories a {
@@ -70,7 +79,9 @@
 
 @media(max-width:325px) {
   .categories {
-    grid-gap: 5px;
+    grid-gap: 12px;
+    grid-template-columns: 1fr;
+
   }
 
   .category {
@@ -78,6 +89,7 @@
     width: 65px;
     height: 65px;
   }
+
 }
 
 // @media(max-width: 768px) {

@@ -10,14 +10,45 @@
     </div>
   </div>
 
-  <div class="categories">
-    <% @categories.sample(4).each do |category| %>
-      <%= link_to "#", class: "category hvr-grow" do %>
-        <%= image_tag "#{category.picture}", alt: "#{category.name}", class: "category hvr-grow-s" %>
-        <h2> <%= category.name.upcase %> </h2>
-      <% end %>
-    <% end %>
+  <!--Category Btn Carousel-->
+
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div id="carousel-item-override" class="carousel-inner">
+      <div id="carousel-item-override" class="carousel-item active">
+        <div class="categories mt-2">
+          <% @categories[0..3].each do |category| %>
+          <%= link_to category_path(category.id), class: "category hvr-grow" do %>
+            <%= image_tag "#{category.picture}", alt: "#{category.name}", id:"#{category.name}", class: "category hvr-grow-s" %>
+              <h2> <%= category.name.upcase %> </h2>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div id="carousel-item-override" class="carousel-item">
+        <div class="categories mt-2">
+          <% @categories[4..7].each do |category| %>
+          <%= link_to category_path(category.id), class: "category hvr-grow" do %>
+            <%= image_tag "#{category.picture}", alt: "#{category.name}", id:"#{category.name}", class: "category hvr-grow-s" %>
+              <h2> <%= category.name.upcase %> </h2>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <i style="font-size: 15px; color:white" class="fas fa-arrow-alt-circle-left"></i>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <i style="font-size: 15px; color:white" class="fas fa-arrow-alt-circle-right"></i>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
+
+  <!-- -->
+
   <div class="text-center pt-3 pb-0 sugerencias bg-white">
     <h2>Tus sugeridos</h2>
   </div>

@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   resources :orders, only: %i[show update]
 
+  resources :categories, only: %i[show]
+
 end
