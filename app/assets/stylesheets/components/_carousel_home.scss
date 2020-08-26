@@ -1,5 +1,5 @@
 .carousel-item {
-  height: 100vh;
+  height: 600px;
   min-height: 350px;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
@@ -9,8 +9,8 @@
 }
 
 .text-div {
-  width: 450px;
-  height: 400px;
+  width: 100%;
+  height: 90%;
   margin: auto;
   border-radius: 8px;
 }
@@ -18,19 +18,22 @@
 .carousel-caption {
   width: 450px;
   margin: auto;
-  margin-bottom: 200px;
+  margin-bottom: 180px;
 }
 
 .carousel-caption h1 {
   color: white;
   font-family: Roboto;
-  //text-shadow: 2px 1px 3px rgba(0,0,0,0.4);
-  //opacity: 1;
+  text-shadow: 2px 1px 3px rgba(0,0,0,0.4);
+  opacity: 1;
   font-size: 54px;
 }
 
 #btn-override .btn {
   border-radius: 8px;
+  margin-top: 10px;
+  width: 40%;
+  margin: auto;
 }
 
 #btn-override .btn-success {
@@ -55,26 +58,37 @@
 
 /* Media queries */
 
-@media(max-width: 1263px) {
+@media(max-width: 1440px) {
+
+  .carousel-item {
+    max-height: 450px;
+  }
 
   .text-div {
     width: 100%;
-    height: 100%;
+    height: 90%;
   }
 
   .text-div h1 {
-    font-size: 300%;
+    font-size: 250%;
   }
 
   .carousel-caption {
-    width: 400px;
+    width: 60%;
+    height: 220px;
     margin: auto;
-    margin-bottom: 200px;
+    margin-bottom: 80px;
   }
 
+  #btn-override .btn {
+    margin-top: 10px;
+  }
 }
 
 @media(max-width: 767px) {
+  .carousel-item {
+    max-height: 300px;
+  }
 
   .text-div {
     width: 100%;
@@ -83,12 +97,19 @@
 
   .text-div h1 {
     font-size: 200%;
+    text-shadow: none;
+    opacity: none;
   }
 
   .carousel-caption {
     width: 60%;
     margin: auto;
-    margin-bottom: 200px;
+    margin-bottom: 150px;
+  }
+
+  #btn-override .btn {
+    margin-top: 5px;
+    width: 100%;
   }
 
 }
@@ -109,6 +130,8 @@
 
   .text-div h1 {
     font-size: 190%;
+    text-shadow: none;
+    opacity: none;
   }
 
   .carousel-caption {
@@ -117,11 +140,18 @@
     margin-bottom: 120px;
   }
 
+  #btn-override .btn {
+    margin-top: 5px;
+    width: 100%;
+  }
+
 }
 
 @media(max-width: 374px) {
   .text-div h1 {
     font-size: 170%;
+    text-shadow: none;
+    opacity: none;
   }
 }
 
