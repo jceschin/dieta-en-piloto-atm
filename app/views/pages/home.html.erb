@@ -46,12 +46,12 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>
-      <div id="btn-override" >
-        <%= link_to "Ver platos", items_path, class:"btn btn-success btn-block" %>
-        <% if user_signed_in? %>
-          <%= link_to "Mis objetivos", daily_target_path(current_user.daily_target.id), class:"btn btn-warning btn-block" %>
-        <% end %>
+        </div>
+        <div id="btn-override" >
+          <%= link_to "Ver platos", items_path, class:"btn btn-success btn-block" %>
+          <% if user_signed_in? %>
+            <%= link_to "Mis objetivos", daily_target_path(current_user.daily_target.id), class:"btn btn-warning btn-block" %>
+          <% end %>
       </div>
       <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     </div>
