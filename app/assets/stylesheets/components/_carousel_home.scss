@@ -24,8 +24,8 @@
 .carousel-caption h1 {
   color: white;
   font-family: Roboto;
-  text-shadow: 2px 1px 3px rgba(0,0,0,0.4);
-  opacity: 1;
+  //text-shadow: 2px 1px 3px rgba(0,0,0,0.4);
+  //opacity: 1;
   font-size: 54px;
 }
 
@@ -46,7 +46,7 @@
 }
 
 #btn-override .btn-warning {
-  background: #C0EA04;
+  background: #71cc34;
   border: #C0EA04;
   color: #1C1C1C;
   font-family: Roboto;
@@ -94,6 +94,13 @@
 }
 
 @media(max-width: 424px) {
+  .carousel-item {
+    max-height: 300px;
+  }
+
+  .carousel-item img {
+    height: 80px;
+  }
 
   .text-div {
     width: 100%;
@@ -101,13 +108,13 @@
   }
 
   .text-div h1 {
-    font-size: 140%;
+    font-size: 190%;
   }
 
   .carousel-caption {
     width: 70%;
     margin: auto;
-    margin-bottom: 200px;
+    margin-bottom: 120px;
   }
 
 }
