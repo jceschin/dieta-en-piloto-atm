@@ -7,9 +7,38 @@
   <% end %>
 
   <% if user_signed_in? && !current_user.daily_target.nil? %>
-    <div class="navbar-targets">
-      <p>Calorias: 2000 Kcal</p>
+
+
+    <div id="carouselNavbarControls"
+      class="carousel slide navbar-targets"
+      data-ride="carousel">
+      <div id="carousel-navbar" class="carousel-inner">
+      <!-- <div id="carousel-navbar-tudieta" class="carousel-inner"> -->
+        <div id="carousel-navbar-item" class="carousel-item active">
+          <p>Objetivo: 2000 Kcal</p>
+        </div>
+        <div id="carousel-navbar-item" class="carousel-item">
+          <p>60g Proteinas</p>
+        </div>
+        <div id="carousel-navbar-item" class="carousel-item">
+          <p>60g Grasas</p>
+        </div>
+        <div id="carousel-navbar-item" class="carousel-item">
+          <p>60g Cbhs</p>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <%= image_tag "components/flecha_izq.png" %>
+        <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+        <!-- <span class="sr-only">Previous</span> -->
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <%= image_tag "components/flecha_der.png" %>
+        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+        <!-- <span class="sr-only">Next</span> -->
+      </a>
     </div>
+
   <% end %>
 
 
@@ -17,7 +46,7 @@
     <% if current_page?(items_path)%>
       <%= link_to "#cartModal", data: { toggle: "modal"},
         class: "navbar-carrito hvr-grow-s", remote: true do %>
-        <i class="fas fa-shopping-cart mr-3 mt-1" style="font-size:160%"></i>
+        <i class="fas fa-shopping-cart mr-3 mt-1" ></i> <!-- style="font-size:160%"></i> -->
       <% end %>
     <% end %>
 

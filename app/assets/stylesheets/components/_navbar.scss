@@ -19,6 +19,15 @@
   // align-items: center;
 }
 
+.navbar-targets {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-tudieta .navbar-targets img {
+  height: 20px;
+}
+
 .navbar-tudieta .navbar-targets p {
   padding: 4px;
   padding-left: 8px;
@@ -31,6 +40,15 @@
   color: #184D47;
 }
 
+#carousel-navbar-item {
+  min-height: auto;
+  height:auto;
+  flex-grow: 0;
+}
+
+.carousel-navbar-tudieta {
+
+}
 
 .navbar-tudieta .navbar-brand img {
   width: 45px;
