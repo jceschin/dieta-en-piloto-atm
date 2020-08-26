@@ -23,10 +23,10 @@
                       <% else %>
                       <% item_calories = 0 %>
                     <% end %>
-                    <span type="text" id="putcal" class="mx-3 range-number"><%=item_calories%></span>
+                    <span type="text" id="putcal" class="range-number text-center"><%=item_calories%></span>
                   </div>
                   <div class="col-9 col-lg-8 text-center">
-                    <%= f.range_field(:calories, in: 1..2000, :step => 1, :value => item_calories, class:'w-100 range', onchange:'fetch_cal(this.value)')%>
+                    <%= f.range_field(:calories, in: 1..2000, :step => 1, :value => item_calories, class:'w-100 range', oninput:'fetch_cal(this.value)')%>
                   </div>
                 </div>
 
@@ -40,10 +40,10 @@
                       <% else %>
                       <% item_proteins = 0 %>
                     <% end %>
-                    <span type="text" id="putprot" class="mx-3 range-number"><%=item_proteins%></span>
+                    <span type="text" id="putprot" class="range-number text-center"><%=item_proteins%></span>
                   </div>
                   <div class="col-9 col-lg-8">
-                    <%= f.range_field(:proteins, in: 1..100, :step => 1, :value => item_proteins, class:'w-100 range', onchange:'fetch_prot(this.value)') %>
+                    <%= f.range_field(:proteins, in: 1..100, :step => 1, :value => item_proteins, class:'w-100 range', oninput:'fetch_prot(this.value)') %>
                   </div>
                 </div>
 
@@ -57,10 +57,10 @@
                       <% else %>
                       <% item_carbs = 0 %>
                     <% end %>
-                    <span type="text" id="putcarb" class="mx-3 range-number"><%=item_carbs%></span>
+                    <span type="text" id="putcarb" class="range-number text-center"><%=item_carbs%></span>
                   </div>
                   <div class="col-9 col-lg-8">
-                    <%= f.range_field(:carbs, in: 1..250, :step => 1, :value => item_carbs, class:'w-100 range', onchange:'fetch_carb(this.value)') %>
+                    <%= f.range_field(:carbs, in: 1..250, :step => 1, :value => item_carbs, class:'w-100 range', oninput:'fetch_carb(this.value)') %>
                   </div>
                 </div>
               </div>
@@ -75,10 +75,10 @@
                       <% else %>
                       <% item_fats = 0 %>
                     <% end %>
-                    <span type="text" id="putfat" class="mx-3 range-number"><%=item_fats%></span>
+                    <span type="text" id="putfat" class="range-number text-center"><%=item_fats%></span>
                   </div>
                   <div class="col-9 col-lg-8">
-                    <%= f.range_field(:fats, in: 1..100, :step => 1, :value => item_fats, class:'w-100 range', onchange:'fetch_fat(this.value)') %>
+                    <%= f.range_field(:fats, in: 1..100, :step => 1, :value => item_fats, class:'w-100 range', oninput:'fetch_fat(this.value)') %>
                   </div>
                 </div>
 
