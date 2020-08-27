@@ -14,28 +14,21 @@
 
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div id="carousel-item-override" class="carousel-inner">
-      <div id="carousel-item-override" class="carousel-item active">
-        <div class="categories mt-2">
-          <% @categories[0..3].each do |category| %>
-          <%= link_to category_path(category.id), class: "category hvr-grow" do %>
-            <%= image_tag "#{category.picture}", alt: "#{category.name}", id:"#{category.name}", class: "category hvr-grow-s" %>
-              <h2> <%= category.name.upcase %> </h2>
+      <% first = true %>
+      <%= @categories.each_slice(4) do |category_pack| %>
+        <div id="carousel-item-override"
+          class="carousel-item <%= first ? "active" : "" %>">
+          <% first = false %>
+          <div class="categories mt-2">
+            <% category_pack.each do |category| %>
+              <%= link_to category_path(category.id), class: "category hvr-grow" do %>
+                <%= image_tag "#{category.picture}", alt: "#{category.name}", id:"#{category.name}", class: "category hvr-grow-s" %>
+                <h2> <%= category.name.upcase %> </h2>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
-      </div>
-
-      <div id="carousel-item-override" class="carousel-item">
-        <div class="categories mt-2">
-          <% @categories[4..7].each do |category| %>
-          <%= link_to category_path(category.id), class: "category hvr-grow" do %>
-            <%= image_tag "#{category.picture}", alt: "#{category.name}", id:"#{category.name}", class: "category hvr-grow-s" %>
-              <h2> <%= category.name.upcase %> </h2>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
+      <% end %>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <!--<i style="font-size: 15px; color:white" class="fas fa-arrow-alt-circle-left"></i>-->

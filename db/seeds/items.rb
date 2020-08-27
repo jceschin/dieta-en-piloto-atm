@@ -14,7 +14,7 @@ ITEMS_INFO = [
     carbs: 95,
     origin: :seller,
     price: 350,
-    categories_keywords: ["pastas"],
+    categories_keywords: %w[pastas gourmet],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598389922/seeds%20tu%20dieta/seeds%20comodos/lasagna-de-verdura-y-bolognesa_kw5kz6.jpg",
     seller: 'Comodos'
   },
@@ -27,7 +27,7 @@ ITEMS_INFO = [
     carbs: 75,
     origin: :seller,
     price: 375,
-    categories_keywords: ["carnes", "vegetales"],
+    categories_keywords: %w[carnes vegetales oriental],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598389922/seeds%20tu%20dieta/seeds%20comodos/wok-pollo_vrhuta.jpg",
     seller: 'Comodos'
   },
@@ -40,7 +40,7 @@ ITEMS_INFO = [
     carbs: 40,
     origin: :seller,
     price: 340,
-    categories_keywords: ["vegetales"],
+    categories_keywords: %w[vegetales oriental],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598389922/seeds%20tu%20dieta/seeds%20comodos/wok_ktei7s.jpg",
     seller: 'Comodos'
   },
@@ -53,7 +53,7 @@ ITEMS_INFO = [
     carbs: 42,
     origin: :seller,
     price: 700,
-    categories_keywords: ["pescados"],
+    categories_keywords: %w[pescados gourmet],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598389922/seeds%20tu%20dieta/seeds%20comodos/salmon-papas_ld7sfg.jpg",
     seller: 'Comodos'
   },
@@ -66,7 +66,7 @@ ITEMS_INFO = [
     carbs: 49,
     origin: :seller,
     price: 475,
-    categories_keywords: ["pescados", "carnes"],
+    categories_keywords: %w[pescados carnes],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598389922/seeds%20tu%20dieta/seeds%20comodos/paella_z2ijs3.jpg",
     seller: 'Comodos'
   },
@@ -79,7 +79,7 @@ ITEMS_INFO = [
     carbs: 36,
     origin: :seller,
     price: 390,
-    categories_keywords: ["carnes"],
+    categories_keywords: %w[carnes],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388583/seeds%20tu%20dieta/pechuga-al-verdeo-con-zanahoria-bat-600x600_unpr1w.jpg",
     seller: 'Simpleat'
   },
@@ -92,7 +92,7 @@ ITEMS_INFO = [
     carbs: 44,
     origin: :seller,
     price: 445,
-    categories_keywords: ["carnes"],
+    categories_keywords: %w[carnes gourmet],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388581/seeds%20tu%20dieta/brocoli-calabazas-600x600_mtspyc.jpg",
     seller: 'Simpleat'
   },
@@ -105,7 +105,7 @@ ITEMS_INFO = [
     carbs: 45,
     origin: :seller,
     price: 385,
-    categories_keywords: ["ensaladas", "vegetales"],
+    categories_keywords: %w[ensaladas vegetales],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388582/seeds%20tu%20dieta/fitbowl-lentejas-calabaza-pollo-600x600_jba6u1.jpg",
     seller: 'Simpleat'
   },
@@ -118,7 +118,7 @@ ITEMS_INFO = [
     carbs: 38,
     origin: :seller,
     price: 365,
-    categories_keywords: ["ensaladas", "vegetales"],
+    categories_keywords: %w[ensaladas vegetales],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388581/seeds%20tu%20dieta/fitbowl-quinoa-repollo-600x600_v6i18l.jpg",
     seller: 'Simpleat'
   },
@@ -131,7 +131,7 @@ ITEMS_INFO = [
     carbs: 86,
     origin: :seller,
     price: 440,
-    categories_keywords: ["carnes"],
+    categories_keywords: %w[carnes],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388583/seeds%20tu%20dieta/suprema-napolitana-600x600_iqeqaj.png",
     seller: 'Simpleat'
   },
@@ -144,7 +144,7 @@ ITEMS_INFO = [
     carbs: 3,
     origin: :seller,
     price: 425,
-    categories_keywords: ["carnes"],
+    categories_keywords: %w[carnes],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388582/seeds%20tu%20dieta/pechuga-souffle-600x600_bo1m66.jpg",
     seller: 'Simpleat'
   },
@@ -157,7 +157,7 @@ ITEMS_INFO = [
     carbs: 51,
     origin: :seller,
     price: 410,
-    categories_keywords: ["carnes"],
+    categories_keywords: %w[carnes],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388137/seeds%20tu%20dieta/tarta-de-pollo-queso-600x600_bifwyy.jpg",
     seller: 'Simpleat'
   },
@@ -170,20 +170,20 @@ ITEMS_INFO = [
     carbs: 45,
     origin: :seller,
     price: 360,
-    categories_keywords: ["pastas"],
+    categories_keywords: %w[pastas],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388137/seeds%20tu%20dieta/fusili-para-web-600x600_y1npqd.jpg",
     seller: 'Simpleat'
   },
   {
     name: "Milanesa de carne c/ arroz con vegetales",
-    description: "QuesoMilanesa de carne rebozada en semillas con arroz con vegetales",
+    description: "Milanesa de carne rebozada en semillas con arroz con vegetales",
     calories: 367,
     proteins: 25,
     fats: 19,
     carbs: 28,
     origin: :seller,
     price: 435,
-    categories_keywords: ["carnes"],
+    categories_keywords: %w[carnes],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388137/seeds%20tu%20dieta/2milanesa-carne-arroz-vegetales-600x600_o8hfrh.jpg",
     seller: 'Simpleat'
   },
@@ -196,7 +196,7 @@ ITEMS_INFO = [
     carbs: 48,
     origin: :seller,
     price: 190,
-    categories_keywords: ["postres"],
+    categories_keywords: %w[postres],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598387815/seeds%20tu%20dieta/chococake-600x600_egmrxg.jpg",
     seller: 'Simpleat'
   },
@@ -209,7 +209,7 @@ ITEMS_INFO = [
     carbs: 33,
     origin: :seller,
     price: 190,
-    categories_keywords: ["postres"],
+    categories_keywords: %w[postres],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598387814/seeds%20tu%20dieta/havanette-600x600_d3jxyd.jpg",
     seller: 'Simpleat'
   },
@@ -222,7 +222,7 @@ ITEMS_INFO = [
     carbs: 43,
     origin: :seller,
     price: 195,
-    categories_keywords: ["postres"],
+    categories_keywords: %w[postres desayunos],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598387644/seeds%20tu%20dieta/Cheesecake-ddl-600x600_krvcp4.jpg",
     seller: 'Simpleat'
   },
@@ -235,7 +235,7 @@ ITEMS_INFO = [
     carbs: 15,
     origin: :seller,
     price: 250,
-    categories_keywords: ["carnes"],
+    categories_keywords: %w[carnes],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598386265/seeds%20tu%20dieta/chicken-balls-600x600_qu6uoh.jpg",
     seller: 'Simpleat'
   },
@@ -248,7 +248,7 @@ ITEMS_INFO = [
     carbs: 14,
     origin: :seller,
     price: 240,
-    categories_keywords: ["ensaladas", "pescados"],
+    categories_keywords: %w[ensaladas pescados],
     picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596648435/rh9nfmwoba1hgjxmrx3o.jpg",
     seller: 'Dandy Deli'
   },
@@ -261,7 +261,7 @@ ITEMS_INFO = [
     carbs: 14,
     origin: :seller,
     price: 270,
-    categories_keywords: ["ensaladas"],
+    categories_keywords: %w[ensaladas],
     picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596648827/r5r5bezu4uaxdalw8nt4.png",
     seller: 'Casa Munay'
   },
@@ -274,7 +274,7 @@ ITEMS_INFO = [
     carbs: 31,
     origin: :seller,
     price: 450,
-    categories_keywords: ["hamburgesas", "carnes"],
+    categories_keywords: %w[hamburgesas carnes],
     picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596649435/dbqozlifg2b2fxwwzrul.png",
     seller: 'Moshu'
   },
@@ -287,7 +287,7 @@ ITEMS_INFO = [
     carbs: 37,
     origin: :seller,
     price: 335,
-    categories_keywords: ["pastas", "carnes"],
+    categories_keywords: %w[pastas carnes],
     picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596654426/i30zaepgl1soxwwqk2kc.jpg",
     seller: 'Surris Hill Coffee'
   }

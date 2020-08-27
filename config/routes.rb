@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: %i[show update]
 
-  resources :categories, only: %i[show]
+  # resources :categories, only: %i[show]
+  get 'categories/:id', to: 'items#index', as: :category
 
 end
