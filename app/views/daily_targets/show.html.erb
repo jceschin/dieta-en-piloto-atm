@@ -150,7 +150,7 @@
   <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
     <div class="text-left px-2 border" style="width:<%= width_consumed_fats %>%; background-color: <%= fats_range_color %>; border-style: hidden; border-radius: 8px 1px 1px 8px">
-      <span class="font-weight-bold" style="color:<%= fats_text_color %>; font-size: 14px" ><%= @daily_target.fat_target - @fats_left %></span>
+      <span style="color:<%= fats_text_color %>; font-size: 14px" ><%= @daily_target.fat_target - @fats_left %></span>
     </div>
     <% if @fats_left <= 0 %>
       <% @fats_left = nil%>
@@ -162,7 +162,7 @@
       <span style="font-size: 14px"><%= @fats_left %></span>
     </div>
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center mt-3">
     <div class="col-12 col-lg-6 text-center px-2">
       <% if @items_consumed_today.any? %>
         <h1 class="text-left font-weight-bold py-2 px-1 border-bottom" style="font-size: 18px">Consumos del día</h1>
@@ -173,9 +173,9 @@
         </div>-->
         <% @items_consumed_today.each do |item|%>
           <ul class="w-100 px-0">
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center my-3" style="background-color: #F1F1F1; border-radius: 8px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.4); font-weight: bold; font-size: 14px">
               <%= link_to edit_item_path(item), class: "link d-flex align-items-center" do  %>
-                <li class="w-100 px-1" style="list-style:none; font-size:120%"><!-- <i class="fas fa-utensils mr-2 text-center" style="font-size:70%"></i> --><%= item.name %><br><small style="font-size:65%">Calorías: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas Totales: <%= item.fats%></small></li>
+                <li class="w-100 py-2" style="list-style:none; font-size:120%"><!-- <i class="fas fa-utensils mr-2 text-center" style="font-size:70%"></i> --><%= item.name %><br><small style="font-size: 14px">Calorías: <%= item.calories%>, Proteínas: <%= item.proteins%>, Carbohidratos: <%= item.carbs%>, Grasas Totales: <%= item.fats%></small></li>
                 <!-- <i class="fas fa-pencil-alt ml-3" style="font-size:100%"></i> -->
               <% end %>
             </div>
