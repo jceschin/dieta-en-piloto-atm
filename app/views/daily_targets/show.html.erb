@@ -1,6 +1,6 @@
 <div class="container" style="background-color: white; width: auto; height: 100%">
   <div class="text-center">
-    <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
+    <!--<%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>-->
       <h1 class="font-weight-bold text-left p-2 mt-2 border-bottom" style="font-size: 20px">Mis objetivos diarios<!-- <i class="fas fa-pencil-alt ml-3"></i> --></h1>
     <% end %>
     <!-- <p class="m-0 p-0 ml-5 pl-5"><small>objetivo</small></p> -->
@@ -165,8 +165,8 @@
     <div class="col-12 col-lg-6 text-center px-2">
       <% if @items_consumed_today.any? %>
         <div class="d-flex align-items-center justify-content-center">
-          <%= link_to new_item_path, class: "link d-flex align-items-center" do  %>
-            <h1 class="w-100 font-weight-bold mr-0 pr-0" style="font-size: 28px">Consumos del día</h1>
+          <!--<%= link_to new_item_path, class: "link d-flex align-items-center" do  %>-->
+            <h1 class="text-left font-weight-bold mr-0 pr-0 border-bottom" style="font-size: 20px">Consumos del día</h1>
             <!-- <i class="fas fa-plus ml-0 pl-4" style="font-size:130%"></i> -->
           <% end %>
         </div>
