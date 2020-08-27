@@ -15,8 +15,8 @@
     </div>
   </div> -->
   <div class="d-flex justify-content-between mb-2 mt-0">
-    <p class="mb-0 mt-4" style="font-size: 14px">Calorías</p>
-    <p class="mb-0 mt-4" style="font-size: 14px"><%= @daily_target.caloric_target - @cal_left %> / <%= @daily_target.caloric_target %> kcal</p>
+    <p class="mb-0 mt-3" style="font-size: 14px">Calorías</p>
+    <p class="mb-0 mt-3" style="font-size: 14px"><%= @daily_target.caloric_target - @cal_left %> / <%= @daily_target.caloric_target %> kcal</p>
   </div>
   <!-- <div class="text-right my-0">
     <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
@@ -48,13 +48,13 @@
       <% width_cal_left = @cal_left/@daily_target.caloric_target.to_f*100 %>
     <% end %>
     <div class="text-right px-2 border" style="width:<%= width_cal_left %>%; border-style: hidden; border-radius: 1px 8px 8px 1px">
-      <span style="font-size:14px"><%= @cal_left %></span>
+      <span style="font-size:14px; vertical-align: center"><%= @cal_left %></span>
     </div>
   </div>
 
   <div class="d-flex justify-content-between mb-2 mt-0">
-    <p class="mb-0 mt-4" style="font-size: 14px">Proteínas</p>
-    <p class="mb-0 mt-4" style="font-size: 14px"><%= @daily_target.protein_target - @proteins_left %> / <%= @daily_target.protein_target %> g</p>
+    <p class="mb-0 mt-3" style="font-size: 14px">Proteínas</p>
+    <p class="mb-0 mt-3" style="font-size: 14px"><%= @daily_target.protein_target - @proteins_left %> / <%= @daily_target.protein_target %> g</p>
   </div>
   <!-- <div class="text-right my-0">
     <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
@@ -90,8 +90,8 @@
   </div>
 
   <div class="d-flex justify-content-between mb-2 mt-0">
-    <p class="mb-0 mt-4" style="font-size: 14px">Carbohidratos</p>
-    <p class="mb-0 mt-4" style="font-size: 14px"><%= @daily_target.carb_target - @carbs_left %> / <%= @daily_target.carb_target %> g</p>
+    <p class="mb-0 mt-3" style="font-size: 14px">Carbohidratos</p>
+    <p class="mb-0 mt-3" style="font-size: 14px"><%= @daily_target.carb_target - @carbs_left %> / <%= @daily_target.carb_target %> g</p>
   </div>
   <!-- <div class="text-right my-0">
     <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
@@ -127,8 +127,8 @@
   </div>
 
   <div class="d-flex justify-content-between mb-2 mt-0">
-    <p class="mb-0 mt-4" style="font-size: 14px">Grasas Totales</p>
-    <p class="mb-0 mt-4" style="font-size: 14px"><%= @daily_target.fat_target - @fats_left %> / <%= @daily_target.fat_target %> g</p>
+    <p class="mb-0 mt-3" style="font-size: 14px">Grasas Totales</p>
+    <p class="mb-0 mt-3" style="font-size: 14px"><%= @daily_target.fat_target - @fats_left %> / <%= @daily_target.fat_target %> g</p>
   </div>
   <!-- <div class="text-right my-0">
     <%= link_to edit_daily_target_path(@daily_target.id), class: "link" do  %>
