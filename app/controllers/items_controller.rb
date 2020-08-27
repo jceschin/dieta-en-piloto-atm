@@ -8,12 +8,13 @@ class ItemsController < ApplicationController
   # after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   def index
-    @category = params[:category]
+    # The id passed when clicking on a category in the index
+    @category = Category.find(params[:id]) if params[:id]
     if current_user
       @dailytarget = DailyTarget.find_by(user_id: current_user.id)
       @items = select_items(category: @category)
     else
-      @items = policy_scope(Item).seller
+      @items = items_by_category(@category)
     end
 
     @items_unfiltered = Item.all.seller
@@ -24,7 +25,6 @@ class ItemsController < ApplicationController
 
     # deleteme
     # binding.pry
-
   end
 
   # Para el tracking
@@ -83,7 +83,7 @@ class ItemsController < ApplicationController
       :proteins,
       :fats,
       :carbs,
-      order_items_attributes: [:consumed_at, :id]
+      order_items_attributes: %i[consumed_at id]
     )
   end
 
@@ -91,11 +91,12 @@ class ItemsController < ApplicationController
     item_selection = []
 
     # Filter by category
-    if args[:category]
-      items = Item.all.seller.where(category: args[:category])
-    else
-      items = Item.all.seller
-    end
+    # if args[:category]
+    #   items = Item.all.seller.where(category: args[:category])
+    # else
+    #   items = Item.all.seller
+    # end
+    items = items_by_category(args[:category])
 
     # Filter by nustritional target
     items.seller.each do |item|
@@ -105,6 +106,16 @@ class ItemsController < ApplicationController
     end
 
     item_selection
+  end
+
+  def items_by_category(category)
+    if category
+      # Item.all.seller.where(category: category)
+      Item.all.seller.joins(item_categories: :category)
+          .where("categories.name = :cat", cat: category[:name])
+    else
+      Item.all.seller
+    end
   end
 
   def calories_in_target?(item)
