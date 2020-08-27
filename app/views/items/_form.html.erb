@@ -2,14 +2,13 @@
 
   <div class="row px-1 mx-auto mt-4 justify-content-center">
     <div class="col-12 col-md-7 col-lg-5 col-xl-4 border mt-4" style="background-color: white; height:auto; width: auto; border-radius: 8px">
-        <h1 class="mt-2 text-center" style="font-size:190%">Registrar una comida</h1>
+        <h1 class="modal-header mx-0" style="font-size:18px; text-align: left">Registrar una comida</h1>
         <% if @item.price.nil? %>
           <%= form_for @item do |f| %>
 
             <div class="mt-4">
               <div class="row mx-1">
-                <%= f.label :name, "Nombre" %>
-                <%= f.text_field :name, class: 'form-control', style:'border-radius:8px' %><br>
+                <%= f.text_field :name, placeholder: '¿Qué comiste?', class: 'form-control', style:'border-radius:8px' %><br>
               </div>
 
               <div>
