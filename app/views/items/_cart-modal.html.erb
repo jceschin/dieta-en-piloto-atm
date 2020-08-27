@@ -18,8 +18,8 @@
             <% @order.items_and_qty.each do |key, item| %>
               <div class="d-flex flex-column align-items-center">
                 <div class="d-flex align-items-center justify-content-between cart-modal-item w-100">
-                  <h3 style="font-size: 16px"><%= item[0].name %></h3>
-                  <h3 style="font-size: 16px" <%= "id=item-qty-#{item[0].id}-price" %> >$<%= item[0].price %></h3>
+                  <h3 class="px-0" style="font-size: 16px"><%= item[0].name %></h3>
+                  <h3 class="px-0" style="font-size: 16px" <%= "id=item-qty-#{item[0].id}-price" %> >$<%= item[0].price %></h3>
                 </div>
                 <div class="inc-dec d-flex align-items-center">
                   <%= link_to "-", "#", class: "btn-inc-dec dec hvr-grow-s" %>
