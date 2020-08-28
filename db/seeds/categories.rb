@@ -31,6 +31,15 @@ CATEGORIES_INFO = [
   },
   {
     name: "vegetales",
+  },
+  {
+    name: "oriental",
+  },
+  {
+    name: "gourmet",
+  },
+  {
+    name: "desayunos",
   }
 ]
 

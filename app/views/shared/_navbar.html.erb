@@ -3,7 +3,7 @@
 <div class="navbar navbar-expand navbar-light navbar-tudieta fixed-top">
 
   <%= link_to items_path, class: "navbar-brand hvr-grow-s" do %>
-    <%= image_tag "logo.png" %>
+    <%= image_tag "Avatar2.png" %>
   <% end %>
 
   <% if user_signed_in? && !current_user.daily_target.nil? %>
@@ -15,7 +15,7 @@
       <div class="visible">
         <div class="datos" id="daily-targets-display">
           <div class="dato active">
-            <p>Mis Objetivos</p>
+            <p>Objetivos para hoy</p>
           </div>
           <div class="dato">
             <p>Calorias: <%= @dailytarget.caloric_target %> Kcal</p>

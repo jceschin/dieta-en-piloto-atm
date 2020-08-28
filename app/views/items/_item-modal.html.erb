@@ -72,7 +72,7 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
             <div class="inc-dec d-flex align-items-center">
               <%= link_to "-", "#", class: "btn-inc-dec dec hvr-grow-s" %>
               <input class="input"
-               type="text" id="item-quantity" name="quantity" value="1">
+               type="text" <%= "id=item-quantity-#{item.id}" %> name="quantity" value="1">
               <%= link_to "+", "#", class: "btn-inc-dec inc hvr-grow-s" %>
             </div>
 
@@ -85,16 +85,16 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
 
           </div>
 
-          <!--<div class="item-modal-price-unit d-flex justify-content-between
+          <div class="item-modal-price-unit d-flex justify-content-between
             align-items-center">
             <p>Precio por unidad</p>
             <p class="price"> $<%= item.price %> </p>
-          </div>-->
+          </div>
 
           <div class="item-modal-price d-flex justify-content-between
             align-items-center">
             <p>Total</p>
-            <p class="price" id="item-quantity-total"> $<%= item.price %> </p>
+            <p class="price" <%= "id=item-quantity-#{item.id}-total" %> > $<%= item.price %> </p>
           </div>
 
           <div class="item-modal-addtracking form-row align-items-center
@@ -102,7 +102,7 @@ aria-labelledby="itemModalLabel" aria-hidden="true">
 
             <div class="opt-track d-flex justify-content-center
               align-items-center">
-              <h2>Lo voy a comer hoy</h2>
+              <h2>¡Lo voy a comer ahora!</h2>
               <div class="ml-2 nice-checkbox">
                 <%= f.check_box :consumed_at, checked: true %>
               </div>
