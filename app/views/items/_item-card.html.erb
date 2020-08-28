@@ -20,7 +20,7 @@
       <% if false %>
         <span><i class="fas fa-star" style="color: white!important"></i></span>
       <% else %>
-        <p> <%= rand(1..5) %> <i class="fas fa-star"></i></p>
+        <p> <%= item.rating.round(1) %> <i class="fas fa-star"></i></p>
       <% end %>
     </div>
   </div>
