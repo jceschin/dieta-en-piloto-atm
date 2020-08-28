@@ -30,6 +30,10 @@
                 </div>
               </div>
             <% end %>
+            <div class="d-flex justify-content-between cart-modal-price">
+              <h3 class="px-0" style="font-size: 16px">Total:</h3>
+              <h3 class="px-0" style="font-size: 16px" id="cart-total-price" >$<%= @order.total_price %></h3>
+            </div>
             <form>
               <div class="form-group">
                 <input class="form-control" style="margin-top: 14px" id="exampleFormControlInput1" placeholder="Tu dirección">
@@ -45,11 +49,7 @@
                 <button type="submit" class="btn btn-green-order">Confirmar</button>
               </div>
             </form>
-            <!--<div class="d-flex justify-content-between cart-modal-price">
-              <h3>Total:</h3>
-              <h3 id="cart-total-price" >$<%= @order.total_price %></h3>
-            </div>
-            <div class="input-group px-5 py-3">
+            <!--<div class="input-group px-5 py-3">
               <input aria-label="Example select with button addon" placeholder="Tu dirección" style="border: 1px solid #ced4da; width: 250px; height: calc(1.5em + 0.75rem + 2px); border-radius: 4px"></input>
             </div>
             <div class="input-group px-5 py-3">
