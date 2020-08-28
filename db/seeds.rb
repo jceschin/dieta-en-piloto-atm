@@ -51,6 +51,7 @@ ITEMS_INFO.each do |info|
     carbs: info[:carbs],
     origin: info[:origin],
     price: info[:price],
+    rating: rand(4..5)
   )
   picture_file = URI.open(info[:picture])
   # oportunidad de mejora para no volver a subir las imagenes que ya esatn subidas
