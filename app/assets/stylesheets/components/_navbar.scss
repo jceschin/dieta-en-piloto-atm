@@ -104,6 +104,15 @@
 //   width: 40px;
 // }
 
+.nav-item i {
+  // width: 25px;
+  // margin-right: 0px;
+  font-size: 28px;
+  color: #184D47;
+  padding: 0px;
+}
+
+
 @media(max-width:450px) {
 
   .filler-space-navbar {
@@ -148,6 +157,7 @@
     padding: 0px;
   }
 
+
 }
 
 
@@ -182,6 +192,7 @@
     font-size: 16px;
     color: #184D47;
   }
+
 
   body > div.navbar.navbar-expand-sm.navbar-light.navbar-tudieta.fixed-top > div.navbar-left.d-flex.align-items-center > button {
     display: none;
