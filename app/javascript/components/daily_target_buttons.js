@@ -36,21 +36,23 @@ const moveTarget = (direction) => {
   initElementWidth();
   console.log(`width: ${elementWidth}`);
   console.log(elementPosition(dtDisplay));
-  if ( direction == 'left') {
-    if ( isFirstPosition(dtDisplay) ){
-      console.log("left-first")
-      changePosition(dtDisplay, ( elementsQty - 1 ) * elementWidth * -1);
+  if ( checkMovement(dtDisplay) ) {
+    if ( direction == 'left') {
+      if ( isFirstPosition(dtDisplay) ){
+        console.log("left-first")
+        changePosition(dtDisplay, ( elementsQty - 1 ) * elementWidth * -1);
+      } else {
+        console.log("left-any")
+        changePosition(dtDisplay, elementWidth);
+      }
     } else {
-      console.log("left-any")
-      changePosition(dtDisplay, elementWidth);
-    }
-  } else {
-    if ( isLastPosition(dtDisplay) ){
-      console.log("right-last")
-      changePosition(dtDisplay, ( elementsQty - 1 ) * elementWidth);
-    }else {
-      console.log("right-any")
-      changePosition(dtDisplay, elementWidth * -1);
+      if ( isLastPosition(dtDisplay) ){
+        console.log("right-last")
+        changePosition(dtDisplay, ( elementsQty - 1 ) * elementWidth);
+      }else {
+        console.log("right-any")
+        changePosition(dtDisplay, elementWidth * -1);
+      }
     }
   }
   // console.log(elementPosition(dtDisplay));
@@ -86,6 +88,11 @@ const initElementWidth = () => {
   const style = getComputedStyle(element)
   const elementWidthStr = style.width;
   elementWidth = parseInt(elementWidthStr.slice(0,elementWidthStr.length - 2), 10);
+}
+
+const checkMovement = (element) => {
+
+  return ( elementPosition(element) % elementWidth == 0)
 }
 
 

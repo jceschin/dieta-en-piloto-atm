@@ -8,33 +8,35 @@
 
   <% if user_signed_in? && !current_user.daily_target.nil? %>
 
-    <div class="navbar-targets">
-      <%= link_to "#", id: "nav-dt-btn-left", class: "hvr-grow-s" do %>
-        <%= image_tag "components/flecha_izq.png" %>
-      <% end %>
-      <div class="visible" id="daily-targets-wrapper">
-        <div class="datos" id="daily-targets-display">
-          <div class="dato active">
-            <p>Objetivos para hoy</p>
-          </div>
-          <div class="dato">
-            <p>Calorias: <%= current_user.cal_left %> Kcal</p>
-          </div>
-          <div class="dato">
-            <p>Proteinas: <%= current_user.proteins_left %> g</p>
-          </div>
-          <div class="dato">
-            <p>Carbs.: <%= current_user.carbs_left %> g</p>
-          </div>
-          <div class="dato">
-            <p>Grasas: <%= current_user.fats_left %> g</p>
+    <%= link_to daily_target_path(current_user.daily_target.id) do %>
+      <div class="navbar-targets">
+        <%= link_to "#", id: "nav-dt-btn-left", class: "hvr-grow-s" do %>
+          <%= image_tag "components/flecha_izq.png" %>
+        <% end %>
+        <div class="visible" id="daily-targets-wrapper">
+          <div class="datos" id="daily-targets-display">
+            <div class="dato active">
+              <p>Objetivos para hoy</p>
+            </div>
+            <div class="dato">
+              <p>Calorias: <%= current_user.cal_left %> Kcal</p>
+            </div>
+            <div class="dato">
+              <p>Proteinas: <%= current_user.proteins_left %> g</p>
+            </div>
+            <div class="dato">
+              <p>Carbs.: <%= current_user.carbs_left %> g</p>
+            </div>
+            <div class="dato">
+              <p>Grasas: <%= current_user.fats_left %> g</p>
+            </div>
           </div>
         </div>
+        <%= link_to "#", id: "nav-dt-btn-right", class: "hvr-grow-s" do %>
+          <%= image_tag "components/flecha_der.png" %>
+        <% end %>
       </div>
-      <%= link_to "#", id: "nav-dt-btn-right", class: "hvr-grow-s" do %>
-        <%= image_tag "components/flecha_der.png" %>
-      <% end %>
-    </div>
+    <% end %>
 
   <% end %>
 
