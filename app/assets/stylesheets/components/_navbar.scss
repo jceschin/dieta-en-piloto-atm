@@ -25,7 +25,7 @@
 }
 
 .navbar-targets .datos {
-  transition: .4s;
+  transition: .2s;
   display: flex;
   position: absolute;
   top: 0px;
@@ -36,18 +36,21 @@
 
 .navbar-targets .dato {
   display: inline-block;
-  width: 195px;
+  // Width must be the same as in .visible
+  width: 165px;
+  text-align: center;
 }
 
 .navbar-targets .visible {
   position: relative;
-  width: 195px;
+  // Width must be the same as in .dato
+  width: 165px;
   height: 40px;
   overflow: hidden;
 }
 
 .navbar-tudieta .navbar-targets img {
-  height: 20px;
+  height: 30px;
 }
 
 .navbar-tudieta .navbar-targets p {
@@ -58,7 +61,7 @@
   border-color: #184D47;
   border-radius: 16px;
   align-self: center;
-  margin: 0px;
+  margin: 0px 2px;
   color: #184D47;
 }
 

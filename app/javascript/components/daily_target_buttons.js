@@ -4,8 +4,8 @@
 
 
 // harcoded data, doesn't check how many elements are or the actual size
-const elementsQty = 5;
-const elementWidth = 195;
+let elementsQty = 5;
+let elementWidth = 195;
 // *************************************************
 
 const initDailyTargetButtons = () => {
@@ -27,52 +27,12 @@ const initDailyTargetButtons = () => {
     moveTarget("right");
   });
 
-
-
-  // $(".btn-inc-dec").on("click", function() {
-  //   event.preventDefault();
-  //   var $button = $(this);
-  //   const $input = $button.parent().find("input")
-  //   var oldValue = $input.val();
-
-  //   var newVal;
-  //   var incrementType;
-
-  //   if ($button.text() == "+") {
-  //     newVal = parseFloat(oldValue) + 1;
-  //     incrementType = "inc";
-  //   } else {
-  //    // Don't allow decrementing below zero
-  //     if (oldValue > 1) {
-  //       newVal = parseFloat(oldValue) - 1;
-  //     } else {
-  //       newVal = 1;
-  //     }
-  //     incrementType = "dec";
-  //   }
-
-  //   // updates the value of the input
-  //   $button.parent().find("input").val(newVal);
-
-  //   const idName = $input.attr('id');
-
-  //   // Optional change to total value, if the clases are note in the html
-  //   // it does nothing
-  //   if (idName == 'item-quantity'){
-  //     // case for the item_Modal
-  //     const $priceP = $(`#${idName}-total`)
-  //     $priceP.text(`$${changeTotalItem($priceP, oldValue, newVal)}`);
-  //   } else if ( oldValue - newVal != 0 ) {
-  //     // case for the cart modal
-  //     const $priceP = $(`#${idName}-price`)
-  //     const $priceTotal = $(`#cart-total-price`)
-  //     $priceTotal.text(`$${changeTotalCart($priceP, $priceTotal, incrementType)}`);
-  //   }
-  // });
 };
 
 const moveTarget = (direction) => {
   const dtDisplay = document.getElementById("daily-targets-display");
+  initElementWidth();
+  console.log(`width: ${elementWidth}`);
   console.log(elementPosition(dtDisplay));
   if ( direction == 'left') {
     if ( isFirstPosition(dtDisplay) ){
@@ -117,6 +77,13 @@ const elementPosition = (element) => {
   const positionStr = style.left;
   const position = parseInt(positionStr.slice(0,positionStr.length - 2), 10);
   return position;
+}
+
+const initElementWidth = () => {
+  const element = document.getElementById("daily-targets-wrapper")
+  const style = getComputedStyle(element)
+  const elementWidthStr = style.width;
+  elementWidth = parseInt(elementWidthStr.slice(0,elementWidthStr.length - 2), 10);
 }
 
 
