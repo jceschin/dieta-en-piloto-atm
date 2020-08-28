@@ -18,16 +18,16 @@
             <p>Objetivos para hoy</p>
           </div>
           <div class="dato">
-            <p>Calorias: <%= @dailytarget.caloric_target %> Kcal</p>
+            <p>Calorias: <%= current_user.cal_left %> Kcal</p>
           </div>
           <div class="dato">
-            <p>Proteinas: <%= @dailytarget.protein_target %> g</p>
+            <p>Proteinas: <%= current_user.proteins_left %> g</p>
           </div>
           <div class="dato">
-            <p>Carbs.: <%= @dailytarget.carb_target %> g</p>
+            <p>Carbs.: <%= current_user.carbs_left %> g</p>
           </div>
           <div class="dato">
-            <p>Grasas: <%= @dailytarget.fat_target %> g</p>
+            <p>Grasas: <%= current_user.fats_left %> g</p>
           </div>
         </div>
       </div>
