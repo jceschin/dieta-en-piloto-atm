@@ -17,6 +17,8 @@ class ItemsController < ApplicationController
       @items = items_by_category(@category)
     end
 
+    @message = create_main_message(@category, @items)
+    @secondary_message = "test"
     @items_unfiltered = Item.all.seller
 
     @order_item = OrderItem.new
@@ -132,5 +134,21 @@ class ItemsController < ApplicationController
 
   def fats_in_target?(item)
     item.fats <= current_user.fats_left * current_user.daily_target_upper_limit && item.fats >= current_user.fats_left * current_user.daily_target_lower_limit
+  end
+
+  def create_main_message(category, items)
+    if category
+      if items.count != 0
+        "Sugerencias de #{category.name.capitalize}"
+      else
+        "No encotramos #{category.name.capitalize} que sugerirte para tu dieta"
+      end
+    else
+      if items.count != 0
+        "Te sugerimos para tu dieta"
+      else
+        "Parece que ya cumpliste tus objetivos para hoy!"
+      end
+    end
   end
 end
