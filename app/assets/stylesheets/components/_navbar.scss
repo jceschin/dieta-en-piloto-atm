@@ -20,8 +20,30 @@
 }
 
 .navbar-targets {
-  display: flex;
+  // display: flex;
   align-items: center;
+}
+
+.navbar-targets .datos {
+  transition: .4s;
+  display: flex;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  // width: 100%;
+  width: 1000px;
+}
+
+.navbar-targets .dato {
+  display: inline-block;
+  width: 195px;
+}
+
+.navbar-targets .visible {
+  position: relative;
+  width: 195px;
+  height: 40px;
+  overflow: hidden;
 }
 
 .navbar-tudieta .navbar-targets img {

@@ -8,35 +8,32 @@
 
   <% if user_signed_in? && !current_user.daily_target.nil? %>
 
-
-    <div id="carouselNavbarControls"
-      class="carousel slide navbar-targets"
-      data-ride="carousel">
-      <div id="carousel-navbar" class="carousel-inner">
-      <!-- <div id="carousel-navbar-tudieta" class="carousel-inner"> -->
-        <div id="carousel-navbar-item" class="carousel-item active">
-          <p>Objetivo: 2000 Kcal</p>
-        </div>
-        <div id="carousel-navbar-item" class="carousel-item">
-          <p>60g Proteinas</p>
-        </div>
-        <div id="carousel-navbar-item" class="carousel-item">
-          <p>60g Grasas</p>
-        </div>
-        <div id="carousel-navbar-item" class="carousel-item">
-          <p>60g Cbhs</p>
+    <div class="navbar-targets">
+      <%= link_to "#", id: "nav-dt-btn-left", class: "hvr-grow-s" do %>
+        <%= image_tag "components/flecha_izq.png" %>
+      <% end %>
+      <div class="visible">
+        <div class="datos" id="daily-targets-display">
+          <div class="dato active">
+            <p>Mis Objetivos</p>
+          </div>
+          <div class="dato">
+            <p>Calorias: <%= @dailytarget.caloric_target %> Kcal</p>
+          </div>
+          <div class="dato">
+            <p>Proteinas: <%= @dailytarget.protein_target %> g</p>
+          </div>
+          <div class="dato">
+            <p>Carbs.: <%= @dailytarget.carb_target %> g</p>
+          </div>
+          <div class="dato">
+            <p>Grasas: <%= @dailytarget.fat_target %> g</p>
+          </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <%= image_tag "components/flecha_izq.png" %>
-        <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
-        <!-- <span class="sr-only">Previous</span> -->
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <%= link_to "#", id: "nav-dt-btn-right", class: "hvr-grow-s" do %>
         <%= image_tag "components/flecha_der.png" %>
-        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
-        <!-- <span class="sr-only">Next</span> -->
-      </a>
+      <% end %>
     </div>
 
   <% end %>
