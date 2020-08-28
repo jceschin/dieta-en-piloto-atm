@@ -29,10 +29,12 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 // import { initItemModalFunctions } from '../components/modal_functions';
 import { initIncrementButtons } from '../components/increment_buttons';
+import { initDailyTargetButtons } from '../components/daily_target_buttons';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // initItemModalFunctions();
+  initDailyTargetButtons();
   initIncrementButtons();
 });

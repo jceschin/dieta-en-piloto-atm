@@ -7,9 +7,35 @@
   <% end %>
 
   <% if user_signed_in? && !current_user.daily_target.nil? %>
-    <div class="navbar-targets">
-      <p>Objetivos del día</p>
-    </div>
+
+      <div class="navbar-targets">
+        <%= link_to "#", id: "nav-dt-btn-left", class: "hvr-grow-s" do %>
+          <%= image_tag "components/flecha_izq.png" %>
+        <% end %>
+        <div class="visible" id="daily-targets-wrapper">
+          <div class="datos" id="daily-targets-display">
+            <div class="dato active">
+              <p>Objetivos para hoy</p>
+            </div>
+            <div class="dato">
+              <p>Calorias: <%= current_user.cal_left %> Kcal</p>
+            </div>
+            <div class="dato">
+              <p>Proteinas: <%= current_user.proteins_left %> g</p>
+            </div>
+            <div class="dato">
+              <p>Carbs.: <%= current_user.carbs_left %> g</p>
+            </div>
+            <div class="dato">
+              <p>Grasas: <%= current_user.fats_left %> g</p>
+            </div>
+          </div>
+        </div>
+        <%= link_to "#", id: "nav-dt-btn-right", class: "hvr-grow-s" do %>
+          <%= image_tag "components/flecha_der.png" %>
+        <% end %>
+      </div>
+
   <% end %>
 
 
@@ -17,24 +43,46 @@
     <% if current_page?(items_path)%>
       <%= link_to "#cartModal", data: { toggle: "modal"},
         class: "navbar-carrito hvr-grow-s", remote: true do %>
-        <i class="fas fa-shopping-cart mr-3 mt-1" style="font-size:160%"></i>
+        <i class="fas fa-shopping-cart mr-2 mt-1" ></i> <!-- style="font-size:160%"></i> -->
       <% end %>
     <% end %>
 
 
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
-          <li class="nav-item">
+          <div class="nav-item">
             <% if !current_user.photo.attached? %>
-              <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/330px-Hamburger_icon.svg.png", class: "avatar dropdown-toggle mr-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <!-- <i class="fas fa-bars navbar-ham dropdown-toggle mr-2"></i> -->
+              <!-- <span class="navbar-ham dropdown-toggle mr-2"></span> -->
+              <i class="fas fa-bars mr-2 mt-1 nav-ham"
+                type="button"
+                id="navbarDropdown"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+               </i>
+              <!-- <button class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="navbarDropdown"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-bars">
+              </button> -->
             <% else %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle mr-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= cl_image_tag current_user.photo.key,
+                class: "avatar dropdown-toggle mr-2",
+                id: "navbarDropdown",
+                data: { toggle: "dropdown" },
+                'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Mis objetivos", daily_target_path(current_user.daily_target.id), class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to "Mis objetivos", daily_target_path(current_user.daily_target.id),
+                class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete,
+                 class: "dropdown-item" %>
             </div>
-          </li>
+          </div>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
