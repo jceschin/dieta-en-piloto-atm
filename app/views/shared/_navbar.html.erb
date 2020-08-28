@@ -8,7 +8,6 @@
 
   <% if user_signed_in? && !current_user.daily_target.nil? %>
 
-    <%= link_to daily_target_path(current_user.daily_target.id) do %>
       <div class="navbar-targets">
         <%= link_to "#", id: "nav-dt-btn-left", class: "hvr-grow-s" do %>
           <%= image_tag "components/flecha_izq.png" %>
@@ -36,7 +35,6 @@
           <%= image_tag "components/flecha_der.png" %>
         <% end %>
       </div>
-    <% end %>
 
   <% end %>
 
