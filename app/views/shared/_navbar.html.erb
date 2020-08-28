@@ -78,9 +78,9 @@
             <% end %>
             <div class="dropdown-menu dropdown-menu-right dropdown-tags" aria-labelledby="navbarDropdown">
               <%= link_to "Mis objetivos", daily_target_path(current_user.daily_target.id),
-                class: "dropdown-item" %>
+                class: "dropdown-item px-3" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete,
-                 class: "dropdown-item" %>
+                 class: "dropdown-item px-3" %>
             </div>
           </div>
         <% else %>
