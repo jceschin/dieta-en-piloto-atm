@@ -22,7 +22,10 @@
           <div class="categories mt-2">
             <% category_pack.each do |category| %>
               <%= link_to category_path(category.id), class: "category hvr-grow" do %>
-                <%= image_tag "#{category.picture}", alt: "#{category.name}", id:"#{category.name}", class: "category hvr-grow-s" %>
+                <%= image_tag "#{category.picture}",
+                  alt: "#{category.name}",
+                  id:"#{category.name}",
+                  class: "category hvr-grow-s" %>
                 <h2> <%= category.name.upcase %> </h2>
               <% end %>
             <% end %>
@@ -43,17 +46,24 @@
   <!-- -->
 
   <div class="text-center pt-3 pb-0 sugerencias bg-white">
-    <h2>Tus sugeridos</h2>
+    <h2> <%= "#{@message}" %> </h2>
   </div>
   <div class="item-cards">
-    <% if @items.count == 0 %>
-      <%= render 'control_limit' %>
-    <% else %>
-      <% @items.each do |item|  %>
-        <%= render 'item-card', item: item %>
-      <% end %>
+    <% @items.each do |item|  %>
+      <%= render 'item-card', item: item %>
     <% end %>
   </div>
+
+  <div class="text-center pt-3 pb-0 sugerencias bg-white">
+    <h2> <%= "#{@secondary_message}" %> </h2>
+  </div>
+  <div class="item-cards">
+    <% @items_unfiltered.each do |item|  %>
+      <%= render 'item-card', item: item %>
+    <% end %>
+  </div>
+
+
   <div class="filler-space-consumption"></div>
   <div class="add-consumption fixed-bottom">
     <%= link_to new_item_path, class: "hvr-grow-s d-flex justify-content-center" do%>
