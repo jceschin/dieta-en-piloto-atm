@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     end
 
     @message = create_main_message(@category, @items)
-    @secondary_message = "Igualmente podes seguir mirando nuestras opciones"
+    @secondary_message = "Segui mirando nuestras opciones"
     @items_unfiltered = Item.all.seller
 
     @order_item = OrderItem.new
