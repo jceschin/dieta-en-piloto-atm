@@ -1,5 +1,6 @@
 .navbar-tudieta {
-  justify-content: space-between;
+  display: flex;
+  // justify-content: space-between;
   background: white;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
@@ -8,12 +9,22 @@
   height: 70px;
 }
 
+.box {
+  flex: 1;
+  display:flex;
+  justify-content: center;
+}
+
+.box:first-child > span { margin-right: auto; }
+
+.box:last-child  > span { margin-left: auto;  }
+
 .navbar-tudieta .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-tudieta .navbar-targets {
-  flex-grow: 4;
+  // flex-grow: 4;
   display: flex;
   justify-content: center;
   // align-items: center;
@@ -84,13 +95,16 @@
   flex-grow: 0;
 }
 
-.carousel-navbar-tudieta {
-
+// Yes, right and left are inverted..
+// not my fault, but its working...
+.navbar-right {
+  justify-self: flex-start;
 }
 
 .navbar-tudieta .navbar-brand img {
   width: 45px;
   margin: 0;
+  justify-self: flex-start;
 }
 
 .navbar-tudieta .navbar-carrito i {
@@ -112,6 +126,12 @@
   color: #184D47;
   padding: 0px;
 }
+
+// .navbar-left {
+//   justify-self: flex-end;
+// }
+
+
 
 
 @media(max-width:450px) {
