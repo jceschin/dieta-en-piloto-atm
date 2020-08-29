@@ -27,7 +27,7 @@ ITEMS_INFO = [
     carbs: 75,
     origin: :seller,
     price: 375,
-    categories_keywords: %w[carnes vegetales oriental],
+    categories_keywords: %w[carnes vegetales oriental pollos],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598389922/seeds%20tu%20dieta/seeds%20comodos/wok-pollo_vrhuta.jpg",
     seller: 'Comodos'
   },
@@ -66,7 +66,7 @@ ITEMS_INFO = [
     carbs: 49,
     origin: :seller,
     price: 475,
-    categories_keywords: %w[pescados],
+    categories_keywords: %w[pescados pollos],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598389922/seeds%20tu%20dieta/seeds%20comodos/paella_z2ijs3.jpg",
     seller: 'Comodos'
   },
@@ -79,7 +79,7 @@ ITEMS_INFO = [
     carbs: 36,
     origin: :seller,
     price: 390,
-    categories_keywords: %w[carnes],
+    categories_keywords: %w[carnes pollos],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388583/seeds%20tu%20dieta/pechuga-al-verdeo-con-zanahoria-bat-600x600_unpr1w.jpg",
     seller: 'Simpleat'
   },
@@ -105,7 +105,7 @@ ITEMS_INFO = [
     carbs: 45,
     origin: :seller,
     price: 385,
-    categories_keywords: %w[ensaladas vegetales],
+    categories_keywords: %w[ensaladas vegetales pollos],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388582/seeds%20tu%20dieta/fitbowl-lentejas-calabaza-pollo-600x600_jba6u1.jpg",
     seller: 'Simpleat'
   },
@@ -131,7 +131,7 @@ ITEMS_INFO = [
     carbs: 86,
     origin: :seller,
     price: 440,
-    categories_keywords: %w[carnes],
+    categories_keywords: %w[carnes pollos],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388583/seeds%20tu%20dieta/suprema-napolitana-600x600_iqeqaj.png",
     seller: 'Simpleat'
   },
@@ -157,7 +157,7 @@ ITEMS_INFO = [
     carbs: 51,
     origin: :seller,
     price: 410,
-    categories_keywords: %w[carnes],
+    categories_keywords: %w[carnes pollos],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598388137/seeds%20tu%20dieta/tarta-de-pollo-queso-600x600_bifwyy.jpg",
     seller: 'Simpleat'
   },
@@ -235,7 +235,7 @@ ITEMS_INFO = [
     carbs: 15,
     origin: :seller,
     price: 250,
-    categories_keywords: %w[carnes],
+    categories_keywords: %w[carnes pollos],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598386265/seeds%20tu%20dieta/chicken-balls-600x600_qu6uoh.jpg",
     seller: 'Simpleat'
   },
@@ -287,7 +287,7 @@ ITEMS_INFO = [
     carbs: 37,
     origin: :seller,
     price: 335,
-    categories_keywords: %w[pastas carnes],
+    categories_keywords: %w[pastas carnes pollos],
     picture: "https://res.cloudinary.com/ajtvlggc/image/upload/v1596654426/i30zaepgl1soxwwqk2kc.jpg",
     seller: 'Surris Hill Coffee'
   }
