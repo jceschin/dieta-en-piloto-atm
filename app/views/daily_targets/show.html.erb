@@ -30,11 +30,11 @@
     <% cal_range_color = "red"%>
     <% cal_text_color = "white" %>
   <% elsif width_consumed_cal >= 60 %>
-    <% cal_range_color = "#ffc93c"%>
+    <% cal_range_color = "#71CC34"%>
     <% width_consumed_cal %>
   <%else%>
     <% width_consumed_cal %>
-    <% cal_range_color = "#71CC34" %>
+    <% cal_range_color = "#ffc93c" %>
     <% width_cal_left = @cal_left/@daily_target.caloric_target.to_f*100 %>
   <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
@@ -48,7 +48,7 @@
       <% width_cal_left = @cal_left/@daily_target.caloric_target.to_f*100 %>
     <% end %>
     <div class="text-right px-2 border" style="width:<%= width_cal_left %>%; border-style: hidden; border-radius: 1px 8px 8px 1px">
-      <span style="font-size:14px; vertical-align: center"><%= @cal_left %></span>
+      <span style="font-size:0px; vertical-align: center"><%= @cal_left %></span>
     </div>
   </div>
 
@@ -67,11 +67,11 @@
     <% proteins_range_color = "red"%>
     <% proteins_text_color = "white" %>
   <% elsif width_consumed_proteins >= 60 %>
-    <% proteins_range_color = "#ffc93c"%>
+    <% proteins_range_color = "#71CC34"%>
     <% width_consumed_proteins %>
   <%else%>
     <% width_consumed_proteins %>
-    <% proteins_range_color = "#71CC34" %>
+    <% proteins_range_color = "#ffc93c" %>
     <% width_proteins_left = @proteins_left/@daily_target.protein_target.to_f*100 %>
   <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
@@ -85,7 +85,7 @@
       <% width_proteins_left = @proteins_left/@daily_target.protein_target.to_f*100 %>
     <% end %>
     <div class="text-right px-2 border" style="width:<%= width_proteins_left %>%; border-style: hidden; border-radius: 1px 8px 8px 1px">
-      <span style="font-size: 14px"><%= @proteins_left %></span>
+      <span style="font-size: 0px"><%= @proteins_left %></span>
     </div>
   </div>
 
@@ -104,11 +104,11 @@
     <% carbs_range_color = "red"%>
     <% carbs_text_color = "white" %>
   <% elsif width_consumed_carbs >= 60 %>
-    <% carbs_range_color = "#ffc93c"%>
+    <% carbs_range_color = "#71CC34"%>
     <% width_consumed_carbs %>
   <%else%>
     <% width_consumed_carbs %>
-    <% carbs_range_color = "#71CC34" %>
+    <% carbs_range_color = "#ffc93c" %>
     <% width_carbs_left = @carbs_left/@daily_target.carb_target.to_f*100 %>
   <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
@@ -122,7 +122,7 @@
       <% width_carbs_left = @carbs_left/@daily_target.carb_target.to_f*100 %>
     <% end %>
     <div class="text-right px-2 border" style="width:<%= width_carbs_left %>%; border-style: hidden; border-radius: 1px 8px 8px 1px">
-      <span style="font-size: 14px"><%= @carbs_left %></span>
+      <span style="font-size: 0px"><%= @carbs_left %></span>
     </div>
   </div>
 
@@ -141,11 +141,11 @@
     <% fats_range_color = "red"%>
     <% fats_text_color = "white" %>
   <% elsif width_consumed_fats >= 60 %>
-    <% fats_range_color = "#ffc93c"%>
+    <% fats_range_color = "#71CC34"%>
     <% width_consumed_fats %>
   <%else%>
     <% width_consumed_fats %>
-    <% fats_range_color = "#71CC34" %>
+    <% fats_range_color = "#ffc93c" %>
     <% width_fats_left = @fats_left/@daily_target.fat_target.to_f*100 %>
   <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
@@ -159,7 +159,7 @@
       <% width_fats_left = @fats_left/@daily_target.fat_target.to_f*100 %>
     <% end %>
     <div class="text-right px-2 border" style="width:<%= width_fats_left %>%; border-style: hidden; border-radius: 1px 8px 8px 1px">
-      <span style="font-size: 14px"><%= @fats_left %></span>
+      <span style="font-size: 0px"><%= @fats_left %></span>
     </div>
   </div>
   <div class="row justify-content-center mt-3">
