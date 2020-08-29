@@ -2,7 +2,7 @@
 
   <div class="row px-1 mx-auto mt-4 justify-content-center">
     <div class="col-12 col-md-7 col-lg-5 col-xl-4 border mt-4" style="background-color: white; height:auto; width: auto; border-radius: 8px">
-        <h1 class="modal-header mx-0" style="font-size:18px; text-align: left">Registrar una comida</h1>
+        <h1 class="modal-header" style="font-size:18px; text-align: left; padding-left: 0px">Cargar consumo</h1>
         <% if @item.price.nil? %>
           <%= form_for @item do |f| %>
 
@@ -25,7 +25,7 @@
                     <span type="text" id="putcal" class="range-number text-center"><%=item_calories%></span>
                   </div>
                   <div class="col-9 col-lg-8 text-center">
-                    <%= f.range_field(:calories, in: 1..2000, :step => 1, :value => item_calories, class:'w-100 range', oninput:'fetch_cal(this.value)')%>
+                    <%= f.range_field(:calories, in: 1..1000, :step => 1, :value => item_calories, class:'w-100 range', oninput:'fetch_cal(this.value)')%>
                   </div>
                 </div>
 
@@ -42,7 +42,7 @@
                     <span type="text" id="putprot" class="range-number text-center"><%=item_proteins%></span>
                   </div>
                   <div class="col-9 col-lg-8">
-                    <%= f.range_field(:proteins, in: 1..100, :step => 1, :value => item_proteins, class:'w-100 range', oninput:'fetch_prot(this.value)') %>
+                    <%= f.range_field(:proteins, in: 1..80, :step => 1, :value => item_proteins, class:'w-100 range', oninput:'fetch_prot(this.value)') %>
                   </div>
                 </div>
 
@@ -59,7 +59,7 @@
                     <span type="text" id="putcarb" class="range-number text-center"><%=item_carbs%></span>
                   </div>
                   <div class="col-9 col-lg-8">
-                    <%= f.range_field(:carbs, in: 1..250, :step => 1, :value => item_carbs, class:'w-100 range', oninput:'fetch_carb(this.value)') %>
+                    <%= f.range_field(:carbs, in: 1..120, :step => 1, :value => item_carbs, class:'w-100 range', oninput:'fetch_carb(this.value)') %>
                   </div>
                 </div>
               </div>
@@ -77,7 +77,7 @@
                     <span type="text" id="putfat" class="range-number text-center"><%=item_fats%></span>
                   </div>
                   <div class="col-9 col-lg-8">
-                    <%= f.range_field(:fats, in: 1..100, :step => 1, :value => item_fats, class:'w-100 range', oninput:'fetch_fat(this.value)') %>
+                    <%= f.range_field(:fats, in: 1..60, :step => 1, :value => item_fats, class:'w-100 range', oninput:'fetch_fat(this.value)') %>
                   </div>
                 </div>
 
@@ -103,9 +103,9 @@
           <ul class="mt-5 px-0" style="list-style:none; margin-left:23%">
             <h4 class="font-weight-bold" style="color:#C0EA04"><%= @item.name %></h4>
             <li>Calorías (kcal): <strong><%= @item.calories %></strong></li>
-            <li>Proteínas (gr): <strong><%= @item.proteins %></strong></li>
-            <li>Grasas Totales (gr): <strong><%= @item.fats %></strong></li>
-            <li>Carbohidratos (gr): <strong><%= @item.carbs %></strong></li>
+            <li>Proteínas (g): <strong><%= @item.proteins %></strong></li>
+            <li>Grasas Totales (g): <strong><%= @item.fats %></strong></li>
+            <li>Carbohidratos (g): <strong><%= @item.carbs %></strong></li>
           </ul>
             <div>
               <%= form_for @order_item do |f| %>

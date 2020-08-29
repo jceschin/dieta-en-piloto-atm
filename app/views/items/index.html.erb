@@ -1,6 +1,6 @@
 <!-- index.html.erb -->
 <div class="container">
-  <% @items.each do |item|  %>
+  <% @items_unfiltered.each do |item|  %>
     <%= render 'item-modal', item: item, order_item: @order_item %>
   <% end %>
 
@@ -26,7 +26,7 @@
                   alt: "#{category.name}",
                   id:"#{category.name}",
                   class: "category hvr-grow-s" %>
-                <h2> <%= category.name.upcase %> </h2>
+                <h2 style="font-size: 20px"> <%= category.name.capitalize %> </h2>
               <% end %>
             <% end %>
           </div>
@@ -54,23 +54,16 @@
     <% end %>
   </div>
 
-  <div class="text-center pt-3 pb-0 sugerencias bg-white">
-    <h2> <%= "#{@secondary_message}" %> </h2>
-  </div>
-  <div class="item-cards">
-    <% @items_unfiltered.each do |item|  %>
-      <%= render 'item-card', item: item %>
-    <% end %>
-  </div>
+  <% if @items.count == 0  %>
+    <div class="text-center pt-3 pb-0 sugerencias bg-white">
+      <h2> <%= "#{@secondary_message}" %> </h2>
+    </div>
+    <div class="item-cards">
+      <% @items_unfiltered.each do |item|  %>
+        <%= render 'item-card', item: item %>
+      <% end %>
+    </div>
+  <% end %>
 
-
-  <div class="filler-space-consumption"></div>
-  <div class="add-consumption fixed-bottom">
-    <%= link_to new_item_path, class: "hvr-grow-s d-flex justify-content-center" do%>
-      <div class="btn-add-consumption d-flex align-items-center" style="color: white; background: #184D47">
-        <i class="fas fa-plus-circle" style="font-size: 24px"></i>
-        <h2 style="font-size: 18px">Cargar consumo</h2>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'shared/footer-btn-consume' %>
 </div>
