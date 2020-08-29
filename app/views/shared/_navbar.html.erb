@@ -2,53 +2,52 @@
 
 <div class="navbar navbar-expand navbar-light navbar-tudieta fixed-top">
 
-  <%= link_to items_path, class: "navbar-brand hvr-grow-s" do %>
-    <%= image_tag "Avatar2.png" %>
-  <% end %>
+  <!-- div class="box"> -->
 
-  <% if user_signed_in? && !current_user.daily_target.nil? %>
+    <!-- brand -->
+    <div class="navbar-right box justify-content-start">
+      <%= link_to items_path, class: "navbar-brand hvr-grow-s" do %>
+        <%= image_tag "Avatar2.png" %>
+      <% end %>
+    </div>
 
-      <div class="navbar-targets">
-        <%= link_to "#", id: "nav-dt-btn-left", class: "hvr-grow-s" do %>
-          <%= image_tag "components/flecha_izq.png" %>
-        <% end %>
-        <div class="visible" id="daily-targets-wrapper">
-          <div class="datos" id="daily-targets-display">
-            <div class="dato active">
-              <p>Objetivos para hoy</p>
-            </div>
-            <div class="dato">
-              <p>Calorias: <%= current_user.cal_left %> Kcal</p>
-            </div>
-            <div class="dato">
-              <p>Proteinas: <%= current_user.proteins_left %> g</p>
-            </div>
-            <div class="dato">
-              <p>Carbs.: <%= current_user.carbs_left %> g</p>
-            </div>
-            <div class="dato">
-              <p>Grasas: <%= current_user.fats_left %> g</p>
+    <!-- user targets -->
+    <% if user_signed_in? && !current_user.daily_target.nil? %>
+
+        <div class="navbar-targets box">
+          <%= link_to "#", id: "nav-dt-btn-left", class: "hvr-grow-s" do %>
+            <%= image_tag "components/flecha_izq.png" %>
+          <% end %>
+          <div class="visible" id="daily-targets-wrapper">
+            <div class="datos" id="daily-targets-display">
+              <div class="dato">
+                <p>Consumos de hoy</p>
+              </div>
+              <% current_user.target_info.each do |target| %>
+                <div class="dato">
+                  <p><%= "#{target[:title]} #{target[:consumed]}/#{target[:total]} #{target[:units]}" %> </p>
+                </div>
+              <% end %>
             </div>
           </div>
+          <%= link_to "#", id: "nav-dt-btn-right", class: "hvr-grow-s" do %>
+            <%= image_tag "components/flecha_der.png" %>
+          <% end %>
         </div>
-        <%= link_to "#", id: "nav-dt-btn-right", class: "hvr-grow-s" do %>
-          <%= image_tag "components/flecha_der.png" %>
-        <% end %>
-      </div>
 
-  <% end %>
-
-
-  <div class="navbar-left d-flex align-items-center">
-    <% if current_page?(items_path)%>
-      <%= link_to "#cartModal", data: { toggle: "modal"},
-        class: "navbar-carrito hvr-grow-s", remote: true do %>
-        <i class="fas fa-shopping-cart mr-2 mt-1" ></i> <!-- style="font-size:160%"></i> -->
-      <% end %>
     <% end %>
 
+    <!-- quilombou -->
+    <div class="navbar-left d-flex align-items-center box justify-content-end">
+      <% if current_page?(items_path)%>
+        <%= link_to "#cartModal", data: { toggle: "modal"},
+          class: "navbar-carrito hvr-grow-s", remote: true do %>
+          <i class="fas fa-shopping-cart mr-2 mt-1" ></i> <!-- style="font-size:160%"></i> -->
+        <% end %>
+      <% end %>
 
-      <ul class="navbar-nav mr-auto">
+
+      <ul class="navbar-nav"> <!-- mr-auto -->
         <% if user_signed_in? %>
           <div class="nav-item">
             <% if !current_user.photo.attached? %>
@@ -94,6 +93,9 @@
         <% end %>
       </ul>
 
-  </div>
+    </div>
+
+  <!-- </div> -->
+
 </div>
 <div class="filler-space-navbar navbar-tudieta"></div>
