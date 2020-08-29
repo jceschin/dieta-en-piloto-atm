@@ -12,7 +12,7 @@
 
   <!--Category Btn Carousel-->
 
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleControls" class="carousel slide carousel-shadow" data-ride="carousel">
     <div id="carousel-item-override" class="carousel-inner">
       <% first = true %>
       <%= @categories.each_slice(4) do |category_pack| %>
@@ -46,7 +46,7 @@
   <!-- -->
 
   <div class="text-center pt-3 pb-0 sugerencias bg-white">
-    <h2> <%= "#{@message}" %> </h2>
+    <h2> <%= "#{@message}" %>  <% if @smiley %> <span><i class='fas fa-smile-wink'> </i></span>  <% end %> </h2>
   </div>
   <div class="item-cards">
     <% @items.each do |item|  %>
@@ -55,7 +55,7 @@
   </div>
 
   <% if @items.count == 0  %>
-    <div class="text-center pt-3 pb-0 sugerencias bg-white">
+    <div class="text-center pt-1 pb-0 message-2 bg-white">
       <h2> <%= "#{@secondary_message}" %> </h2>
     </div>
     <div class="item-cards">
