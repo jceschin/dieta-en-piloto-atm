@@ -93,7 +93,7 @@ NAMES_INFO.each do |name|
   dt = DailyTarget.new(
     user: u,
     caloric_target: 1800,
-    protein_target: 158,
+    protein_target: 130,
     carb_target: 158,
     fat_target: 60,
     control_limit: 90
