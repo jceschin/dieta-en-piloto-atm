@@ -68,16 +68,35 @@ class User < ApplicationRecord
     fats_left
   end
 
-  # info formated for navbar targets
-  # def target_info
-  #   info = []
-
-  #       info << {Calorias: no_negative(cal_left)}
-  #       title
-  #       consumed
-  #       total
-
+  # def consumed(target_name)
+    # acive record
   # end
+
+  # info formated for navbar targets
+  def target_info
+    [
+      {
+        title: "Calorías:",
+        consumed: daily_target.caloric_target - no_negative(cal_left),
+        total: daily_target.caloric_target
+      },
+      {
+        title: "Proteinas:",
+        consumed: daily_target.protein_target - no_negative(proteins_left),
+        total: daily_target.protein_target
+      },
+      {
+        title: "Carbs.:",
+        consumed: daily_target.carb_target - no_negative(carbs_left),
+        total: daily_target.carb_target
+      },
+      {
+        title: "Grasas:",
+        consumed: daily_target.fat_target - no_negative(fats_left),
+        total: daily_target.fat_target
+      }
+    ]
+  end
 
   def no_negative(number)
     number.negative? ? 0 : number

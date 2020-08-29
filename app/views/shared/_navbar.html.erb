@@ -14,21 +14,12 @@
         <% end %>
         <div class="visible" id="daily-targets-wrapper">
           <div class="datos" id="daily-targets-display">
-            <div class="dato active">
+            <div class="dato">
               <p>Objetivos para hoy</p>
             </div>
-            <div class="dato">
-              <p>Calorias: <%= current_user.cal_left %> Kcal</p>
-            </div>
-            <div class="dato">
-              <p>Proteinas: <%= current_user.proteins_left %> g</p>
-            </div>
-            <div class="dato">
-              <p>Carbs.: <%= current_user.carbs_left %> g</p>
-            </div>
-            <div class="dato">
-              <p>Grasas: <%= current_user.fats_left %> g</p>
-            </div>
+            <% current_user.target_info.each do |target| %>
+
+            <% end %>
           </div>
         </div>
         <%= link_to "#", id: "nav-dt-btn-right", class: "hvr-grow-s" do %>
