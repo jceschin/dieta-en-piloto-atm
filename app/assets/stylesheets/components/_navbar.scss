@@ -25,7 +25,7 @@
 }
 
 .navbar-targets .datos {
-  transition: .4s;
+  transition: .8s;
   display: flex;
   position: absolute;
   top: 0px;
@@ -37,14 +37,14 @@
 .navbar-targets .dato {
   display: inline-block;
   // Width must be the same as in .visible
-  width: 165px;
+  width: 185px;
   text-align: center;
 }
 
 .navbar-targets .visible {
   position: relative;
   // Width must be the same as in .dato
-  width: 165px;
+  width: 185px;
   height: 40px;
   overflow: hidden;
 }
@@ -131,17 +131,22 @@
 
   .navbar-targets p {
     padding: 2px;
-    padding-left: 3px;
-    padding-right: 3px;
+    padding-left: 1px;
+    padding-right: 1px;
   }
 
   // .navbar-tudieta .navbar-registrar img {
   //   width: 30px;
   // }
 
+  .navbar-tudieta a {
+    margin: 0;
+  }
+
   .navbar-tudieta .navbar-brand img {
     margin-left: 10px;
     width: 35px;
+    margin-right: 0px;
   }
 
   .navbar-tudieta .navbar-carrito i {

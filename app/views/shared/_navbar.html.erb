@@ -15,10 +15,12 @@
         <div class="visible" id="daily-targets-wrapper">
           <div class="datos" id="daily-targets-display">
             <div class="dato">
-              <p>Objetivos para hoy</p>
+              <p>Consumos de hoy</p>
             </div>
             <% current_user.target_info.each do |target| %>
-
+              <div class="dato">
+                <p><%= "#{target[:title]} #{target[:consumed]}/#{target[:total]} #{target[:units]}" %> </p>
+              </div>
             <% end %>
           </div>
         </div>

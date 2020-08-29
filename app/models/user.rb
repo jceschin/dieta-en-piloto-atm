@@ -78,22 +78,26 @@ class User < ApplicationRecord
       {
         title: "Calorías:",
         consumed: daily_target.caloric_target - no_negative(cal_left),
-        total: daily_target.caloric_target
+        total: daily_target.caloric_target,
+        units: "Kcal"
       },
       {
         title: "Proteinas:",
         consumed: daily_target.protein_target - no_negative(proteins_left),
-        total: daily_target.protein_target
+        total: daily_target.protein_target,
+        units: "g"
       },
       {
         title: "Carbs.:",
         consumed: daily_target.carb_target - no_negative(carbs_left),
-        total: daily_target.carb_target
+        total: daily_target.carb_target,
+        units: "g"
       },
       {
         title: "Grasas:",
         consumed: daily_target.fat_target - no_negative(fats_left),
-        total: daily_target.fat_target
+        total: daily_target.fat_target,
+        units: "g"
       }
     ]
   end
