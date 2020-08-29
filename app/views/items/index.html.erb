@@ -1,6 +1,6 @@
 <!-- index.html.erb -->
 <div class="container">
-  <% @items.each do |item|  %>
+  <% @items_unfiltered.each do |item|  %>
     <%= render 'item-modal', item: item, order_item: @order_item %>
   <% end %>
 
@@ -54,14 +54,16 @@
     <% end %>
   </div>
 
-  <div class="text-center pt-3 pb-0 sugerencias bg-white">
-    <h2> <%= "#{@secondary_message}" %> </h2>
-  </div>
-  <div class="item-cards">
-    <% @items_unfiltered.each do |item|  %>
-      <%= render 'item-card', item: item %>
-    <% end %>
-  </div>
+  <% if @items.count == 0  %>
+    <div class="text-center pt-3 pb-0 sugerencias bg-white">
+      <h2> <%= "#{@secondary_message}" %> </h2>
+    </div>
+    <div class="item-cards">
+      <% @items_unfiltered.each do |item|  %>
+        <%= render 'item-card', item: item %>
+      <% end %>
+    </div>
+  <% end %>
 
   <%= render 'shared/footer-btn-consume' %>
 
