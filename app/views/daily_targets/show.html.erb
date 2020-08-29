@@ -39,7 +39,7 @@
   <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
     <div class="text-left px-2 border" style="width:<%= width_consumed_cal %>%; background-color: <%= cal_range_color %>; border-style: hidden; border-radius: 8px 1px 1px 8px">
-      <span style="color:<%= cal_text_color %>; font-size: 14px" ><%= @daily_target.caloric_target - @cal_left %></span>
+      <span style="color:<%= cal_text_color %>; font-size: 0px" ><%= @daily_target.caloric_target - @cal_left %></span>
     </div>
     <% if @cal_left <= 0 %>
       <% @cal_left = nil%>
@@ -76,7 +76,7 @@
   <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
     <div class="text-left px-2 border" style="width:<%= width_consumed_proteins %>%; background-color: <%= proteins_range_color %>; border-style: hidden; border-radius: 8px 1px 1px 8px">
-      <span style="color:<%= proteins_text_color %>; font-size: 14px" ><%= @daily_target.protein_target - @proteins_left%></span>
+      <span style="color:<%= proteins_text_color %>; font-size: 0px" ><%= @daily_target.protein_target - @proteins_left%></span>
     </div>
     <% if @proteins_left <= 0 %>
       <% @proteins_left = nil%>
@@ -113,7 +113,7 @@
   <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
     <div class="text-left px-2 border" style="width:<%= width_consumed_carbs %>%; background-color: <%= carbs_range_color %>; border-style: hidden; border-radius: 8px 1px 1px 8px">
-      <span style="color:<%= carbs_text_color %>; font-size: 14px" ><%= @daily_target.carb_target - @carbs_left %></span>
+      <span style="color:<%= carbs_text_color %>; font-size: 0px" ><%= @daily_target.carb_target - @carbs_left %></span>
     </div>
     <% if @carbs_left <= 0 %>
       <% @carbs_left = nil%>
@@ -150,7 +150,7 @@
   <% end %>
   <div class="d-flex w-100 mt-0 justify-content-center align-items-center">
     <div class="text-left px-2 border" style="width:<%= width_consumed_fats %>%; background-color: <%= fats_range_color %>; border-style: hidden; border-radius: 8px 1px 1px 8px">
-      <span style="color:<%= fats_text_color %>; font-size: 14px" ><%= @daily_target.fat_target - @fats_left %></span>
+      <span style="color:<%= fats_text_color %>; font-size: 0px" ><%= @daily_target.fat_target - @fats_left %></span>
     </div>
     <% if @fats_left <= 0 %>
       <% @fats_left = nil%>
@@ -182,12 +182,14 @@
           </ul>
         <% end %>
       <% else %>
-        <%= link_to new_item_path, class: "link" do  %>
+        <h1 class="font-weight-bold text-left px-1 py-2 mt-1 border-bottom" style="font-size: 18px">Aún no hay consumos registrados</h1>
+        <!--<%= link_to new_item_path, class: "link" do  %>
           <div class="d-flex justify-content-center">
+            <i class="fas fa-plus ml-0 pl-0" style="font-size:130%"></i>
             <h1 class="w-100 font-weight-bold mr-0 pr-0" style="font-size: 28px">Sin Consumo Registrado</h1>
-            <!-- <i class="fas fa-plus ml-0 pl-0" style="font-size:130%"></i> -->
+            <i class="fas fa-plus ml-0 pl-0" style="font-size:130%"></i>
           </div>
-        <% end %>
+        <% end %>-->
       <% end %>
     </div>
   </div>
