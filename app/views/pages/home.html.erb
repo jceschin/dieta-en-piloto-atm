@@ -48,9 +48,9 @@
         </a>
         </div>
         <div id="btn-override" >
-          <%= link_to "Ver platos", items_path, class:"btn btn-success btn-block" %>
+          <%= link_to "Sugerencias", items_path, class:"btn btn-success btn-block" %>
           <% if user_signed_in? %>
-            <%= link_to "Mis objetivos", daily_target_path(current_user.daily_target.id), class:"btn btn-warning btn-block mt-1" %>
+            <%= link_to "Tus objetivos del día", daily_target_path(current_user.daily_target.id), class:"btn btn-warning btn-block mt-1" %>
           <% end %>
       </div>
       <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
