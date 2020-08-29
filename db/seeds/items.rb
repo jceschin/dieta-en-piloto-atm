@@ -66,7 +66,7 @@ ITEMS_INFO = [
     carbs: 49,
     origin: :seller,
     price: 475,
-    categories_keywords: %w[pescados carnes],
+    categories_keywords: %w[pescados],
     picture: "https://res.cloudinary.com/dlvvke6ov/image/upload/v1598389922/seeds%20tu%20dieta/seeds%20comodos/paella_z2ijs3.jpg",
     seller: 'Comodos'
   },

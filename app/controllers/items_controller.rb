@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
 
   def index
     # The id passed when clicking on a category in the index
+    @index = true
     @category = Category.find(params[:id]) if params[:id]
     if current_user
       @dailytarget = DailyTarget.find_by(user_id: current_user.id)
@@ -18,12 +19,15 @@ class ItemsController < ApplicationController
     end
 
     @message = create_main_message(@category, @items)
-    @secondary_message = "Segui mirando nuestras opciones!"
+    @secondary_message = "Igualmente podes seguir mirando nuestras opciones"
     @items_unfiltered = Item.all.seller
 
     @order_item = OrderItem.new
     @categories = Category.all
     @order = current_user&.pending_order
+
+    # for the smiley
+    @smiley = !@category && ( @items.count == 0)
 
     # deleteme
     # binding.pry
@@ -85,6 +89,7 @@ class ItemsController < ApplicationController
       :proteins,
       :fats,
       :carbs,
+      :rating,
       order_items_attributes: %i[consumed_at id]
     )
   end
@@ -147,7 +152,7 @@ class ItemsController < ApplicationController
       if items.count != 0
         "Te sugerimos para tu dieta"
       else
-        "Parece que ya cumpliste tus objetivos para hoy!"
+        "¡Genial! Ya cumpliste tus objetivos para hoy"
       end
     end
   end
