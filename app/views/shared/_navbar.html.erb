@@ -40,10 +40,12 @@
 
     <!-- quilombou -->
     <div class="navbar-left d-flex align-items-center box justify-content-end">
-      <% if (current_page?(items_path) || current_page?(category_path) )  %>
-        <%= link_to "#cartModal", data: { toggle: "modal"},
-          class: "navbar-carrito hvr-grow-s", remote: true do %>
-          <i class="fas fa-shopping-cart mr-2 mt-1" ></i> <!-- style="font-size:160%"></i> -->
+      <% if user_signed_in? %>
+        <% if @index&   %>
+          <%= link_to "#cartModal", data: { toggle: "modal"},
+            class: "navbar-carrito hvr-grow-s", remote: true do %>
+            <i class="fas fa-shopping-cart mr-2 mt-1" ></i> <!-- style="font-size:160%"></i> -->
+          <% end %>
         <% end %>
       <% end %>
 
