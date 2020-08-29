@@ -9,10 +9,15 @@
   place-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 18px;
-  box-shadow: 0 4px 2px -2px rgba(24,77,71,0.6);
+  // box-shadow: 0 4px 2px -2px rgba(24,77,71,0.6);
   max-width:80%;
   margin: auto;
 }
+
+.carousel-shadow {
+  box-shadow: 0 2px 0px 0px rgba(0,0,0,0.15); //rgba(24,77,71,0.6);
+}
+
 
 .categories a {
   display: flex;
