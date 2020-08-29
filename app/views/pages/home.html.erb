@@ -17,7 +17,9 @@
             <img class='carousel-image' src='https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80' style="box-shadow: 0 0 15px rgba(0,0,0,0.2);filter: brightness(60%); border-radius: 8px" alt="...">
             <div class="carousel-caption d-default-block">
               <div class="text-div d-flex align-items-center justify-content-center">
-                <h1>¿Querés <strong style="color:#71cc34">ahorrar</strong> <br>tiempo y <strong style="color:#71cc34">comer</strong> <br><strong style="color:#71cc34">saludable?</strong></h1>
+                <h1>¿Querés<strong style="color:#71cc34"> comer saludable</strong> pero<strong style="color:#71cc34"> no tenés tiempo?</strong></h1>
+                <!--<h1>¿Te gustaría<strong style="color:#71cc34"> comer saludable</strong> pero te<strong style="color:#71cc34"> falta tiempo?</strong></h1>-->
+                <!--<h1>¿Querés <strong style="color:#71cc34">ahorrar</strong> <br>tiempo y <strong style="color:#71cc34">comer</strong> <br><strong style="color:#71cc34">saludable?</strong></h1>-->
               </div>
             </div>
           </div>
@@ -25,7 +27,8 @@
             <img class='carousel-image' src='https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80' style="filter: brightness(60%); border-radius: 8px" alt="...">
             <div class="carousel-caption d-default-block">
               <div class="text-div d-flex align-items-center justify-content-center">
-                <h1><strong style="color:#71cc34">Lo hacemos por vos!</strong></h1>
+                <h1>¡Nosotros<strong style="color:#71cc34"> te ayudamos!</strong></h1>
+                <!--<h1><strong style="color:#71cc34">¡Gestionamos tu dieta</strong> por vos!</h1>-->
               </div>
             </div>
           </div>
@@ -33,7 +36,7 @@
             <img class='carousel-image' src='https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80' style="filter: brightness(60%); border-radius: 8px" alt="...">
             <div class="carousel-caption d-default-block">
               <div class="text-div d-flex align-items-center justify-content-center">
-                <h1>Definí <strong style="color:#71cc34">metas </strong><i class="fas fa-check"></i><br>Elejí <strong style="color:#71cc34">platos</strong> <i class="fas fa-check"></i><br><strong style="color:#71cc34">Comprá </strong><i class="fas fa-check"></i></h1>
+                <h1>Definí<strong style="color:#71cc34"> metas</strong>  <i class="fas fa-check"></i><br>Elejí<strong style="color:#71cc34"> platos</strong>  <i class="fas fa-check"></i><br>Comprá  <i class="fas fa-check"></i></h1>
               </div>
             </div>
           </div>
@@ -48,9 +51,9 @@
         </a>
         </div>
         <div id="btn-override" >
-          <%= link_to "Ver platos", items_path, class:"btn btn-success btn-block" %>
+          <%= link_to "Nuestras sugerencias", items_path, class:"btn btn-success btn-block" %>
           <% if user_signed_in? %>
-            <%= link_to "Mis objetivos", daily_target_path(current_user.daily_target.id), class:"btn btn-warning btn-block mt-1" %>
+            <%= link_to "Tus objetivos del día", daily_target_path(current_user.daily_target.id), class:"btn btn-warning btn-block mt-1" %>
           <% end %>
       </div>
       <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
