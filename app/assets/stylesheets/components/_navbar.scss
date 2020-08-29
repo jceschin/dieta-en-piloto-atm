@@ -1,5 +1,6 @@
 .navbar-tudieta {
-  justify-content: space-between;
+  display: flex;
+  // justify-content: space-between;
   background: white;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
@@ -8,12 +9,22 @@
   height: 70px;
 }
 
+.box {
+  flex: 1;
+  display:flex;
+  justify-content: center;
+}
+
+.box:first-child > span { margin-right: auto; }
+
+.box:last-child  > span { margin-left: auto;  }
+
 .navbar-tudieta .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-tudieta .navbar-targets {
-  flex-grow: 4;
+  // flex-grow: 4;
   display: flex;
   justify-content: center;
   // align-items: center;
@@ -25,7 +36,7 @@
 }
 
 .navbar-targets .datos {
-  transition: .4s;
+  transition: .8s;
   display: flex;
   position: absolute;
   top: 0px;
@@ -37,14 +48,14 @@
 .navbar-targets .dato {
   display: inline-block;
   // Width must be the same as in .visible
-  width: 165px;
+  width: 185px;
   text-align: center;
 }
 
 .navbar-targets .visible {
   position: relative;
   // Width must be the same as in .dato
-  width: 165px;
+  width: 185px;
   height: 40px;
   overflow: hidden;
 }
@@ -63,6 +74,7 @@
   align-self: center;
   margin: 0px 2px;
   color: #184D47;
+  font-size: 14px;
 }
 
 .navbar-tudieta .navbar-targets .dato a {
@@ -83,13 +95,16 @@
   flex-grow: 0;
 }
 
-.carousel-navbar-tudieta {
-
+// Yes, right and left are inverted..
+// not my fault, but its working...
+.navbar-right {
+  justify-self: flex-start;
 }
 
 .navbar-tudieta .navbar-brand img {
   width: 45px;
   margin: 0;
+  justify-self: flex-start;
 }
 
 .navbar-tudieta .navbar-carrito i {
@@ -112,6 +127,12 @@
   padding: 0px;
 }
 
+// .navbar-left {
+//   justify-self: flex-end;
+// }
+
+
+
 
 @media(max-width:450px) {
 
@@ -130,17 +151,22 @@
 
   .navbar-targets p {
     padding: 2px;
-    padding-left: 3px;
-    padding-right: 3px;
+    padding-left: 1px;
+    padding-right: 1px;
   }
 
   // .navbar-tudieta .navbar-registrar img {
   //   width: 30px;
   // }
 
+  .navbar-tudieta a {
+    margin: 0;
+  }
+
   .navbar-tudieta .navbar-brand img {
-    margin-left: 10px;
+    margin-left: 6px;
     width: 35px;
+    margin-right: 0px;
   }
 
   .navbar-tudieta .navbar-carrito i {
