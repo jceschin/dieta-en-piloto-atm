@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
 
   def index
     # The id passed when clicking on a category in the index
+    @index = true
     @category = Category.find(params[:id]) if params[:id]
     if current_user
       @dailytarget = DailyTarget.find_by(user_id: current_user.id)
