@@ -67,4 +67,19 @@ class User < ApplicationRecord
     end
     fats_left
   end
+
+  # info formated for navbar targets
+  # def target_info
+  #   info = []
+
+  #       info << {Calorias: no_negative(cal_left)}
+  #       title
+  #       consumed
+  #       total
+
+  # end
+
+  def no_negative(number)
+    number.negative? ? 0 : number
+  end
 end
