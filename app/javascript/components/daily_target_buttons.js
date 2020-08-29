@@ -27,7 +27,7 @@ const initDailyTargetButtons = () => {
     moveTarget("right");
   });
 
-  setInterval(moveTarget, 5000, "right");
+  setInterval(moveTarget, 9000, "right");
 
 };
 
